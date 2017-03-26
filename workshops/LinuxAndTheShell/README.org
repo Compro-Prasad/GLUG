@@ -1,0 +1,190 @@
+#+TITLE: Linux And The Console
+#+OPTIONS: toc:nil num:nil
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+REVEAL_TRANS: slide
+#+REVEAL_THEME: black
+#+REVEAL_EXTRA_CSS: custom.css
+
+* Prerequisites for this workshop
+#+ATTR_REVEAL: :frag (appear)
++ Have a *nix system on your laptops
++ Basic understanding of files and directories
++ Basic understanding of text editors and browsers
+* Topics to be covered
+#+ATTR_REVEAL: :frag (appear)
++ The shell
++ Basic commands
++ Linux file system(not full)
+* Why Linux?
+#+ATTR_REVEAL: :frag (appear)
++ Working of Computers can be taught in a better way
++ Grab its source code and modify anything
++ Set on the standards of *POSIX* (*UNIX*), *ANSI*, etc.
++ Developer friendly
+* Why not Linux?
+#+ATTR_REVEAL: :frag (appear)
++ You are religious
++ You have lots of money
++ You are lazy
++ You fear the console
+* The ="Hello World!"= program
+#+ATTR_REVEAL: :frag (appear)
++ The command
+  #+NAME: hello-world-in-shell
+  #+BEGIN_SRC shell :exports both
+  echo 'Hello World!'
+  #+END_SRC
++ The output
+  #+RESULTS: hello-world-in-shell
+  : Hello World!
+
+* Console vs Shell vs Terminal
+** Console composes of
+#+ATTR_REVEAL: :frag (appear)
++ Terminal drivers for input and output [ =/dev/tty*= ]
++ Shell for interfacing with the OS and the user
+
+** The Shell
+#+ATTR_REVEAL: :frag (appear)
++ It is used to interface with the operating system
++ To see the name of your shell run:
+  #+NAME: name-of-shell
+  #+BEGIN_SRC shell :exports both
+    echo $SHELL
+  #+END_SRC
++ My output
+  #+RESULTS: name-of-shell
+  : /bin/bash
++ Other cool shells worth trying out are
+  #+ATTR_REVEAL: :frag (appear)
+  + =fish=, =zsh=, =csh=, etc.
+** Terminal
+#+ATTR_REVEAL: :frag (appear)
++ The most common misinterpreted buzzword for consoles
++ It is actually the DRIVER required to run a console
++ Has a legacy name known as ="tty"= or TeleTYpewriter
++ To know what terminal driver you are using, run:
+  #+BEGIN_SRC shell :exports code
+    echo $TERM
+  #+END_SRC
+
+** But what are you running?
+#+ATTR_REVEAL: :frag (appear)
++ A shell
++ A console
++ A terminal
+
+** None
+#+ATTR_REVEAL: :frag appear
+You are running a terminal emulator
+
+* Everything is a FILE in *nix systems
+
+* =pwd= command
+To check which directory you are currently in
+
+* =ls= command - Lists files
+#+ATTR_REVEAL: :frag (appear)
++ Syntax:
+  #+BEGIN_SRC shell :exports code
+    ls <PATH>
+  #+END_SRC
++ If =<PATH>= is not provided then it defaults to the PWD
+
+* ="/"= - The Root directory
+#+ATTR_REVEAL: :frag (appear)
++ The base of the file system
++ All other directories are listed inside it
++ You cannot go outside it
+* The binaries directory
+#+ATTR_REVEAL: :frag (appear)
++ =/sbin=
+  + Binaries needed for booting
+  + Low-level system repair
+
++ =/bin=
+  + Binaries needed for normal system functioning
+
++ =/usr/bin=
+  + Application binaries
+  + Accessed by logged in users
+
++ =/usr/sbin=
+  + Application binaries that support or
+  + Configure stuff in =/sbin=
+* ="/boot"= - The boot directory
+Keeps the binaries and configurations required at boot time
+* The =<PATH>=
+#+ATTR_REVEAL: :frag (appear)
++ It is of two types
+  #+ATTR_REVEAL: :frag (appear)
+  + Absolute
+  + Relative
++ Defines the location of a file in the system
++ ="/bin/"= is absolute but ="bin/"= is relative to the PWD
+So, whatever you type means different in different case
+
+* =cd= - Change directory
+#+ATTR_REVEAL: :frag (appear)
++ Syntax
+  #+BEGIN_SRC shell :exports code
+  cd <PATH>
+  #+END_SRC
++ The ='~'= character represents the *home* directory of the user
+  #+BEGIN_SRC shell :exports code
+    echo ~
+  #+END_SRC
+
+* =mkdir= - Make directory
+#+ATTR_REVEAL: :frag appear
+Syntax:
+#+BEGIN_SRC shell :exports code
+  mkdir <dir_name>
+#+END_SRC
+
+* =touch= - Make an empty file
+#+ATTR_REVEAL: :frag appear
+Syntax:
+#+BEGIN_SRC shell :exports code
+  touch <file_name>
+#+END_SRC
+
+* Job control
+** Aborting a process
+One of its forms is Ctrl-C or ^C
+** Pause a process
+#+ATTR_REVEAL: :frag (appear)
++ Use Ctrl-Z to pause the currently running process
++ Use =fg= command to resume the process to run in the =ForeGround=
++ Use =bg= command to resume the process to run in the =BackGround=
+** Running a process in the background
+#+ATTR_REVEAL: :frag appear
+Syntax:
+#+BEGIN_SRC shell
+  <full_command> &
+#+END_SRC
+
+* =ps= command - List processes running
+#+ATTR_REVEAL: :frag (appear)
++ Default usage
+  #+BEGIN_SRC shell :exports code
+    ps -e
+  #+END_SRC
++ Verbose usage
+  #+BEGIN_SRC shell :exports code
+    ps aux
+  #+END_SRC
+* Signaling a process
+Signals are sent to a process using the =kill= command
+[[https://cdn.meme.am/instances/66795398.jpg]]
+
+** Kill a process
+#+ATTR_REVEAL: :frag (appear)
++ Give a last wish
+  #+BEGIN_SRC shell :exports code
+    kill 1234
+  #+END_SRC
++ Show no mercy
+  #+BEGIN_SRC shell :exports code
+    kill -9 1234
+  #+END_SRC

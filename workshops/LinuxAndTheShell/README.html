@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Linux And The Console</title>
+<meta name="author" content="(Compro Prasad)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/black.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Linux And The Console</h1><p class="date">Created: 2017-03-27 Mon 01:00</p>
+</section>
+
+<section>
+<section id="slide-org8aec3fc">
+<h2 id="org8aec3fc">Prerequisites for this workshop</h2>
+<ul>
+<li class="fragment appear">Have a *nix system on your laptops</li>
+<li class="fragment appear">Basic understanding of files and directories</li>
+<li class="fragment appear">Basic understanding of text editors and browsers</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgba0ee28">
+<h2 id="orgba0ee28">Topics to be covered</h2>
+<ul>
+<li class="fragment appear">The shell</li>
+<li class="fragment appear">Basic commands</li>
+<li class="fragment appear">Linux file system(not full)</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgf3a205c">
+<h2 id="orgf3a205c">Why Linux?</h2>
+<ul>
+<li class="fragment appear">Working of Computers can be taught in a better way</li>
+<li class="fragment appear">Grab its source code and modify anything</li>
+<li class="fragment appear">Set on the standards of <b>POSIX</b> (<b>UNIX</b>), <b>ANSI</b>, etc.</li>
+<li class="fragment appear">Developer friendly</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org8969b60">
+<h2 id="org8969b60">Why not Linux?</h2>
+<ul>
+<li class="fragment appear">You are religious</li>
+<li class="fragment appear">You have lots of money</li>
+<li class="fragment appear">You are lazy</li>
+<li class="fragment appear">You fear the console</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org857cbde">
+<h2 id="org857cbde">The <code>"Hello World!"</code> program</h2>
+<ul>
+<li class="fragment appear"><p>
+The command
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell" id="hello-world-in-shell"><span style="color: #e8e8e8; font-weight: bold;">echo</span> <span style="color: #a5e4ba;">'Hello World!'</span>
+</pre>
+</div></li>
+<li class="fragment appear"><p>
+The output
+</p>
+<pre class="example">
+Hello World!
+</pre></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org9628f7f">
+<h2 id="org9628f7f">Console vs Shell vs Terminal</h2>
+<div class="outline-text-2" id="text-org9628f7f">
+</div></section>
+<section id="slide-org337f681">
+<h3 id="org337f681">Console composes of</h3>
+<ul>
+<li class="fragment appear">Terminal drivers for input and output [ <code>/dev/tty*</code> ]</li>
+<li class="fragment appear">Shell for interfacing with the OS and the user</li>
+
+</ul>
+
+</section>
+<section id="slide-org462cfac">
+<h3 id="org462cfac">The Shell</h3>
+<ul>
+<li class="fragment appear">It is used to interface with the operating system</li>
+<li class="fragment appear"><p>
+To see the name of your shell run:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell" id="name-of-shell"><span style="color: #e8e8e8; font-weight: bold;">echo</span> $<span style="color: #d6f0fe;">SHELL</span>
+</pre>
+</div></li>
+<li class="fragment appear"><p>
+My output
+</p>
+<pre class="example">
+/bin/bash
+</pre></li>
+<li class="fragment appear">Other cool shells worth trying out are
+<ul>
+<li class="fragment appear"><code>fish</code>, <code>zsh</code>, <code>csh</code>, etc.</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-orge20d202">
+<h3 id="orge20d202">Terminal</h3>
+<ul>
+<li class="fragment appear">The most common misinterpreted buzzword for consoles</li>
+<li class="fragment appear">It is actually the DRIVER required to run a console</li>
+<li class="fragment appear">Has a legacy name known as <code>"tty"</code> or TeleTYpewriter</li>
+<li class="fragment appear"><p>
+To know what terminal driver you are using, run:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell"><span style="color: #e8e8e8; font-weight: bold;">echo</span> $<span style="color: #d6f0fe;">TERM</span>
+</pre>
+</div></li>
+
+</ul>
+
+</section>
+<section id="slide-org4acb7c4">
+<h3 id="org4acb7c4">But what are you running?</h3>
+<ul>
+<li class="fragment appear">A shell</li>
+<li class="fragment appear">A console</li>
+<li class="fragment appear">A terminal</li>
+
+</ul>
+
+</section>
+<section id="slide-orgd303373">
+<h3 id="orgd303373">None</h3>
+<p class="fragment appear">
+You are running a terminal emulator
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org2f95c48">
+<h2 id="org2f95c48">Everything is a FILE in *nix systems</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-org20d8d83">
+<h2 id="org20d8d83"><code>pwd</code> command</h2>
+<p>
+To check which directory you are currently in
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org1332de6">
+<h2 id="org1332de6"><code>ls</code> command - Lists files</h2>
+<ul>
+<li class="fragment appear"><p>
+Syntax:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell">ls &lt;PATH&gt;
+</pre>
+</div></li>
+<li class="fragment appear">If <code>&lt;PATH&gt;</code> is not provided then it defaults to the PWD</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org9e5d660">
+<h2 id="org9e5d660"><code>"/"</code> - The Root directory</h2>
+<ul>
+<li class="fragment appear">The base of the file system</li>
+<li class="fragment appear">All other directories are listed inside it</li>
+<li class="fragment appear">You cannot go outside it</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org608b966">
+<h2 id="org608b966">The binaries directory</h2>
+<ul>
+<li class="fragment appear"><code>/sbin</code>
+<ul>
+<li>Binaries needed for booting</li>
+<li>Low-level system repair</li>
+
+</ul></li>
+
+<li class="fragment appear"><code>/bin</code>
+<ul>
+<li>Binaries needed for normal system functioning</li>
+
+</ul></li>
+
+<li class="fragment appear"><code>/usr/bin</code>
+<ul>
+<li>Application binaries</li>
+<li>Accessed by logged in users</li>
+
+</ul></li>
+
+<li class="fragment appear"><code>/usr/sbin</code>
+<ul>
+<li>Application binaries that support or</li>
+<li>Configure stuff in <code>/sbin</code></li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org9a1a31f">
+<h2 id="org9a1a31f"><code>"/boot"</code> - The boot directory</h2>
+<p>
+Keeps the binaries and configurations required at boot time
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgcdafbaa">
+<h2 id="orgcdafbaa">The <code>&lt;PATH&gt;</code></h2>
+<ul>
+<li class="fragment appear">It is of two types
+<ul>
+<li class="fragment appear">Absolute</li>
+<li class="fragment appear">Relative</li>
+
+</ul></li>
+<li class="fragment appear">Defines the location of a file in the system</li>
+<li class="fragment appear"><code>"/bin/"</code> is absolute but <code>"bin/"</code> is relative to the PWD</li>
+
+</ul>
+<p>
+So, whatever you type means different in different case
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org6461007">
+<h2 id="org6461007"><code>cd</code> - Change directory</h2>
+<ul>
+<li class="fragment appear"><p>
+Syntax
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell"><span style="color: #e8e8e8; font-weight: bold;">cd</span> &lt;PATH&gt;
+</pre>
+</div></li>
+<li class="fragment appear"><p>
+The <code>'~'</code> character represents the <b>home</b> directory of the user
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell"><span style="color: #e8e8e8; font-weight: bold;">echo</span> ~
+</pre>
+</div></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgefac71a">
+<h2 id="orgefac71a"><code>mkdir</code> - Make directory</h2>
+<p class="fragment appear">
+Syntax:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell">mkdir &lt;dir_name&gt;
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orga5f97c3">
+<h2 id="orga5f97c3"><code>touch</code> - Make an empty file</h2>
+<p class="fragment appear">
+Syntax
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell">touch &lt;file_name&gt;
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org443eab5">
+<h2 id="org443eab5">Job control</h2>
+<div class="outline-text-2" id="text-org443eab5">
+</div></section>
+<section id="slide-org7706f87">
+<h3 id="org7706f87">Aborting a process</h3>
+<p>
+One of its forms is Ctrl-C or ^C
+</p>
+</section>
+<section id="slide-org19c447a">
+<h3 id="org19c447a">Pause a process</h3>
+<ul>
+<li class="fragment appear">Use Ctrl-Z to pause the currently running process</li>
+<li class="fragment appear">Use <code>fg</code> command to resume the process to run in the <code>ForeGround</code></li>
+<li class="fragment appear">Use <code>bg</code> command to resume the process to run in the <code>BackGround</code></li>
+
+</ul>
+</section>
+<section id="slide-org7ec64b7">
+<h3 id="org7ec64b7">Running a process in the background</h3>
+<p class="fragment appear">
+Syntax:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell">&lt;full_command&gt; &amp;
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgcbc5310">
+<h2 id="orgcbc5310">Signaling a process</h2>
+<p>
+Signals are sent to a process using the <code>kill</code> command
+<img src="https://cdn.meme.am/instances/66795398.jpg" alt="66795398.jpg" />
+</p>
+
+</section>
+<section id="slide-org0050e26">
+<h3 id="org0050e26">Kill a process</h3>
+<ul>
+<li class="fragment appear"><p>
+Show no mercy
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell"><span style="color: #e8e8e8; font-weight: bold;">kill</span> -9 &lt;PID&gt;
+</pre>
+</div></li>
+<li class="fragment appear"><p>
+Give a last wish
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell"><span style="color: #e8e8e8; font-weight: bold;">kill</span> &lt;PID&gt;
+</pre>
+</div></li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'slide', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
