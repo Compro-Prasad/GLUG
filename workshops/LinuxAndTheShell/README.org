@@ -122,7 +122,8 @@ Keeps the binaries and configurations required at boot time
   + Relative
 + Defines the location of a file in the system
 + ="/bin/"= is absolute but ="bin/"= is relative to the PWD
-So, whatever you type means different in different case
+#+ATTR_REVEAL: :frag appear
+So, whatever you type means different in different cases
 
 * =cd= - Change directory
 #+ATTR_REVEAL: :frag (appear)
@@ -135,20 +136,31 @@ So, whatever you type means different in different case
     echo ~
   #+END_SRC
 
-* =mkdir= - Make directory
-#+ATTR_REVEAL: :frag appear
-Syntax:
+* Make a directory
 #+BEGIN_SRC shell :exports code
   mkdir <dir_name>
 #+END_SRC
 
-* =touch= - Make an empty file
-#+ATTR_REVEAL: :frag appear
-Syntax:
+* Make an empty file
 #+BEGIN_SRC shell :exports code
   touch <file_name>
 #+END_SRC
 
+* Remove an empty directory
+Use this when safety is the first priority
+#+BEGIN_SRC shell :exports code
+  rmdir <dir_name>
+#+END_SRC
+
+* Remove any directory
+#+ATTR_REVEAL: :frag (appear)
++ Syntax
+  #+BEGIN_SRC shell :exports code
+    rm -rf <dir_name>
+  #+END_SRC
++ Option description
+  | -r | Recursively |
+  | -f | Force       |
 * Job control
 ** Aborting a process
 One of its forms is Ctrl-C or ^C
@@ -158,13 +170,11 @@ One of its forms is Ctrl-C or ^C
 + Use =fg= command to resume the process to run in the =ForeGround=
 + Use =bg= command to resume the process to run in the =BackGround=
 ** Running a process in the background
-#+ATTR_REVEAL: :frag appear
-Syntax:
 #+BEGIN_SRC shell
   <full_command> &
 #+END_SRC
 
-* =ps= command - List processes running
+* List running processes
 #+ATTR_REVEAL: :frag (appear)
 + Default usage
   #+BEGIN_SRC shell :exports code
@@ -174,6 +184,7 @@ Syntax:
   #+BEGIN_SRC shell :exports code
     ps aux
   #+END_SRC
+
 * Signaling a process
 Signals are sent to a process using the =kill= command
 [[https://cdn.meme.am/instances/66795398.jpg]]

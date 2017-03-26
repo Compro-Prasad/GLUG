@@ -27,12 +27,12 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">Linux And The Console</h1><p class="date">Created: 2017-03-27 Mon 01:00</p>
+<section id="sec-title-slide"><h1 class="title">Linux And The Console</h1><p class="date">Created: 2017-03-27 Mon 01:31</p>
 </section>
 
 <section>
-<section id="slide-org8aec3fc">
-<h2 id="org8aec3fc">Prerequisites for this workshop</h2>
+<section id="slide-org12a7c90">
+<h2 id="org12a7c90">Prerequisites for this workshop</h2>
 <ul>
 <li class="fragment appear">Have a *nix system on your laptops</li>
 <li class="fragment appear">Basic understanding of files and directories</li>
@@ -42,8 +42,8 @@
 </section>
 </section>
 <section>
-<section id="slide-orgba0ee28">
-<h2 id="orgba0ee28">Topics to be covered</h2>
+<section id="slide-org5601321">
+<h2 id="org5601321">Topics to be covered</h2>
 <ul>
 <li class="fragment appear">The shell</li>
 <li class="fragment appear">Basic commands</li>
@@ -53,8 +53,8 @@
 </section>
 </section>
 <section>
-<section id="slide-orgf3a205c">
-<h2 id="orgf3a205c">Why Linux?</h2>
+<section id="slide-org9b5aae0">
+<h2 id="org9b5aae0">Why Linux?</h2>
 <ul>
 <li class="fragment appear">Working of Computers can be taught in a better way</li>
 <li class="fragment appear">Grab its source code and modify anything</li>
@@ -65,8 +65,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org8969b60">
-<h2 id="org8969b60">Why not Linux?</h2>
+<section id="slide-org6647269">
+<h2 id="org6647269">Why not Linux?</h2>
 <ul>
 <li class="fragment appear">You are religious</li>
 <li class="fragment appear">You have lots of money</li>
@@ -77,8 +77,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org857cbde">
-<h2 id="org857cbde">The <code>"Hello World!"</code> program</h2>
+<section id="slide-org55abded">
+<h2 id="org55abded">The <code>"Hello World!"</code> program</h2>
 <ul>
 <li class="fragment appear"><p>
 The command
@@ -100,12 +100,12 @@ Hello World!
 </section>
 </section>
 <section>
-<section id="slide-org9628f7f">
-<h2 id="org9628f7f">Console vs Shell vs Terminal</h2>
-<div class="outline-text-2" id="text-org9628f7f">
+<section id="slide-org3d1da4d">
+<h2 id="org3d1da4d">Console vs Shell vs Terminal</h2>
+<div class="outline-text-2" id="text-org3d1da4d">
 </div></section>
-<section id="slide-org337f681">
-<h3 id="org337f681">Console composes of</h3>
+<section id="slide-org2f9225d">
+<h3 id="org2f9225d">Console composes of</h3>
 <ul>
 <li class="fragment appear">Terminal drivers for input and output [ <code>/dev/tty*</code> ]</li>
 <li class="fragment appear">Shell for interfacing with the OS and the user</li>
@@ -113,8 +113,8 @@ Hello World!
 </ul>
 
 </section>
-<section id="slide-org462cfac">
-<h3 id="org462cfac">The Shell</h3>
+<section id="slide-org66efc06">
+<h3 id="org66efc06">The Shell</h3>
 <ul>
 <li class="fragment appear">It is used to interface with the operating system</li>
 <li class="fragment appear"><p>
@@ -139,8 +139,8 @@ My output
 
 </ul>
 </section>
-<section id="slide-orge20d202">
-<h3 id="orge20d202">Terminal</h3>
+<section id="slide-org841765d">
+<h3 id="org841765d">Terminal</h3>
 <ul>
 <li class="fragment appear">The most common misinterpreted buzzword for consoles</li>
 <li class="fragment appear">It is actually the DRIVER required to run a console</li>
@@ -157,8 +157,8 @@ To know what terminal driver you are using, run:
 </ul>
 
 </section>
-<section id="slide-org4acb7c4">
-<h3 id="org4acb7c4">But what are you running?</h3>
+<section id="slide-orgb5a003f">
+<h3 id="orgb5a003f">But what are you running?</h3>
 <ul>
 <li class="fragment appear">A shell</li>
 <li class="fragment appear">A console</li>
@@ -167,8 +167,8 @@ To know what terminal driver you are using, run:
 </ul>
 
 </section>
-<section id="slide-orgd303373">
-<h3 id="orgd303373">None</h3>
+<section id="slide-org4e5c621">
+<h3 id="org4e5c621">None</h3>
 <p class="fragment appear">
 You are running a terminal emulator
 </p>
@@ -176,14 +176,14 @@ You are running a terminal emulator
 </section>
 </section>
 <section>
-<section id="slide-org2f95c48">
-<h2 id="org2f95c48">Everything is a FILE in *nix systems</h2>
+<section id="slide-org04429e6">
+<h2 id="org04429e6">Everything is a FILE in *nix systems</h2>
 
 </section>
 </section>
 <section>
-<section id="slide-org20d8d83">
-<h2 id="org20d8d83"><code>pwd</code> command</h2>
+<section id="slide-orgf844dd3">
+<h2 id="orgf844dd3"><code>pwd</code> command</h2>
 <p>
 To check which directory you are currently in
 </p>
@@ -191,8 +191,8 @@ To check which directory you are currently in
 </section>
 </section>
 <section>
-<section id="slide-org1332de6">
-<h2 id="org1332de6"><code>ls</code> command - Lists files</h2>
+<section id="slide-orgcdbbb2d">
+<h2 id="orgcdbbb2d"><code>ls</code> command - Lists files</h2>
 <ul>
 <li class="fragment appear"><p>
 Syntax:
@@ -209,8 +209,8 @@ Syntax:
 </section>
 </section>
 <section>
-<section id="slide-org9e5d660">
-<h2 id="org9e5d660"><code>"/"</code> - The Root directory</h2>
+<section id="slide-org004eb0a">
+<h2 id="org004eb0a"><code>"/"</code> - The Root directory</h2>
 <ul>
 <li class="fragment appear">The base of the file system</li>
 <li class="fragment appear">All other directories are listed inside it</li>
@@ -220,8 +220,8 @@ Syntax:
 </section>
 </section>
 <section>
-<section id="slide-org608b966">
-<h2 id="org608b966">The binaries directory</h2>
+<section id="slide-orge682f71">
+<h2 id="orge682f71">The binaries directory</h2>
 <ul>
 <li class="fragment appear"><code>/sbin</code>
 <ul>
@@ -254,16 +254,16 @@ Syntax:
 </section>
 </section>
 <section>
-<section id="slide-org9a1a31f">
-<h2 id="org9a1a31f"><code>"/boot"</code> - The boot directory</h2>
+<section id="slide-org2328c5e">
+<h2 id="org2328c5e"><code>"/boot"</code> - The boot directory</h2>
 <p>
 Keeps the binaries and configurations required at boot time
 </p>
 </section>
 </section>
 <section>
-<section id="slide-orgcdafbaa">
-<h2 id="orgcdafbaa">The <code>&lt;PATH&gt;</code></h2>
+<section id="slide-org3ec60cc">
+<h2 id="org3ec60cc">The <code>&lt;PATH&gt;</code></h2>
 <ul>
 <li class="fragment appear">It is of two types
 <ul>
@@ -275,15 +275,15 @@ Keeps the binaries and configurations required at boot time
 <li class="fragment appear"><code>"/bin/"</code> is absolute but <code>"bin/"</code> is relative to the PWD</li>
 
 </ul>
-<p>
-So, whatever you type means different in different case
+<p class="fragment appear">
+So, whatever you type means different in different cases
 </p>
 
 </section>
 </section>
 <section>
-<section id="slide-org6461007">
-<h2 id="org6461007"><code>cd</code> - Change directory</h2>
+<section id="slide-org83fd615">
+<h2 id="org83fd615"><code>cd</code> - Change directory</h2>
 <ul>
 <li class="fragment appear"><p>
 Syntax
@@ -307,11 +307,8 @@ The <code>'~'</code> character represents the <b>home</b> directory of the user
 </section>
 </section>
 <section>
-<section id="slide-orgefac71a">
-<h2 id="orgefac71a"><code>mkdir</code> - Make directory</h2>
-<p class="fragment appear">
-Syntax:
-</p>
+<section id="slide-org393ccd3">
+<h2 id="org393ccd3">Make a directory</h2>
 <div class="org-src-container">
 
 <pre  class="src src-shell">mkdir &lt;dir_name&gt;
@@ -321,11 +318,8 @@ Syntax:
 </section>
 </section>
 <section>
-<section id="slide-orga5f97c3">
-<h2 id="orga5f97c3"><code>touch</code> - Make an empty file</h2>
-<p class="fragment appear">
-Syntax
-</p>
+<section id="slide-org9e78332">
+<h2 id="org9e78332">Make an empty file</h2>
 <div class="org-src-container">
 
 <pre  class="src src-shell">touch &lt;file_name&gt;
@@ -335,18 +329,71 @@ Syntax
 </section>
 </section>
 <section>
-<section id="slide-org443eab5">
-<h2 id="org443eab5">Job control</h2>
-<div class="outline-text-2" id="text-org443eab5">
+<section id="slide-orgf45b7e1">
+<h2 id="orgf45b7e1">Remove an empty directory</h2>
+<p>
+Use this when safety is the first priority
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell">rmdir &lt;dir_name&gt;
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd6f96ad">
+<h2 id="orgd6f96ad">Remove any directory</h2>
+<ul>
+<li class="fragment appear"><p>
+Syntax
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell">rm -rf &lt;dir_name&gt;
+</pre>
+</div></li>
+<li class="fragment appear"><p>
+Option description
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">-r</td>
+<td class="org-left">Recursively</td>
+</tr>
+
+<tr>
+<td class="org-left">-f</td>
+<td class="org-left">Force</td>
+</tr>
+</tbody>
+</table></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org1ced421">
+<h2 id="org1ced421">Job control</h2>
+<div class="outline-text-2" id="text-org1ced421">
 </div></section>
-<section id="slide-org7706f87">
-<h3 id="org7706f87">Aborting a process</h3>
+<section id="slide-org41caa0b">
+<h3 id="org41caa0b">Aborting a process</h3>
 <p>
 One of its forms is Ctrl-C or ^C
 </p>
 </section>
-<section id="slide-org19c447a">
-<h3 id="org19c447a">Pause a process</h3>
+<section id="slide-org4936a70">
+<h3 id="org4936a70">Pause a process</h3>
 <ul>
 <li class="fragment appear">Use Ctrl-Z to pause the currently running process</li>
 <li class="fragment appear">Use <code>fg</code> command to resume the process to run in the <code>ForeGround</code></li>
@@ -354,11 +401,8 @@ One of its forms is Ctrl-C or ^C
 
 </ul>
 </section>
-<section id="slide-org7ec64b7">
-<h3 id="org7ec64b7">Running a process in the background</h3>
-<p class="fragment appear">
-Syntax:
-</p>
+<section id="slide-orgb2e78b9">
+<h3 id="orgb2e78b9">Running a process in the background</h3>
 <div class="org-src-container">
 
 <pre  class="src src-shell">&lt;full_command&gt; &amp;
@@ -368,31 +412,56 @@ Syntax:
 </section>
 </section>
 <section>
-<section id="slide-orgcbc5310">
-<h2 id="orgcbc5310">Signaling a process</h2>
+<section id="slide-org5ca2fab">
+<h2 id="org5ca2fab">List running processes</h2>
+<ul>
+<li class="fragment appear"><p>
+Default usage
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell">ps -e
+</pre>
+</div></li>
+<li class="fragment appear"><p>
+Verbose usage
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell">ps aux
+</pre>
+</div></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org1194963">
+<h2 id="org1194963">Signaling a process</h2>
 <p>
 Signals are sent to a process using the <code>kill</code> command
 <img src="https://cdn.meme.am/instances/66795398.jpg" alt="66795398.jpg" />
 </p>
 
 </section>
-<section id="slide-org0050e26">
-<h3 id="org0050e26">Kill a process</h3>
+<section id="slide-org4f2abbe">
+<h3 id="org4f2abbe">Kill a process</h3>
 <ul>
-<li class="fragment appear"><p>
-Show no mercy
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-shell"><span style="color: #e8e8e8; font-weight: bold;">kill</span> -9 &lt;PID&gt;
-</pre>
-</div></li>
 <li class="fragment appear"><p>
 Give a last wish
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-shell"><span style="color: #e8e8e8; font-weight: bold;">kill</span> &lt;PID&gt;
+<pre  class="src src-shell"><span style="color: #e8e8e8; font-weight: bold;">kill</span> 1234
+</pre>
+</div></li>
+<li class="fragment appear"><p>
+Show no mercy
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell"><span style="color: #e8e8e8; font-weight: bold;">kill</span> -9 1234
 </pre>
 </div></li>
 
