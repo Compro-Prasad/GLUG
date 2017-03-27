@@ -1,6 +1,6 @@
 #+TITLE: Linux And The Console
-#+OPTIONS: toc:nil num:nil
-#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+OPTIONS: toc:nil num:nil timestamp:nil author:nil
+#+REVEAL_ROOT: ../../reveal.js
 #+REVEAL_TRANS: slide
 #+REVEAL_THEME: black
 #+REVEAL_EXTRA_CSS: custom.css
@@ -10,6 +10,9 @@
 + Have a *nix system on your laptops
 + Basic understanding of files and directories
 + Basic understanding of text editors and browsers
+
+* What is *nix?
+Unix and Unix like systems are called commonly called *nix
 * Topics to be covered
 #+ATTR_REVEAL: :frag (appear)
 + The shell
@@ -31,11 +34,11 @@
 #+ATTR_REVEAL: :frag (appear)
 + The command
   #+NAME: hello-world-in-shell
-  #+BEGIN_SRC shell :exports both
+  #+BEGIN_SRC shell :exports both :cache yes
   echo 'Hello World!'
   #+END_SRC
 + The output
-  #+RESULTS: hello-world-in-shell
+  #+RESULTS[bdd19f3d6c0729c793788791b9ae3dcf60925676]: hello-world-in-shell
   : Hello World!
 
 * Console vs Shell vs Terminal
@@ -49,12 +52,13 @@
 + It is used to interface with the operating system
 + To see the name of your shell run:
   #+NAME: name-of-shell
-  #+BEGIN_SRC shell :exports both
+  #+BEGIN_SRC shell :exports both :cache yes
     echo $SHELL
   #+END_SRC
 + My output
-  #+RESULTS: name-of-shell
+  #+RESULTS[15232dd9a76117161d2d2396a6a6a3cec4d6b83b]: name-of-shell
   : /bin/bash
+
 + Other cool shells worth trying out are
   #+ATTR_REVEAL: :frag (appear)
   + =fish=, =zsh=, =csh=, etc.
@@ -79,6 +83,14 @@
 You are running a terminal emulator
 
 * Everything is a FILE in *nix systems
+Even a Wikipedia article exists on /Everything is a File/
+* Time elapsed since last startup
+#+NAME: uptime-command
+#+BEGIN_SRC shell :results output :exports both :cache yes
+  uptime -p
+#+END_SRC
+#+RESULTS[a48b79ef3365541dd80715d61cb5ceb16ea90280]: uptime-command
+: up 2 days, 23 hours, 38 minutes
 
 * =pwd= command
 To check which directory you are currently in
@@ -90,7 +102,21 @@ To check which directory you are currently in
     ls <PATH>
   #+END_SRC
 + If =<PATH>= is not provided then it defaults to the PWD
-
++ To show all files try ="ls -A"=
++ To get long listing use ="ls -l"=
+* How to long list all files?
+#+ATTR_REVEAL: :frag (appear)
++ =ls -l-A=
++ =ls -lA=
++ =ls -l -A=
++ =ls -Al=
+* Where to get help?
+#+ATTR_REVEAL: :frag (appear)
++ =man= (ual) pages
++ =<cmd> -h=
++ =<cmd> --help=
++ Search Engines
++ Ask someone
 * ="/"= - The Root directory
 #+ATTR_REVEAL: :frag (appear)
 + The base of the file system
@@ -112,29 +138,70 @@ To check which directory you are currently in
 + =/usr/sbin=
   + Application binaries that support or
   + Configure stuff in =/sbin=
+* The ="/home"= directory
+#+ATTR_REVEAL: :frag (appear)
++ Run the following command:
+  #+BEGIN_SRC shell :exports code :cache yes
+    echo $HOME
+  #+END_SRC
++ A generalized output
+  #+RESULTS[de08a75445499dc5314c07a7b0955a2a21442948]:
+  : /home/user
 * ="/boot"= - The boot directory
 Keeps the binaries and configurations required at boot time
 * The =<PATH>=
 #+ATTR_REVEAL: :frag (appear)
++ Defines the location of a file in the system
 + It is of two types
   #+ATTR_REVEAL: :frag (appear)
   + Absolute
   + Relative
-+ Defines the location of a file in the system
 + ="/bin/"= is absolute but ="bin/"= is relative to the PWD
 #+ATTR_REVEAL: :frag appear
 So, whatever you type means different in different cases
 
-* =cd= - Change directory
-#+ATTR_REVEAL: :frag (appear)
-+ Syntax
+* Special directories
+| =~=  | Home Directory     |
+| =.=  | Present Directory  |
+| =..= | Previous Directory |
+| =/=  | Root Directory     |
+* Change directory
   #+BEGIN_SRC shell :exports code
   cd <PATH>
   #+END_SRC
-+ The ='~'= character represents the *home* directory of the user
-  #+BEGIN_SRC shell :exports code
-    echo ~
+* True and False
+#+ATTR_REVEAL: :frag (appear)
++ Run
+  #+BEGIN_SRC shell :exports code :cache yes
+    true
+    false
   #+END_SRC
++ Return values respectively are 0 and 1
+* Command = Function
+=func a b c= = func(a, b, c)
+#+ATTR_REVEAL: :frag appear
+Here =func= is the command and =a=, =b=, =c= are the arguments
+* Exercise
+#+ATTR_REVEAL: :frag (appear)
++ Open a text editor & write the following in it
+  #+BEGIN_SRC C -i :results value
+int main(int argc, char **argv) {
+  return argc - 1;
+}
+  #+END_SRC
++ Save it as /args.c/ in your =Documents/= directory
++ Run
+  #+BEGIN_SRC shell :exports code
+    gcc -o args args.c
+    ./args && echo $?
+    ./args -o args args.c && echo $?
+  #+END_SRC
++ Rectify
+  #+BEGIN_SRC shell :exports code
+    ./args -o args args.c || echo $?
+  #+END_SRC
+
+#+RESULTS:
 
 * Make a directory
 #+BEGIN_SRC shell :exports code
