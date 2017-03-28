@@ -11,8 +11,13 @@
 + Basic understanding of files and directories
 + Basic understanding of text editors and browsers
 
+* Open
+#+ATTR_REVEAL: :frag (appear)
++ Text Editor (For notes and questions)
++ Terminal (Apparatus)
++ File Manager (See things graphically)
 * What is *nix?
-Unix and Unix like systems are called commonly called *nix
+Unix and Unix like systems are commonly referred to as *nix
 * Topics to be covered
 #+ATTR_REVEAL: :frag (appear)
 + The shell
@@ -112,6 +117,7 @@ To check which directory you are currently in
 + =ls -Al=
 * Where to get help?
 #+ATTR_REVEAL: :frag (appear)
++ =<TAB>= key
 + =man= (ual) pages
 + =<cmd> -h=
 + =<cmd> --help=
@@ -165,10 +171,7 @@ So, whatever you type means different in different cases
 | =.=  | Present Directory  |
 | =..= | Previous Directory |
 | =/=  | Root Directory     |
-* Change directory
-  #+BEGIN_SRC shell :exports code
-  cd <PATH>
-  #+END_SRC
+* =cd <PATH>= - Change directory
 * True and False
 #+ATTR_REVEAL: :frag (appear)
 + Run
@@ -228,6 +231,26 @@ Use this when safety is the first priority
 + Option description
   | -r | Recursively |
   | -f | Force       |
+* CLI Editors
+** nano
+#+ATTR_REVEAL: :frag (appear)
++ =^X= to exit
++ =M-I= to enable Auto Indent
+#+ATTR_REVEAL: :frag appear
+=M= = =ESC= or =Alt=
+** vi
+#+ATTR_REVEAL: :frag (appear)
++ A modal editor
+  #+ATTR_REVEAL: :frag (appear)
+  + Get into Insert mode(=I= or =A=)
+  + Get into Command mode(=ESC=)
++ In command mode
+  #+ATTR_REVEAL: :frag (appear)
+  + Save a file(=:w filename=)
+  + Quit (=:q=)
+  + Force Quit (=:q!=)
+  + Save and Quit (=:wq= or =:x=)
+  + Auto indent (=:set autoindent=)
 * Job control
 ** Aborting a process
 One of its forms is Ctrl-C or ^C
@@ -254,7 +277,7 @@ One of its forms is Ctrl-C or ^C
 
 * Signaling a process
 Signals are sent to a process using the =kill= command
-[[https://cdn.meme.am/instances/66795398.jpg]]
+[[file:66795398.jpg]]
 
 ** Kill a process
 #+ATTR_REVEAL: :frag (appear)
@@ -266,3 +289,29 @@ Signals are sent to a process using the =kill= command
   #+BEGIN_SRC shell :exports code
     kill -9 1234
   #+END_SRC
+
+* File redirection
+#+ATTR_REVEAL: :frag (appear)
++ Send output elsewhere
++ Example
+  #+BEGIN_SRC shell :exports code
+    ls -l > ls.txt   # Sends output(stdout) to ls.txt
+    cat < ls.txt     # Sends input from ls.txt to cat
+  #+END_SRC
++ Replacing =>= with =>>= appends to the file
++ =stderr= is represented as =2>=
+
+* =/dev= - The devices
+#+ATTR_REVEAL: :frag (appear)
++ Contains device files
++ Helps in directly interacting with hardware
++ Some files worth mentioning
+  + =/dev/null=
+  + =/dev/zero=
+  + =/dev/input/mice= (may not work)
+  + =/dev/input/mouse0= (may not work)
+  + =/dev/sd?*/=
+
+* Pipes
+
+* Questions
