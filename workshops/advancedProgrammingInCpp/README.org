@@ -1,0 +1,101 @@
+#+TITLE: Introduction to Advanced =Programming in C++=
+#+OPTIONS: toc:nil num:nil timestamp:nil author:nil
+#+REVEAL_ROOT: ../../reveal.js
+#+REVEAL_TRANS: slide
+#+REVEAL_THEME: black
+#+REVEAL_EXTRA_CSS: ../custom.css
+
+* =Prerequisites= for this workshop
+#+ATTR_REVEAL: :frag (appear)
++ Sorting algorithms
++ Basic programming in C++
++ Basic usage of the command line
+* =Objective= of this workshop
+#+ATTR_REVEAL: :frag (appear)
++ Analyze programs with a high level of granularity
++ Implement safety measures in your code
++ Write less and get more
++ And more...
+* What will you need?
+#+ATTR_REVEAL: :frag (appear)
++ Text Editor
++ =g++=
++ =gcov=
++ =info= manual is always helpful
+Other /compilers/, /profilers/ and /test coverage/ programs are supported but
+will not be covered in this workshop.
+* =Vectors= in C++
+#+BEGIN_SRC c++ -i
+#include <vector>
+
+int main() {
+  // ...
+  std::vector<int>   list(10);
+  std::vector<float> array = {.5, 2, -.88};
+  // ...
+}
+#+END_SRC
+which many of you are familiar with.
+** Syntax Explanation
+#+BEGIN_SRC c++ -i
+           std::vector<int>  list  (10);
+            ^     ^     ^      ^     ^
+        Namespace |     |      |   Size
+                Class   |   Object
+                      Type
+#+END_SRC
+* Namespaces
+To provide a method for *preventing name conflicts* in large projects.
+** Defining Namespaces
+#+BEGIN_SRC c++ -i
+namespace numbers {
+  // Define functions
+
+
+
+  // Define variables
+
+  // Define classes
+
+
+}
+#+END_SRC
+
+** Defining Namespaces
+#+BEGIN_SRC c++ -i
+#include <vector>
+#include <string>
+
+namespace numbers {
+  // Define functions
+  void sort(std::vector<int> &array) {
+    // A sorting function
+  }
+
+  // Define variables
+  std::string programName;
+
+  // Define classes
+  struct student { };
+}
+#+END_SRC
+
+** Accessing from a namespace
+#+ATTR_REVEAL: :frag (appear)
++ /prefixing/ =numbers::= before their names:
+  #+BEGIN_SRC c++ -i
+numbers::sort(list);
+  #+END_SRC
++ Copy everything in the /global namespace/:
+  #+BEGIN_SRC c++ -i
+using namespace numbers;
+sort(list);
+  #+END_SRC
+
+* Templates
+* Testing
+* Profiling using =gcov=
+* Writing Makefiles using =GNU Make=
+* Questions
+
+#  LocalWords:  SHA profilers namespaces namespace makefile makefiles

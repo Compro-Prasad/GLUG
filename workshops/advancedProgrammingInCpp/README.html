@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Introduction to Advanced <code>Programming in C++</code></title>
+<meta name="author" content="(Compro Prasad)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="../../reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="../../reveal.js/css/theme/black.css" id="theme"/>
+
+<link rel="stylesheet" href="../custom.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '../../reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Introduction to Advanced <code>Programming in C++</code></h1>
+</section>
+
+<section>
+<section id="slide-orgccb6a13">
+<h2 id="orgccb6a13"><code>Prerequisites</code> for this workshop</h2>
+<ul>
+<li class="fragment appear">Sorting algorithms</li>
+<li class="fragment appear">Basic programming in C++</li>
+<li class="fragment appear">Basic usage of the command line</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org5b853c6">
+<h2 id="org5b853c6"><code>Objective</code> of this workshop</h2>
+<ul>
+<li class="fragment appear">Analyze programs with a high level of granularity</li>
+<li class="fragment appear">Implement safety measures in your code</li>
+<li class="fragment appear">Write less and get more</li>
+<li class="fragment appear">And more&#x2026;</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org832fffe">
+<h2 id="org832fffe">What will you need?</h2>
+<ul>
+<li class="fragment appear">Text Editor</li>
+<li class="fragment appear"><code>g++</code></li>
+<li class="fragment appear"><code>gcov</code></li>
+<li class="fragment appear"><code>info</code> manual is always helpful</li>
+
+</ul>
+<p>
+Other <i>compilers</i>, <i>profilers</i> and <i>test coverage</i> programs are supported but
+will not be covered in this workshop.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org541a833">
+<h2 id="org541a833"><code>Vectors</code> in C++</h2>
+<div class="org-src-container">
+
+<pre  class="src src-c++"><span style="color: #268bd2;">#include</span> <span style="color: #2aa198;">&lt;</span><span style="color: #2aa198;">vector</span><span style="color: #2aa198;">&gt;</span>
+
+<span style="color: #b58900; font-weight: bold;">int</span> <span style="color: #268bd2;">main</span><span style="color: #2aa198;">()</span> <span style="color: #2aa198;">{</span>
+  <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">...</span>
+  <span style="color: #268bd2; font-weight: bold;">std</span>::<span style="color: #b58900; font-weight: bold;">vector</span><span style="color: #b58900;">&lt;</span><span style="color: #b58900; font-weight: bold;">int</span><span style="color: #b58900;">&gt;</span>   <span style="color: #268bd2; font-weight: bold;">list</span><span style="color: #b58900;">(</span>10<span style="color: #b58900;">)</span>;
+  <span style="color: #268bd2; font-weight: bold;">std</span>::<span style="color: #b58900; font-weight: bold;">vector</span><span style="color: #b58900;">&lt;</span><span style="color: #b58900; font-weight: bold;">float</span><span style="color: #b58900;">&gt;</span> <span style="color: #268bd2; font-weight: bold;">array</span> = <span style="color: #b58900;">{</span>.5, 2, -.88<span style="color: #b58900;">}</span>;
+  <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">...</span>
+<span style="color: #2aa198;">}</span>
+</pre>
+</div>
+<p>
+which many of you are familiar with.
+</p>
+</section>
+<section id="slide-orgd8b2c00">
+<h3 id="orgd8b2c00">Syntax Explanation</h3>
+<div class="org-src-container">
+
+<pre  class="src src-c++">           <span style="color: #268bd2; font-weight: bold;">std</span>::<span style="color: #b58900; font-weight: bold;">vector</span><span style="color: #2aa198;">&lt;</span><span style="color: #b58900; font-weight: bold;">int</span><span style="color: #2aa198;">&gt;</span>  <span style="color: #268bd2; font-weight: bold;">list</span>  <span style="color: #2aa198;">(</span>10<span style="color: #2aa198;">)</span>;
+            ^     ^     ^      ^     ^
+        Namespace |     |      |   Size
+                Class   |   Object
+                      Type
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgffae46e">
+<h2 id="orgffae46e">Namespaces</h2>
+<p>
+To provide a method for <b>preventing name conflicts</b> in large projects.
+</p>
+</section>
+<section id="slide-orgf6a30b2">
+<h3 id="orgf6a30b2">Defining Namespaces</h3>
+<div class="org-src-container">
+
+<pre  class="src src-c++"><span style="color: #859900; font-weight: bold;">namespace</span> <span style="color: #268bd2; font-weight: bold;">numbers</span> <span style="color: #2aa198;">{</span>
+  <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">Define functions</span>
+
+
+
+  <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">Define variables</span>
+
+  <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">Define classes</span>
+
+
+<span style="color: #2aa198;">}</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-orgab110d6">
+<h3 id="orgab110d6">Defining Namespaces</h3>
+<div class="org-src-container">
+
+<pre  class="src src-c++"><span style="color: #268bd2;">#include</span> <span style="color: #2aa198;">&lt;</span><span style="color: #2aa198;">vector</span><span style="color: #2aa198;">&gt;</span>
+<span style="color: #268bd2;">#include</span> <span style="color: #2aa198;">&lt;</span><span style="color: #2aa198;">string</span><span style="color: #2aa198;">&gt;</span>
+
+<span style="color: #859900; font-weight: bold;">namespace</span> <span style="color: #268bd2; font-weight: bold;">numbers</span> <span style="color: #2aa198;">{</span>
+  <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">Define functions</span>
+  <span style="color: #b58900; font-weight: bold;">void</span> <span style="color: #268bd2;">sort</span><span style="color: #b58900;">(</span><span style="color: #268bd2; font-weight: bold;">std</span>::<span style="color: #b58900; font-weight: bold;">vector</span><span style="color: #268bd2;">&lt;</span><span style="color: #b58900; font-weight: bold;">int</span><span style="color: #268bd2;">&gt;</span> &amp;<span style="color: #268bd2; font-weight: bold;">array</span><span style="color: #b58900;">)</span> <span style="color: #b58900;">{</span>
+    <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">A sorting function</span>
+  <span style="color: #b58900;">}</span>
+
+  <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">Define variables</span>
+  <span style="color: #268bd2; font-weight: bold;">std</span>::<span style="color: #b58900; font-weight: bold;">string</span> <span style="color: #268bd2; font-weight: bold;">programName</span>;
+
+  <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">Define classes</span>
+  <span style="color: #859900; font-weight: bold;">struct</span> <span style="color: #b58900; font-weight: bold;">student</span> <span style="color: #b58900;">{</span> <span style="color: #b58900;">}</span>;
+<span style="color: #2aa198;">}</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-orga77f297">
+<h3 id="orga77f297">Accessing from a namespace</h3>
+<ul>
+<li class="fragment appear"><p>
+<i>prefixing</i> <code>numbers::</code> before their names:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-c++"><span style="color: #268bd2; font-weight: bold;">numbers</span>::sort<span style="color: #2aa198;">(</span>list<span style="color: #2aa198;">)</span>;
+</pre>
+</div></li>
+<li class="fragment appear"><p>
+Copy everything in the <i>global namespace</i>:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-c++"><span style="color: #859900; font-weight: bold;">using</span> <span style="color: #859900; font-weight: bold;">namespace</span> <span style="color: #268bd2; font-weight: bold;">numbers</span>;
+sort<span style="color: #2aa198;">(</span>list<span style="color: #2aa198;">)</span>;
+</pre>
+</div></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgae74176">
+<h2 id="orgae74176">Templates</h2>
+</section>
+</section>
+<section>
+<section id="slide-org4ae87b7">
+<h2 id="org4ae87b7">Testing</h2>
+</section>
+</section>
+<section>
+<section id="slide-orgb90ac61">
+<h2 id="orgb90ac61">Profiling</h2>
+</section>
+</section>
+<section>
+<section id="slide-org05cee6d">
+<h2 id="org05cee6d">Makefiles</h2>
+</section>
+</section>
+<section>
+<section id="slide-org304942f">
+<h2 id="org304942f">Questions</h2>
+</section>
+</section>
+</div>
+</div>
+<script src="../../reveal.js/lib/js/head.min.js"></script>
+<script src="../../reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'slide', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: '../../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: '../../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: '../../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: '../../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: '../../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
