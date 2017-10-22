@@ -20,8 +20,10 @@
 #+ATTR_REVEAL: :frag (appear)
 + Text Editor
 + =g++=
++ =gdb=
 + =gcov=
 + =info= manual is always helpful
+#+ATTR_REVEAL: :frag (appear)
 Other /compilers/, /profilers/ and /test coverage/ programs are supported but
 will not be covered in this workshop.
 * =Vectors= in C++
@@ -93,9 +95,47 @@ sort(list);
   #+END_SRC
 
 * Templates
+It is an entity of C++ that can define a /family/ of:
++ Classes
++ Functions
++ Variables
++ Alias to Types
+** Class Templates
+#+ATTR_REVEAL: :frag (appear)
+#+BEGIN_SRC c++ -i
+template <typename T> class Vector {
+  size_t _size, _capacity;
+  T *arr;
+public:
+  Vector() : _size(0), _capacity(9),
+             arr(new T[_capacity]) { }
+  void push_back(T element);
+  // ...
+};
+
+int main() {
+  Vector<int> v1;
+  Vector<Vector<int>> vs;
+  return 0;
+}
+#+END_SRC
+** Function Templates
+#+BEGIN_SRC c++ -i
+template <typename T> T add(T x, T y) {
+  return x + y;
+}
+
+int main(int argc, char *argv[argc])
+{
+  add<double>(3, 3.5);
+  add(5, 10);
+  return 0;
+}
+#+END_SRC
+* Debugging using =gdb=
 * Testing
 * Profiling using =gcov=
 * Writing Makefiles using =GNU Make=
 * Questions
 
-#  LocalWords:  SHA profilers namespaces namespace makefile makefiles
+#  LocalWords:  SHA profilers namespaces namespace makefile makefiles gcov gdb

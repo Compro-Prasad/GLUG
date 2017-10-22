@@ -31,8 +31,8 @@
 </section>
 
 <section>
-<section id="slide-orgccb6a13">
-<h2 id="orgccb6a13"><code>Prerequisites</code> for this workshop</h2>
+<section id="slide-org46f7b38">
+<h2 id="org46f7b38"><code>Prerequisites</code> for this workshop</h2>
 <ul>
 <li class="fragment appear">Sorting algorithms</li>
 <li class="fragment appear">Basic programming in C++</li>
@@ -42,8 +42,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org5b853c6">
-<h2 id="org5b853c6"><code>Objective</code> of this workshop</h2>
+<section id="slide-orgd7b55fb">
+<h2 id="orgd7b55fb"><code>Objective</code> of this workshop</h2>
 <ul>
 <li class="fragment appear">Analyze programs with a high level of granularity</li>
 <li class="fragment appear">Implement safety measures in your code</li>
@@ -54,45 +54,46 @@
 </section>
 </section>
 <section>
-<section id="slide-org832fffe">
-<h2 id="org832fffe">What will you need?</h2>
+<section id="slide-orgcdc3123">
+<h2 id="orgcdc3123">What will you need?</h2>
 <ul>
 <li class="fragment appear">Text Editor</li>
 <li class="fragment appear"><code>g++</code></li>
+<li class="fragment appear"><code>gdb</code></li>
 <li class="fragment appear"><code>gcov</code></li>
 <li class="fragment appear"><code>info</code> manual is always helpful</li>
 
 </ul>
-<p>
+<p class="fragment (appear)">
 Other <i>compilers</i>, <i>profilers</i> and <i>test coverage</i> programs are supported but
 will not be covered in this workshop.
 </p>
 </section>
 </section>
 <section>
-<section id="slide-org541a833">
-<h2 id="org541a833"><code>Vectors</code> in C++</h2>
+<section id="slide-orgb654c9a">
+<h2 id="orgb654c9a"><code>Vectors</code> in C++</h2>
 <div class="org-src-container">
 
-<pre  class="src src-c++"><span style="color: #268bd2;">#include</span> <span style="color: #2aa198;">&lt;</span><span style="color: #2aa198;">vector</span><span style="color: #2aa198;">&gt;</span>
+<pre  class="src src-c++"><span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">vector</span><span style="color: #AE81FF;">&gt;</span>
 
-<span style="color: #b58900; font-weight: bold;">int</span> <span style="color: #268bd2;">main</span><span style="color: #2aa198;">()</span> <span style="color: #2aa198;">{</span>
-  <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">...</span>
-  <span style="color: #268bd2; font-weight: bold;">std</span>::<span style="color: #b58900; font-weight: bold;">vector</span><span style="color: #b58900;">&lt;</span><span style="color: #b58900; font-weight: bold;">int</span><span style="color: #b58900;">&gt;</span>   <span style="color: #268bd2; font-weight: bold;">list</span><span style="color: #b58900;">(</span>10<span style="color: #b58900;">)</span>;
-  <span style="color: #268bd2; font-weight: bold;">std</span>::<span style="color: #b58900; font-weight: bold;">vector</span><span style="color: #b58900;">&lt;</span><span style="color: #b58900; font-weight: bold;">float</span><span style="color: #b58900;">&gt;</span> <span style="color: #268bd2; font-weight: bold;">array</span> = <span style="color: #b58900;">{</span>.5, 2, -.88<span style="color: #b58900;">}</span>;
-  <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">...</span>
-<span style="color: #2aa198;">}</span>
+<span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #AE81FF;">()</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">...</span>
+  <span style="color: #AE81FF;">std</span>::<span style="color: #66D9EF;">vector</span><span style="color: #66D9EF;">&lt;</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">&gt;</span>   <span style="color: #FD971F;">list</span><span style="color: #66D9EF;">(</span>10<span style="color: #66D9EF;">)</span>;
+  <span style="color: #AE81FF;">std</span>::<span style="color: #66D9EF;">vector</span><span style="color: #66D9EF;">&lt;</span><span style="color: #66D9EF;">float</span><span style="color: #66D9EF;">&gt;</span> <span style="color: #FD971F;">array</span> = <span style="color: #66D9EF;">{</span>.5, 2, -.88<span style="color: #66D9EF;">}</span>;
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">...</span>
+<span style="color: #AE81FF;">}</span>
 </pre>
 </div>
 <p>
 which many of you are familiar with.
 </p>
 </section>
-<section id="slide-orgd8b2c00">
-<h3 id="orgd8b2c00">Syntax Explanation</h3>
+<section id="slide-org18447dd">
+<h3 id="org18447dd">Syntax Explanation</h3>
 <div class="org-src-container">
 
-<pre  class="src src-c++">           <span style="color: #268bd2; font-weight: bold;">std</span>::<span style="color: #b58900; font-weight: bold;">vector</span><span style="color: #2aa198;">&lt;</span><span style="color: #b58900; font-weight: bold;">int</span><span style="color: #2aa198;">&gt;</span>  <span style="color: #268bd2; font-weight: bold;">list</span>  <span style="color: #2aa198;">(</span>10<span style="color: #2aa198;">)</span>;
+<pre  class="src src-c++">           <span style="color: #AE81FF;">std</span>::<span style="color: #66D9EF;">vector</span><span style="color: #AE81FF;">&lt;</span><span style="color: #66D9EF;">int</span><span style="color: #AE81FF;">&gt;</span>  <span style="color: #FD971F;">list</span>  <span style="color: #AE81FF;">(</span>10<span style="color: #AE81FF;">)</span>;
             ^     ^     ^      ^     ^
         Namespace |     |      |   Size
                 Class   |   Object
@@ -102,63 +103,63 @@ which many of you are familiar with.
 </section>
 </section>
 <section>
-<section id="slide-orgffae46e">
-<h2 id="orgffae46e">Namespaces</h2>
+<section id="slide-org345a183">
+<h2 id="org345a183">Namespaces</h2>
 <p>
 To provide a method for <b>preventing name conflicts</b> in large projects.
 </p>
 </section>
-<section id="slide-orgf6a30b2">
-<h3 id="orgf6a30b2">Defining Namespaces</h3>
+<section id="slide-orgc9ab637">
+<h3 id="orgc9ab637">Defining Namespaces</h3>
 <div class="org-src-container">
 
-<pre  class="src src-c++"><span style="color: #859900; font-weight: bold;">namespace</span> <span style="color: #268bd2; font-weight: bold;">numbers</span> <span style="color: #2aa198;">{</span>
-  <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">Define functions</span>
+<pre  class="src src-c++"><span style="color: #F92672;">namespace</span> <span style="color: #AE81FF;">numbers</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">Define functions</span>
 
 
 
-  <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">Define variables</span>
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">Define variables</span>
 
-  <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">Define classes</span>
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">Define classes</span>
 
 
-<span style="color: #2aa198;">}</span>
+<span style="color: #AE81FF;">}</span>
 </pre>
 </div>
 
 </section>
-<section id="slide-orgab110d6">
-<h3 id="orgab110d6">Defining Namespaces</h3>
+<section id="slide-org7cc5ffd">
+<h3 id="org7cc5ffd">Defining Namespaces</h3>
 <div class="org-src-container">
 
-<pre  class="src src-c++"><span style="color: #268bd2;">#include</span> <span style="color: #2aa198;">&lt;</span><span style="color: #2aa198;">vector</span><span style="color: #2aa198;">&gt;</span>
-<span style="color: #268bd2;">#include</span> <span style="color: #2aa198;">&lt;</span><span style="color: #2aa198;">string</span><span style="color: #2aa198;">&gt;</span>
+<pre  class="src src-c++"><span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">vector</span><span style="color: #AE81FF;">&gt;</span>
+<span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">string</span><span style="color: #AE81FF;">&gt;</span>
 
-<span style="color: #859900; font-weight: bold;">namespace</span> <span style="color: #268bd2; font-weight: bold;">numbers</span> <span style="color: #2aa198;">{</span>
-  <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">Define functions</span>
-  <span style="color: #b58900; font-weight: bold;">void</span> <span style="color: #268bd2;">sort</span><span style="color: #b58900;">(</span><span style="color: #268bd2; font-weight: bold;">std</span>::<span style="color: #b58900; font-weight: bold;">vector</span><span style="color: #268bd2;">&lt;</span><span style="color: #b58900; font-weight: bold;">int</span><span style="color: #268bd2;">&gt;</span> &amp;<span style="color: #268bd2; font-weight: bold;">array</span><span style="color: #b58900;">)</span> <span style="color: #b58900;">{</span>
-    <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">A sorting function</span>
-  <span style="color: #b58900;">}</span>
+<span style="color: #F92672;">namespace</span> <span style="color: #AE81FF;">numbers</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">Define functions</span>
+  <span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">sort</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">std</span>::<span style="color: #66D9EF;">vector</span><span style="color: #A6E22E;">&lt;</span><span style="color: #66D9EF;">int</span><span style="color: #A6E22E;">&gt;</span> &amp;<span style="color: #FD971F;">array</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
+    <span style="color: #75715E;">// </span><span style="color: #75715E;">A sorting function</span>
+  <span style="color: #66D9EF;">}</span>
 
-  <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">Define variables</span>
-  <span style="color: #268bd2; font-weight: bold;">std</span>::<span style="color: #b58900; font-weight: bold;">string</span> <span style="color: #268bd2; font-weight: bold;">programName</span>;
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">Define variables</span>
+  <span style="color: #AE81FF;">std</span>::<span style="color: #66D9EF;">string</span> <span style="color: #FD971F;">programName</span>;
 
-  <span style="color: #586e75;">// </span><span style="color: #586e75; font-style: italic;">Define classes</span>
-  <span style="color: #859900; font-weight: bold;">struct</span> <span style="color: #b58900; font-weight: bold;">student</span> <span style="color: #b58900;">{</span> <span style="color: #b58900;">}</span>;
-<span style="color: #2aa198;">}</span>
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">Define classes</span>
+  <span style="color: #F92672;">struct</span> <span style="color: #66D9EF;">student</span> <span style="color: #66D9EF;">{</span> <span style="color: #66D9EF;">}</span>;
+<span style="color: #AE81FF;">}</span>
 </pre>
 </div>
 
 </section>
-<section id="slide-orga77f297">
-<h3 id="orga77f297">Accessing from a namespace</h3>
+<section id="slide-orgf166f46">
+<h3 id="orgf166f46">Accessing from a namespace</h3>
 <ul>
 <li class="fragment appear"><p>
 <i>prefixing</i> <code>numbers::</code> before their names:
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-c++"><span style="color: #268bd2; font-weight: bold;">numbers</span>::sort<span style="color: #2aa198;">(</span>list<span style="color: #2aa198;">)</span>;
+<pre  class="src src-c++"><span style="color: #AE81FF;">numbers</span>::sort<span style="color: #AE81FF;">(</span>list<span style="color: #AE81FF;">)</span>;
 </pre>
 </div></li>
 <li class="fragment appear"><p>
@@ -166,8 +167,8 @@ Copy everything in the <i>global namespace</i>:
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-c++"><span style="color: #859900; font-weight: bold;">using</span> <span style="color: #859900; font-weight: bold;">namespace</span> <span style="color: #268bd2; font-weight: bold;">numbers</span>;
-sort<span style="color: #2aa198;">(</span>list<span style="color: #2aa198;">)</span>;
+<pre  class="src src-c++"><span style="color: #F92672;">using</span> <span style="color: #F92672;">namespace</span> <span style="color: #AE81FF;">numbers</span>;
+sort<span style="color: #AE81FF;">(</span>list<span style="color: #AE81FF;">)</span>;
 </pre>
 </div></li>
 
@@ -176,28 +177,82 @@ sort<span style="color: #2aa198;">(</span>list<span style="color: #2aa198;">)</s
 </section>
 </section>
 <section>
-<section id="slide-orgae74176">
-<h2 id="orgae74176">Templates</h2>
+<section id="slide-orga4771e9">
+<h2 id="orga4771e9">Templates</h2>
+<p>
+It is an entity of C++ that can define a <i>family</i> of:
+</p>
+<ul>
+<li>Classes</li>
+<li>Functions</li>
+<li>Variables</li>
+<li>Alias to Types</li>
+
+</ul>
+</section>
+<section id="slide-org21a737e">
+<h3 id="org21a737e">Class Templates</h3>
+<div class="org-src-container">
+
+<pre  class="fragment (appear)"><span style="color: #F92672;">template</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #F92672;">typename</span> <span style="color: #66D9EF;">T</span><span style="color: #AE81FF;">&gt;</span> <span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Vector</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">_size</span>, <span style="color: #FD971F;">_capacity</span>;
+  <span style="color: #66D9EF;">T</span> *<span style="color: #FD971F;">arr</span>;
+<span style="color: #F92672;">public</span>:
+  <span style="color: #A6E22E;">Vector</span><span style="color: #66D9EF;">()</span> : _size<span style="color: #66D9EF;">(</span>0<span style="color: #66D9EF;">)</span>, _capacity<span style="color: #66D9EF;">(</span>9<span style="color: #66D9EF;">)</span>,
+             arr<span style="color: #66D9EF;">(</span><span style="color: #F92672;">new</span> <span style="color: #66D9EF;">T</span><span style="color: #A6E22E;">[</span>_capacity<span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span> <span style="color: #66D9EF;">}</span>
+  <span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">push_back</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">T</span> <span style="color: #FD971F;">element</span><span style="color: #66D9EF;">)</span>;
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">...</span>
+<span style="color: #AE81FF;">}</span>;
+
+<span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #AE81FF;">()</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #66D9EF;">Vector</span><span style="color: #66D9EF;">&lt;</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">&gt;</span> <span style="color: #FD971F;">v1</span>;
+  <span style="color: #66D9EF;">Vector</span><span style="color: #66D9EF;">&lt;</span><span style="color: #66D9EF;">Vector</span><span style="color: #A6E22E;">&lt;</span><span style="color: #66D9EF;">int</span><span style="color: #A6E22E;">&gt;</span><span style="color: #66D9EF;">&gt;</span> <span style="color: #FD971F;">vs</span>;
+  <span style="color: #F92672;">return</span> 0;
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+</section>
+<section id="slide-orgd4bb3af">
+<h3 id="orgd4bb3af">Function Templates</h3>
+<div class="org-src-container">
+
+<pre  class="src src-c++"><span style="color: #F92672;">template</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #F92672;">typename</span> <span style="color: #66D9EF;">T</span><span style="color: #AE81FF;">&gt;</span> <span style="color: #66D9EF;">T</span> <span style="color: #A6E22E;">add</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">T</span> <span style="color: #FD971F;">x</span>, <span style="color: #66D9EF;">T</span> <span style="color: #FD971F;">y</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #F92672;">return</span> x + y;
+<span style="color: #AE81FF;">}</span>
+
+<span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">argc</span>, <span style="color: #66D9EF;">char</span> *<span style="color: #FD971F;">argv</span><span style="color: #66D9EF;">[</span>argc<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">{</span>
+  add<span style="color: #66D9EF;">&lt;</span><span style="color: #66D9EF;">double</span><span style="color: #66D9EF;">&gt;(</span>3, 3.5<span style="color: #66D9EF;">)</span>;
+  add<span style="color: #66D9EF;">(</span>5, 10<span style="color: #66D9EF;">)</span>;
+  <span style="color: #F92672;">return</span> 0;
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
 </section>
 </section>
 <section>
-<section id="slide-org4ae87b7">
-<h2 id="org4ae87b7">Testing</h2>
+<section id="slide-org43944f2">
+<h2 id="org43944f2">Debugging using <code>gdb</code></h2>
 </section>
 </section>
 <section>
-<section id="slide-orgb90ac61">
-<h2 id="orgb90ac61">Profiling</h2>
+<section id="slide-org814ea77">
+<h2 id="org814ea77">Testing</h2>
 </section>
 </section>
 <section>
-<section id="slide-org05cee6d">
-<h2 id="org05cee6d">Makefiles</h2>
+<section id="slide-org9ba726a">
+<h2 id="org9ba726a">Profiling using <code>gcov</code></h2>
 </section>
 </section>
 <section>
-<section id="slide-org304942f">
-<h2 id="org304942f">Questions</h2>
+<section id="slide-org4ce0ada">
+<h2 id="org4ce0ada">Writing Makefiles using <code>GNU Make</code></h2>
+</section>
+</section>
+<section>
+<section id="slide-org20435bb">
+<h2 id="org20435bb">Questions</h2>
 </section>
 </section>
 </div>
