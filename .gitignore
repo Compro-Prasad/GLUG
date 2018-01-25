@@ -2,6 +2,8 @@
 *.pdf
 *~
 \#*
-/workshops/debuggingAndPerformanceAnalysis/README.odt
 _minted-README/
 *.el
+*.docx
+*.odt
+*.mp3
