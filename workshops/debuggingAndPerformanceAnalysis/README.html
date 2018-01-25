@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Debugging &amp; Performance Analysis</title>
+<meta name="author" content="(Compro Prasad)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="../../reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="../../reveal.js/css/theme/black.css" id="theme"/>
+
+<link rel="stylesheet" href="../custom.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '../../reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Debugging &amp; Performance Analysis</h1>
+</section>
+
+<section>
+<section id="slide-org7499e31">
+<h2 id="org7499e31">What is debugging?</h2>
+<p class="fragment (appear)">
+Debugging is the process of resolving defects in a computer program.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org4e3a0b6">
+<h2 id="org4e3a0b6">Why debugging?</h2>
+<p class="fragment (appear)">
+We make mistakes while writing code. So, there should be a tool to make it easy
+to resolve the defects in the program.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org1a49f2e">
+<h2 id="org1a49f2e">Types of debugging</h2>
+<ul>
+<li class="fragment appear">Print debugging</li>
+<li class="fragment appear">Postmortem debugging</li>
+<li class="fragment appear">Unit testing</li>
+<li class="fragment appear">Rubber duck debugging</li>
+<li class="fragment appear">Interactive debugging</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org4167a2b">
+<h2 id="org4167a2b">Print debugging</h2>
+<p>
+Print statements are added to the code to check:
+</p>
+<ul>
+<li class="fragment appear">Values of variables</li>
+<li class="fragment appear">Piece of code is being executed or not</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org0b0c9d8">
+<h2 id="org0b0c9d8">Postmortem debugging</h2>
+<p>
+In this type the memory dump generated after a program crash is analyzed using
+some tools.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org47acb85">
+<h2 id="org47acb85">Unit Testing</h2>
+<p>
+Writing tests for all possible outcomes eliminates the need for manual
+debugging. If the tests have 100% coverage of the source code doesn’t mean that
+all outcomes have been tested. That is why this too is not a complete solution
+for debugging code.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org1466e74">
+<h2 id="org1466e74">Rubber Duck Debugging</h2>
+<p>
+A programmer carries a duck around with him to explain the code to an inanimate
+object line-by-line thus forcing him to understand what the code does. This is
+an unreliable technique and should be avoided.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgf8cc9ba">
+<h2 id="orgf8cc9ba">Interactive debugging</h2>
+<p>
+In this the programmer has a tool to analyze the code while it is running line
+by line.
+</p>
+
+<p>
+This will be the main topic of discussion using a tool named <code>GDB</code>.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org3123056">
+<h2 id="org3123056">GNU Debugger</h2>
+<div class="outline-text-2" id="text-org3123056">
+</div>
+</section>
+<section id="slide-orgcf387d4">
+<h3 id="orgcf387d4">Basic tasks</h3>
+<ul>
+<li class="fragment appear">Breakpoints</li>
+<li class="fragment appear">Stepping through code</li>
+<li class="fragment appear">Getting stack trace</li>
+<li class="fragment appear">Print variable values</li>
+
+</ul>
+</section>
+<section id="slide-org49dc1b9">
+<h3 id="org49dc1b9">Setting breakpoints</h3>
+<ul>
+<li class="fragment appear">Function name: <code>b main</code></li>
+<li class="fragment appear">Line number: <code>b 23</code></li>
+
+</ul>
+
+
+</section>
+<section id="slide-orge446cd0">
+<h3 id="orge446cd0">Check prime number</h3>
+<div class="org-src-container">
+
+<pre  class="src src-c++"><span class="linenr"> 1: </span><span style="color: #66D9EF;">bool</span> <span style="color: #A6E22E;">isPrime</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">n</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+<span class="linenr"> 2: </span>  <span style="color: #F92672;">if</span> <span style="color: #66D9EF;">(</span>n % 2 == 0<span style="color: #66D9EF;">)</span>
+<span class="linenr"> 3: </span>    <span style="color: #F92672;">return</span> n == 2;
+<span class="linenr"> 4: </span>  <span style="color: #F92672;">else</span> <span style="color: #F92672;">if</span> <span style="color: #66D9EF;">(</span>n &lt; 2<span style="color: #66D9EF;">)</span>
+<span class="linenr"> 5: </span>    <span style="color: #F92672;">return</span> <span style="color: #AE81FF;">false</span>;
+<span class="linenr"> 6: </span>  n = sqrt<span style="color: #66D9EF;">(</span>n<span style="color: #66D9EF;">)</span>;
+<span class="linenr"> 7: </span>  <span style="color: #F92672;">for</span> <span style="color: #66D9EF;">(</span><span style="color: #F92672;">auto</span> <span style="color: #FD971F;">i</span> = 3; i &lt;= n; i += 2<span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
+<span class="linenr"> 8: </span>    <span style="color: #F92672;">if</span> <span style="color: #A6E22E;">(</span>n % i == 0<span style="color: #A6E22E;">)</span>
+<span class="linenr"> 9: </span>      <span style="color: #F92672;">return</span> <span style="color: #AE81FF;">false</span>;
+<span class="linenr">10: </span>  <span style="color: #66D9EF;">}</span>
+<span class="linenr">11: </span>  <span style="color: #F92672;">return</span> <span style="color: #AE81FF;">true</span>;
+<span class="linenr">12: </span><span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+</section>
+<section id="slide-org9029c61">
+<h3 id="org9029c61">Compiling</h3>
+<p>
+To be able to debug a C++ program in <code>gdb</code> one has to compile it using the
+<code>-ggdb</code> argument to <code>gcc</code>.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-sh">gcc -ggdb -o program program.cpp
+</pre>
+</div>
+</section>
+<section id="slide-orgaa25d8c">
+<h3 id="orgaa25d8c">Launching <code>gdb</code></h3>
+<div class="org-src-container">
+
+<pre  class="src src-sh">gdb ./program
+</pre>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="../../reveal.js/lib/js/head.min.js"></script>
+<script src="../../reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'slide', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: '../../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: '../../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: '../../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: '../../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: '../../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

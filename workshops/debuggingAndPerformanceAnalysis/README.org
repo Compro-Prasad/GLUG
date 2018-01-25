@@ -1,0 +1,105 @@
+#+TITLE: Debugging & Performance Analysis
+#+OPTIONS: toc:nil author:nil timestamp:nil num:nil
+#+REVEAL_ROOT: ../../reveal.js
+#+REVEAL_TRANS: slide
+#+REVEAL_THEME: black
+#+REVEAL_EXTRA_CSS: ../custom.css
+
+* What is debugging?
+#+ATTR_REVEAL: :frag (appear)
+Debugging is the process of resolving defects in a computer program.
+* Why debugging?
+#+ATTR_REVEAL: :frag (appear)
+We make mistakes while writing code. So, there should be a tool to make it easy
+to resolve the defects in the program.
+* Types of debugging
+#+ATTR_REVEAL: :frag (appear)
++ Print debugging
++ Postmortem debugging
++ Unit testing
++ Rubber duck debugging
++ Interactive debugging
+* Print debugging
+Print statements are added to the code to check:
+#+ATTR_REVEAL: :frag (appear)
++ Values of variables
++ Piece of code is being executed or not
+* Postmortem debugging
+In this type the memory dump generated after a program crash is analyzed using
+some tools.
+* Unit Testing
+Writing tests for all possible outcomes eliminates the need for manual
+debugging. If the tests have 100% coverage of the source code doesn’t mean that
+all outcomes have been tested. That is why this too is not a complete solution
+for debugging code.
+* Rubber Duck Debugging
+A programmer carries a duck around with him to explain the code to an inanimate
+object line-by-line thus forcing him to understand what the code does. This is
+an unreliable technique and should be avoided.
+* Interactive debugging
+In this the programmer has a tool to analyze the code while it is running line
+by line.
+
+This will be the main topic of discussion using a tool named ~GDB~.
+* GNU Debugger
+** Basic tasks
+#+ATTR_REVEAL: :frag (appear)
++ Breakpoints
++ Stepping through code
++ Getting stack trace
++ Print variable values
+** Setting breakpoints
+#+ATTR_REVEAL: :frag (appear)
++ Function name: =b main=
++ Line number: =b 23=
+** Stepping through code
+#+ATTR_REVEAL: :frag (appear)
++ next - Execute current line and jump to the next one
++ step - Execute current line and jump to the function definition
++ run - Execute the code from the =main= function
++ continue - Continue executing code until it reaches a breakpoint
++ finish - Complete the current function call and get out of it
+** Printing variables
+#+ATTR_REVEAL: :frag (appear)
++ print - print a variable’s value
++ display - print a variable’s value as the program stops
+** Check prime number (buggy)
+#+BEGIN_SRC c++ -i +n
+bool isPrime(int n) {
+  if (n == 2)
+    return true;
+  else if (n < 2)
+    return false;
+  n = sqrt(n);
+  for (auto i = 3; i <= n; i += 2) {
+    if (n % i == 0)
+      return false;
+  }
+  return true;
+}
+#+END_SRC
+** Compiling
+To be able to debug a C++ program in =gdb= one has to compile it using the
+=-ggdb= argument to =gcc=.
+#+BEGIN_SRC sh
+gcc -ggdb -o program program.cpp
+#+END_SRC
+** Launching =gdb=
+#+BEGIN_SRC sh
+gdb ./program
+#+END_SRC
+** Check prime number
+#+BEGIN_SRC c++ -i +n
+bool isPrime(int n) {
+  if (n % 2 == 0)
+    return n == 2;
+  else if (n < 2)
+    return false;
+  n = sqrt(n);
+  for (auto i = 3; i <= n; i += 2) {
+    if (n % i == 0)
+      return false;
+  }
+  return true;
+}
+#+END_SRC
