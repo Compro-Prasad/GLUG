@@ -42,6 +42,16 @@ by line.
 
 This will be the main topic of discussion using a tool named ~GDB~.
 * GNU Debugger
+** Compiling
+To be able to debug a C++ program in =gdb= one has to compile it using the
+=-ggdb= argument to =gcc=.
+#+BEGIN_SRC sh
+gcc -ggdb -o program program.cpp
+#+END_SRC
+** Launching =gdb=
+#+BEGIN_SRC sh
+gdb ./program
+#+END_SRC
 ** Basic tasks
 #+ATTR_REVEAL: :frag (appear)
 + Breakpoints
@@ -58,6 +68,17 @@ Setting a breakpoint in a program can be done using:
 + Function name: =b main=
 + Line number: =b 23=
 + Conditional: ~b 23 if x == 2~
+** Stepping through code
+#+ATTR_REVEAL: :frag (appear)
++ =next= - Execute current line and jump to the next one
++ =step= - Execute current line and jump to the function definition
++ =run= - Execute the code from the =main= function
++ =continue= - Continue executing code until it reaches a breakpoint
++ =finish= - Complete the current function call and get out of it
+** Printing variables
+#+ATTR_REVEAL: :frag (appear)
++ =print expression= - print an expression’s value
++ =display expression= - print an expression’s value as the program stops
 ** Listing breakpoints
 You can see all the breakpoints in the program using
 #+BEGIN_SRC sh
@@ -72,27 +93,6 @@ delete 3
 Keep track of a variable and break whenever its value changes.
 #+BEGIN_SRC sh
 watch var_name
-#+END_SRC
-** Stepping through code
-#+ATTR_REVEAL: :frag (appear)
-+ =next= - Execute current line and jump to the next one
-+ =step= - Execute current line and jump to the function definition
-+ =run= - Execute the code from the =main= function
-+ =continue= - Continue executing code until it reaches a breakpoint
-+ =finish= - Complete the current function call and get out of it
-** Printing variables
-#+ATTR_REVEAL: :frag (appear)
-+ =print expression= - print an expression’s value
-+ =display expression= - print an expression’s value as the program stops
-** Compiling
-To be able to debug a C++ program in =gdb= one has to compile it using the
-=-ggdb= argument to =gcc=.
-#+BEGIN_SRC sh
-gcc -ggdb -o program program.cpp
-#+END_SRC
-** Launching =gdb=
-#+BEGIN_SRC sh
-gdb ./program
 #+END_SRC
 * Hardware vs Software Breakpoints
 * Performance Analysis
