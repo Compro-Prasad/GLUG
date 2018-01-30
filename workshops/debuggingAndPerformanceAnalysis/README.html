@@ -31,16 +31,16 @@
 </section>
 
 <section>
-<section id="slide-org25c9a26">
-<h2 id="org25c9a26">What is debugging?</h2>
+<section id="slide-orgf0f772f">
+<h2 id="orgf0f772f">What is debugging?</h2>
 <p class="fragment (appear)">
 Debugging is the process of resolving defects in a computer program.
 </p>
 </section>
 </section>
 <section>
-<section id="slide-org341ec94">
-<h2 id="org341ec94">Why debugging?</h2>
+<section id="slide-org4347fdc">
+<h2 id="org4347fdc">Why debugging?</h2>
 <p class="fragment (appear)">
 We make mistakes while writing code. So, there should be a tool to make it easy
 to resolve the defects in the program.
@@ -48,8 +48,8 @@ to resolve the defects in the program.
 </section>
 </section>
 <section>
-<section id="slide-org2e2fe66">
-<h2 id="org2e2fe66">Types of debugging</h2>
+<section id="slide-orgdf40691">
+<h2 id="orgdf40691">Types of debugging</h2>
 <ul>
 <li class="fragment appear">Print debugging</li>
 <li class="fragment appear">Postmortem debugging</li>
@@ -61,8 +61,8 @@ to resolve the defects in the program.
 </section>
 </section>
 <section>
-<section id="slide-org144a53f">
-<h2 id="org144a53f">Print debugging</h2>
+<section id="slide-org24beb8a">
+<h2 id="org24beb8a">Print debugging</h2>
 <p>
 Print statements are added to the code to check:
 </p>
@@ -74,8 +74,8 @@ Print statements are added to the code to check:
 </section>
 </section>
 <section>
-<section id="slide-orgca04916">
-<h2 id="orgca04916">Postmortem debugging</h2>
+<section id="slide-org2a9a37e">
+<h2 id="org2a9a37e">Postmortem debugging</h2>
 <p>
 In this type the memory dump generated after a program crash is analyzed using
 some tools.
@@ -83,8 +83,8 @@ some tools.
 </section>
 </section>
 <section>
-<section id="slide-orge1ad807">
-<h2 id="orge1ad807">Unit Testing</h2>
+<section id="slide-orgd62dfdc">
+<h2 id="orgd62dfdc">Unit Testing</h2>
 <p>
 Writing tests for all possible outcomes eliminates the need for manual
 debugging. If the tests have 100% coverage of the source code doesn’t mean that
@@ -94,8 +94,8 @@ for debugging code.
 </section>
 </section>
 <section>
-<section id="slide-org5527060">
-<h2 id="org5527060">Rubber Duck Debugging</h2>
+<section id="slide-org7fd356f">
+<h2 id="org7fd356f">Rubber Duck Debugging</h2>
 <p>
 A programmer carries a duck around with him to explain the code to an inanimate
 object line-by-line thus forcing him to understand what the code does. This is
@@ -104,8 +104,8 @@ an unreliable technique and should be avoided.
 </section>
 </section>
 <section>
-<section id="slide-org1410c68">
-<h2 id="org1410c68">Interactive debugging</h2>
+<section id="slide-orge5f97a7">
+<h2 id="orge5f97a7">Interactive debugging</h2>
 <p>
 In this the programmer has a tool to analyze the code while it is running line
 by line.
@@ -117,33 +117,33 @@ This will be the main topic of discussion using a tool named <code>GDB</code>.
 </section>
 </section>
 <section>
-<section id="slide-org3ffb01f">
-<h2 id="org3ffb01f">GNU Debugger</h2>
-<div class="outline-text-2" id="text-org3ffb01f">
+<section id="slide-org52752c5">
+<h2 id="org52752c5">GNU Debugger</h2>
+<div class="outline-text-2" id="text-org52752c5">
 </div>
 </section>
-<section id="slide-org320cdee">
-<h3 id="org320cdee">Compiling</h3>
+<section id="slide-orge0ac0b9">
+<h3 id="orge0ac0b9">Compiling</h3>
 <p>
 To be able to debug a C++ program in <code>gdb</code> one has to compile it using the
 <code>-ggdb</code> argument to <code>gcc</code>.
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-sh">gcc -ggdb -o program program.cpp
+<pre  class="src src-sh">gcc -g program.cpp
 </pre>
 </div>
 </section>
-<section id="slide-org2a15711">
-<h3 id="org2a15711">Launching <code>gdb</code></h3>
+<section id="slide-orgc3e7b79">
+<h3 id="orgc3e7b79">Launching <code>gdb</code></h3>
 <div class="org-src-container">
 
-<pre  class="src src-sh">gdb ./program
+<pre  class="src src-sh">gdb ./a.out
 </pre>
 </div>
 </section>
-<section id="slide-org1fc15a5">
-<h3 id="org1fc15a5">Basic tasks</h3>
+<section id="slide-org6812240">
+<h3 id="org6812240">Basic tasks</h3>
 <ul>
 <li class="fragment appear">Breakpoints</li>
 <li class="fragment appear">Stepping through code</li>
@@ -152,16 +152,16 @@ To be able to debug a C++ program in <code>gdb</code> one has to compile it usin
 
 </ul>
 </section>
-<section id="slide-orgf349d3b">
-<h3 id="orgf349d3b">Breakpoints</h3>
+<section id="slide-org288e9d7">
+<h3 id="org288e9d7">Breakpoints</h3>
 <p>
 Setting breakpoints stops the execution of the program in the debugger so that
 we can check what is happening and can further control the execution of the
 program.
 </p>
 </section>
-<section id="slide-org55b8fbb">
-<h3 id="org55b8fbb">Setting breakpoints</h3>
+<section id="slide-org7668c41">
+<h3 id="org7668c41">Setting breakpoints</h3>
 <p>
 Setting a breakpoint in a program can be done using:
 </p>
@@ -172,8 +172,8 @@ Setting a breakpoint in a program can be done using:
 
 </ul>
 </section>
-<section id="slide-org73405d3">
-<h3 id="org73405d3">Stepping through code</h3>
+<section id="slide-org6011d09">
+<h3 id="org6011d09">Stepping through code</h3>
 <ul>
 <li class="fragment appear"><code>next</code> - Execute current line and jump to the next one</li>
 <li class="fragment appear"><code>step</code> - Execute current line and jump to the function definition</li>
@@ -183,16 +183,16 @@ Setting a breakpoint in a program can be done using:
 
 </ul>
 </section>
-<section id="slide-org7dbd96b">
-<h3 id="org7dbd96b">Printing variables</h3>
+<section id="slide-orgbeba313">
+<h3 id="orgbeba313">Printing variables</h3>
 <ul>
 <li class="fragment appear"><code>print expression</code> - print an expression’s value</li>
 <li class="fragment appear"><code>display expression</code> - print an expression’s value as the program stops</li>
 
 </ul>
 </section>
-<section id="slide-orgc926bdd">
-<h3 id="orgc926bdd">Listing breakpoints</h3>
+<section id="slide-orgc2c6e2b">
+<h3 id="orgc2c6e2b">Listing breakpoints</h3>
 <p>
 You can see all the breakpoints in the program using
 </p>
@@ -202,8 +202,8 @@ You can see all the breakpoints in the program using
 </pre>
 </div>
 </section>
-<section id="slide-org7c8f7c5">
-<h3 id="org7c8f7c5">Deleting breakpoints</h3>
+<section id="slide-org6d15cf1">
+<h3 id="org6d15cf1">Deleting breakpoints</h3>
 <p>
 You can delete a breakpoint using the <b><b>number</b></b> from the <code>info</code>:
 </p>
@@ -213,8 +213,8 @@ You can delete a breakpoint using the <b><b>number</b></b> from the <code>info</
 </pre>
 </div>
 </section>
-<section id="slide-org6b91633">
-<h3 id="org6b91633">Watchpoints</h3>
+<section id="slide-org9ae66ec">
+<h3 id="org9ae66ec">Watchpoints</h3>
 <p>
 Keep track of a variable and break whenever its value changes.
 </p>
@@ -226,18 +226,18 @@ Keep track of a variable and break whenever its value changes.
 </section>
 </section>
 <section>
-<section id="slide-orgab56f33">
-<h2 id="orgab56f33">Hardware vs Software Breakpoints</h2>
+<section id="slide-org3caf7fb">
+<h2 id="org3caf7fb">Hardware vs Software Breakpoints</h2>
 </section>
 </section>
 <section>
-<section id="slide-org1b23c9e">
-<h2 id="org1b23c9e">Performance Analysis</h2>
+<section id="slide-org251fe9d">
+<h2 id="org251fe9d">Performance Analysis</h2>
 </section>
 </section>
 <section>
-<section id="slide-orgec62fb8">
-<h2 id="orgec62fb8">Thank you</h2>
+<section id="slide-org8d111e5">
+<h2 id="org8d111e5">Thank you</h2>
 </section>
 </section>
 </div>

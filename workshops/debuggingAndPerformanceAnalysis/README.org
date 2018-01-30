@@ -46,11 +46,11 @@ This will be the main topic of discussion using a tool named ~GDB~.
 To be able to debug a C++ program in =gdb= one has to compile it using the
 =-ggdb= argument to =gcc=.
 #+BEGIN_SRC sh
-gcc -ggdb -o program program.cpp
+gcc -g program.cpp
 #+END_SRC
 ** Launching =gdb=
 #+BEGIN_SRC sh
-gdb ./program
+gdb ./a.out
 #+END_SRC
 ** Basic tasks
 #+ATTR_REVEAL: :frag (appear)
