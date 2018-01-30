@@ -3,14 +3,13 @@
 #+REVEAL_ROOT: ../../reveal.js
 #+REVEAL_TRANS: slide
 #+REVEAL_THEME: black
-#+REVEAL_EXTRA_CSS: custom.css
+#+REVEAL_EXTRA_CSS: ../custom.css
 
 * Prerequisites for this workshop
 #+ATTR_REVEAL: :frag (appear)
 + Have a *nix system on your laptops
 + Basic understanding of files and directories
 + Basic understanding of text editors and browsers
-
 * Open
 #+ATTR_REVEAL: :frag (appear)
 + Text Editor (For notes and questions)
@@ -115,6 +114,7 @@ To check which directory you are currently in
 + =ls -lA=
 + =ls -l -A=
 + =ls -Al=
+* =cd <PATH>= - Change directory
 * Where to get help?
 #+ATTR_REVEAL: :frag (appear)
 + =<TAB>= key
@@ -171,7 +171,6 @@ So, whatever you type means different in different cases
 | =.=  | Present Directory  |
 | =..= | Previous Directory |
 | =/=  | Root Directory     |
-* =cd <PATH>= - Change directory
 * True and False
 #+ATTR_REVEAL: :frag (appear)
 + Run

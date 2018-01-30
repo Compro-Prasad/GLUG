@@ -31,16 +31,16 @@
 </section>
 
 <section>
-<section id="slide-org7499e31">
-<h2 id="org7499e31">What is debugging?</h2>
+<section id="slide-orgae4682b">
+<h2 id="orgae4682b">What is debugging?</h2>
 <p class="fragment (appear)">
 Debugging is the process of resolving defects in a computer program.
 </p>
 </section>
 </section>
 <section>
-<section id="slide-org4e3a0b6">
-<h2 id="org4e3a0b6">Why debugging?</h2>
+<section id="slide-orgdd4122a">
+<h2 id="orgdd4122a">Why debugging?</h2>
 <p class="fragment (appear)">
 We make mistakes while writing code. So, there should be a tool to make it easy
 to resolve the defects in the program.
@@ -48,8 +48,8 @@ to resolve the defects in the program.
 </section>
 </section>
 <section>
-<section id="slide-org1a49f2e">
-<h2 id="org1a49f2e">Types of debugging</h2>
+<section id="slide-org75c7eb5">
+<h2 id="org75c7eb5">Types of debugging</h2>
 <ul>
 <li class="fragment appear">Print debugging</li>
 <li class="fragment appear">Postmortem debugging</li>
@@ -61,8 +61,8 @@ to resolve the defects in the program.
 </section>
 </section>
 <section>
-<section id="slide-org4167a2b">
-<h2 id="org4167a2b">Print debugging</h2>
+<section id="slide-org575d851">
+<h2 id="org575d851">Print debugging</h2>
 <p>
 Print statements are added to the code to check:
 </p>
@@ -74,8 +74,8 @@ Print statements are added to the code to check:
 </section>
 </section>
 <section>
-<section id="slide-org0b0c9d8">
-<h2 id="org0b0c9d8">Postmortem debugging</h2>
+<section id="slide-orgfa427cf">
+<h2 id="orgfa427cf">Postmortem debugging</h2>
 <p>
 In this type the memory dump generated after a program crash is analyzed using
 some tools.
@@ -83,8 +83,8 @@ some tools.
 </section>
 </section>
 <section>
-<section id="slide-org47acb85">
-<h2 id="org47acb85">Unit Testing</h2>
+<section id="slide-orged62d99">
+<h2 id="orged62d99">Unit Testing</h2>
 <p>
 Writing tests for all possible outcomes eliminates the need for manual
 debugging. If the tests have 100% coverage of the source code doesn’t mean that
@@ -94,8 +94,8 @@ for debugging code.
 </section>
 </section>
 <section>
-<section id="slide-org1466e74">
-<h2 id="org1466e74">Rubber Duck Debugging</h2>
+<section id="slide-org3cf5fc0">
+<h2 id="org3cf5fc0">Rubber Duck Debugging</h2>
 <p>
 A programmer carries a duck around with him to explain the code to an inanimate
 object line-by-line thus forcing him to understand what the code does. This is
@@ -104,8 +104,8 @@ an unreliable technique and should be avoided.
 </section>
 </section>
 <section>
-<section id="slide-orgf8cc9ba">
-<h2 id="orgf8cc9ba">Interactive debugging</h2>
+<section id="slide-orgdd3b6ec">
+<h2 id="orgdd3b6ec">Interactive debugging</h2>
 <p>
 In this the programmer has a tool to analyze the code while it is running line
 by line.
@@ -117,13 +117,13 @@ This will be the main topic of discussion using a tool named <code>GDB</code>.
 </section>
 </section>
 <section>
-<section id="slide-org3123056">
-<h2 id="org3123056">GNU Debugger</h2>
-<div class="outline-text-2" id="text-org3123056">
+<section id="slide-org3200447">
+<h2 id="org3200447">GNU Debugger</h2>
+<div class="outline-text-2" id="text-org3200447">
 </div>
 </section>
-<section id="slide-orgcf387d4">
-<h3 id="orgcf387d4">Basic tasks</h3>
+<section id="slide-org585efa1">
+<h3 id="org585efa1">Basic tasks</h3>
 <ul>
 <li class="fragment appear">Breakpoints</li>
 <li class="fragment appear">Stepping through code</li>
@@ -132,37 +132,80 @@ This will be the main topic of discussion using a tool named <code>GDB</code>.
 
 </ul>
 </section>
-<section id="slide-org49dc1b9">
-<h3 id="org49dc1b9">Setting breakpoints</h3>
+<section id="slide-orgb410716">
+<h3 id="orgb410716">Breakpoints</h3>
+<p>
+Setting breakpoints stops the execution of the program in the debugger so that
+we can check what is happening and can further control the execution of the
+program.
+</p>
+</section>
+<section id="slide-orge865bce">
+<h3 id="orge865bce">Setting breakpoints</h3>
+<p>
+Setting a breakpoint in a program can be done using:
+</p>
 <ul>
 <li class="fragment appear">Function name: <code>b main</code></li>
 <li class="fragment appear">Line number: <code>b 23</code></li>
+<li class="fragment appear">Conditional: <code>b 23 if x == 2</code></li>
 
 </ul>
-
-
 </section>
-<section id="slide-orge446cd0">
-<h3 id="orge446cd0">Check prime number</h3>
+<section id="slide-org8d9a02b">
+<h3 id="org8d9a02b">Listing breakpoints</h3>
+<p>
+You can see all the breakpoints in the program using
+</p>
 <div class="org-src-container">
 
-<pre  class="src src-c++"><span class="linenr"> 1: </span><span style="color: #66D9EF;">bool</span> <span style="color: #A6E22E;">isPrime</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">n</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
-<span class="linenr"> 2: </span>  <span style="color: #F92672;">if</span> <span style="color: #66D9EF;">(</span>n % 2 == 0<span style="color: #66D9EF;">)</span>
-<span class="linenr"> 3: </span>    <span style="color: #F92672;">return</span> n == 2;
-<span class="linenr"> 4: </span>  <span style="color: #F92672;">else</span> <span style="color: #F92672;">if</span> <span style="color: #66D9EF;">(</span>n &lt; 2<span style="color: #66D9EF;">)</span>
-<span class="linenr"> 5: </span>    <span style="color: #F92672;">return</span> <span style="color: #AE81FF;">false</span>;
-<span class="linenr"> 6: </span>  n = sqrt<span style="color: #66D9EF;">(</span>n<span style="color: #66D9EF;">)</span>;
-<span class="linenr"> 7: </span>  <span style="color: #F92672;">for</span> <span style="color: #66D9EF;">(</span><span style="color: #F92672;">auto</span> <span style="color: #FD971F;">i</span> = 3; i &lt;= n; i += 2<span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
-<span class="linenr"> 8: </span>    <span style="color: #F92672;">if</span> <span style="color: #A6E22E;">(</span>n % i == 0<span style="color: #A6E22E;">)</span>
-<span class="linenr"> 9: </span>      <span style="color: #F92672;">return</span> <span style="color: #AE81FF;">false</span>;
-<span class="linenr">10: </span>  <span style="color: #66D9EF;">}</span>
-<span class="linenr">11: </span>  <span style="color: #F92672;">return</span> <span style="color: #AE81FF;">true</span>;
-<span class="linenr">12: </span><span style="color: #AE81FF;">}</span>
+<pre  class="src src-sh">info breakpoints
 </pre>
 </div>
 </section>
-<section id="slide-org9029c61">
-<h3 id="org9029c61">Compiling</h3>
+<section id="slide-org9aba368">
+<h3 id="org9aba368">Deleting breakpoints</h3>
+<p>
+You can delete a breakpoint using the <b><b>number</b></b> from the <code>info</code>:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-sh">delete 3
+</pre>
+</div>
+</section>
+<section id="slide-org956ca73">
+<h3 id="org956ca73">Watchpoints</h3>
+<p>
+Keep track of a variable and break whenever its value changes.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-sh">watch var_name
+</pre>
+</div>
+</section>
+<section id="slide-orgbc64fff">
+<h3 id="orgbc64fff">Stepping through code</h3>
+<ul>
+<li class="fragment appear"><code>next</code> - Execute current line and jump to the next one</li>
+<li class="fragment appear"><code>step</code> - Execute current line and jump to the function definition</li>
+<li class="fragment appear"><code>run</code> - Execute the code from the <code>main</code> function</li>
+<li class="fragment appear"><code>continue</code> - Continue executing code until it reaches a breakpoint</li>
+<li class="fragment appear"><code>finish</code> - Complete the current function call and get out of it</li>
+
+</ul>
+</section>
+<section id="slide-org4b408f5">
+<h3 id="org4b408f5">Printing variables</h3>
+<ul>
+<li class="fragment appear"><code>print expression</code> - print an expression’s value</li>
+<li class="fragment appear"><code>display expression</code> - print an expression’s value as the program stops</li>
+
+</ul>
+</section>
+<section id="slide-org19b522e">
+<h3 id="org19b522e">Compiling</h3>
 <p>
 To be able to debug a C++ program in <code>gdb</code> one has to compile it using the
 <code>-ggdb</code> argument to <code>gcc</code>.
@@ -173,13 +216,28 @@ To be able to debug a C++ program in <code>gdb</code> one has to compile it usin
 </pre>
 </div>
 </section>
-<section id="slide-orgaa25d8c">
-<h3 id="orgaa25d8c">Launching <code>gdb</code></h3>
+<section id="slide-orgee00198">
+<h3 id="orgee00198">Launching <code>gdb</code></h3>
 <div class="org-src-container">
 
 <pre  class="src src-sh">gdb ./program
 </pre>
 </div>
+</section>
+</section>
+<section>
+<section id="slide-org9411f8b">
+<h2 id="org9411f8b">Hardware vs Software Breakpoints</h2>
+</section>
+</section>
+<section>
+<section id="slide-org5d3ee24">
+<h2 id="org5d3ee24">Performance Analysis</h2>
+</section>
+</section>
+<section>
+<section id="slide-orgf456846">
+<h2 id="orgf456846">Thank you</h2>
 </section>
 </section>
 </div>

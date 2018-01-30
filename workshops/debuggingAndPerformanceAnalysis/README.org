@@ -48,36 +48,42 @@ This will be the main topic of discussion using a tool named ~GDB~.
 + Stepping through code
 + Getting stack trace
 + Print variable values
+** Breakpoints
+Setting breakpoints stops the execution of the program in the debugger so that
+we can check what is happening and can further control the execution of the
+program.
 ** Setting breakpoints
+Setting a breakpoint in a program can be done using:
 #+ATTR_REVEAL: :frag (appear)
 + Function name: =b main=
 + Line number: =b 23=
++ Conditional: ~b 23 if x == 2~
+** Listing breakpoints
+You can see all the breakpoints in the program using
+#+BEGIN_SRC sh
+info breakpoints
+#+END_SRC
+** Deleting breakpoints
+You can delete a breakpoint using the **number** from the =info=:
+#+BEGIN_SRC sh
+delete 3
+#+END_SRC
+** Watchpoints
+Keep track of a variable and break whenever its value changes.
+#+BEGIN_SRC sh
+watch var_name
+#+END_SRC
 ** Stepping through code
 #+ATTR_REVEAL: :frag (appear)
-+ next - Execute current line and jump to the next one
-+ step - Execute current line and jump to the function definition
-+ run - Execute the code from the =main= function
-+ continue - Continue executing code until it reaches a breakpoint
-+ finish - Complete the current function call and get out of it
++ =next= - Execute current line and jump to the next one
++ =step= - Execute current line and jump to the function definition
++ =run= - Execute the code from the =main= function
++ =continue= - Continue executing code until it reaches a breakpoint
++ =finish= - Complete the current function call and get out of it
 ** Printing variables
 #+ATTR_REVEAL: :frag (appear)
-+ print - print a variable’s value
-+ display - print a variable’s value as the program stops
-** Check prime number (buggy)
-#+BEGIN_SRC c++ -i +n
-bool isPrime(int n) {
-  if (n == 2)
-    return true;
-  else if (n < 2)
-    return false;
-  n = sqrt(n);
-  for (auto i = 3; i <= n; i += 2) {
-    if (n % i == 0)
-      return false;
-  }
-  return true;
-}
-#+END_SRC
++ =print expression= - print an expression’s value
++ =display expression= - print an expression’s value as the program stops
 ** Compiling
 To be able to debug a C++ program in =gdb= one has to compile it using the
 =-ggdb= argument to =gcc=.
@@ -88,18 +94,6 @@ gcc -ggdb -o program program.cpp
 #+BEGIN_SRC sh
 gdb ./program
 #+END_SRC
-** Check prime number
-#+BEGIN_SRC c++ -i +n
-bool isPrime(int n) {
-  if (n % 2 == 0)
-    return n == 2;
-  else if (n < 2)
-    return false;
-  n = sqrt(n);
-  for (auto i = 3; i <= n; i += 2) {
-    if (n % i == 0)
-      return false;
-  }
-  return true;
-}
-#+END_SRC
+* Hardware vs Software Breakpoints
+* Performance Analysis
+* Thank you
