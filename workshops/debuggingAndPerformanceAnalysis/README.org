@@ -79,6 +79,13 @@ Setting a breakpoint in a program can be done using:
 #+ATTR_REVEAL: :frag (appear)
 + =print expression= - print an expression’s value
 + =display expression= - print an expression’s value as the program stops
+** =C-x a=: See it in action
+** =C-l=: Reprint screen
+** Watchpoints
+Keep track of a variable and break whenever its value changes.
+#+BEGIN_SRC sh
+watch var_name
+#+END_SRC
 ** Listing breakpoints
 You can see all the breakpoints in the program using
 #+BEGIN_SRC sh
@@ -89,11 +96,56 @@ You can delete a breakpoint using the **number** from the =info=:
 #+BEGIN_SRC sh
 delete 3
 #+END_SRC
-** Watchpoints
-Keep track of a variable and break whenever its value changes.
-#+BEGIN_SRC sh
-watch var_name
+** A sample program
+#+BEGIN_SRC C -i
+#include <stdio.h>
+#include <string.h>
+#include <malloc.h>
+
+int main() {
+  int size = 1 << 31;
+  char *str;
+  str = (char *)malloc(size);
+  strcpy(str, "hello");
+  printf("%s", str);
+  free(str);
+  return 0;
+}
+#+END_SRC
+** A sample program(Corrected)
+#+BEGIN_SRC C -i
+#include <stdio.h>
+#include <string.h>
+#include <malloc.h>
+
+int main() {
+  long long size = 1LL << 31LL;
+  char *str;
+  str = (char *)malloc(size);
+  strcpy(str, "hello");
+  printf("%s", str);
+  free(str);
+  return 0;
+}
 #+END_SRC
 * Hardware vs Software Breakpoints
 * Performance Analysis
+* File operations in C++
+#+BEGIN_SRC C++ -i
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  #ifndef ONLINE_JUDGE
+  freopen("input.txt", "r", stdin);
+  freopen("output.txt", "w", stdout);
+  #endif
+  int x;
+  cin >> x;
+  cout << x;
+  return 0;
+}
+#+END_SRC
+* Passing command line arguments
 * Thank you

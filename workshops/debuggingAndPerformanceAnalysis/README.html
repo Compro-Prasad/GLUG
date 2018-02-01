@@ -31,16 +31,16 @@
 </section>
 
 <section>
-<section id="slide-orgf0f772f">
-<h2 id="orgf0f772f">What is debugging?</h2>
+<section id="slide-org39fa69c">
+<h2 id="org39fa69c">What is debugging?</h2>
 <p class="fragment (appear)">
 Debugging is the process of resolving defects in a computer program.
 </p>
 </section>
 </section>
 <section>
-<section id="slide-org4347fdc">
-<h2 id="org4347fdc">Why debugging?</h2>
+<section id="slide-org641aae6">
+<h2 id="org641aae6">Why debugging?</h2>
 <p class="fragment (appear)">
 We make mistakes while writing code. So, there should be a tool to make it easy
 to resolve the defects in the program.
@@ -48,8 +48,8 @@ to resolve the defects in the program.
 </section>
 </section>
 <section>
-<section id="slide-orgdf40691">
-<h2 id="orgdf40691">Types of debugging</h2>
+<section id="slide-orgbac1d90">
+<h2 id="orgbac1d90">Types of debugging</h2>
 <ul>
 <li class="fragment appear">Print debugging</li>
 <li class="fragment appear">Postmortem debugging</li>
@@ -61,8 +61,8 @@ to resolve the defects in the program.
 </section>
 </section>
 <section>
-<section id="slide-org24beb8a">
-<h2 id="org24beb8a">Print debugging</h2>
+<section id="slide-org8d622b7">
+<h2 id="org8d622b7">Print debugging</h2>
 <p>
 Print statements are added to the code to check:
 </p>
@@ -74,8 +74,8 @@ Print statements are added to the code to check:
 </section>
 </section>
 <section>
-<section id="slide-org2a9a37e">
-<h2 id="org2a9a37e">Postmortem debugging</h2>
+<section id="slide-org1bcbcef">
+<h2 id="org1bcbcef">Postmortem debugging</h2>
 <p>
 In this type the memory dump generated after a program crash is analyzed using
 some tools.
@@ -83,8 +83,8 @@ some tools.
 </section>
 </section>
 <section>
-<section id="slide-orgd62dfdc">
-<h2 id="orgd62dfdc">Unit Testing</h2>
+<section id="slide-org6f975bc">
+<h2 id="org6f975bc">Unit Testing</h2>
 <p>
 Writing tests for all possible outcomes eliminates the need for manual
 debugging. If the tests have 100% coverage of the source code doesn’t mean that
@@ -94,8 +94,8 @@ for debugging code.
 </section>
 </section>
 <section>
-<section id="slide-org7fd356f">
-<h2 id="org7fd356f">Rubber Duck Debugging</h2>
+<section id="slide-orga9206a4">
+<h2 id="orga9206a4">Rubber Duck Debugging</h2>
 <p>
 A programmer carries a duck around with him to explain the code to an inanimate
 object line-by-line thus forcing him to understand what the code does. This is
@@ -104,8 +104,8 @@ an unreliable technique and should be avoided.
 </section>
 </section>
 <section>
-<section id="slide-orge5f97a7">
-<h2 id="orge5f97a7">Interactive debugging</h2>
+<section id="slide-org7721fd1">
+<h2 id="org7721fd1">Interactive debugging</h2>
 <p>
 In this the programmer has a tool to analyze the code while it is running line
 by line.
@@ -117,13 +117,13 @@ This will be the main topic of discussion using a tool named <code>GDB</code>.
 </section>
 </section>
 <section>
-<section id="slide-org52752c5">
-<h2 id="org52752c5">GNU Debugger</h2>
-<div class="outline-text-2" id="text-org52752c5">
+<section id="slide-org1c8acd9">
+<h2 id="org1c8acd9">GNU Debugger</h2>
+<div class="outline-text-2" id="text-org1c8acd9">
 </div>
 </section>
-<section id="slide-orge0ac0b9">
-<h3 id="orge0ac0b9">Compiling</h3>
+<section id="slide-org1f45972">
+<h3 id="org1f45972">Compiling</h3>
 <p>
 To be able to debug a C++ program in <code>gdb</code> one has to compile it using the
 <code>-ggdb</code> argument to <code>gcc</code>.
@@ -134,16 +134,16 @@ To be able to debug a C++ program in <code>gdb</code> one has to compile it usin
 </pre>
 </div>
 </section>
-<section id="slide-orgc3e7b79">
-<h3 id="orgc3e7b79">Launching <code>gdb</code></h3>
+<section id="slide-orgb89a2fa">
+<h3 id="orgb89a2fa">Launching <code>gdb</code></h3>
 <div class="org-src-container">
 
 <pre  class="src src-sh">gdb ./a.out
 </pre>
 </div>
 </section>
-<section id="slide-org6812240">
-<h3 id="org6812240">Basic tasks</h3>
+<section id="slide-org8a13c42">
+<h3 id="org8a13c42">Basic tasks</h3>
 <ul>
 <li class="fragment appear">Breakpoints</li>
 <li class="fragment appear">Stepping through code</li>
@@ -152,16 +152,16 @@ To be able to debug a C++ program in <code>gdb</code> one has to compile it usin
 
 </ul>
 </section>
-<section id="slide-org288e9d7">
-<h3 id="org288e9d7">Breakpoints</h3>
+<section id="slide-org784a457">
+<h3 id="org784a457">Breakpoints</h3>
 <p>
 Setting breakpoints stops the execution of the program in the debugger so that
 we can check what is happening and can further control the execution of the
 program.
 </p>
 </section>
-<section id="slide-org7668c41">
-<h3 id="org7668c41">Setting breakpoints</h3>
+<section id="slide-orga56c1a9">
+<h3 id="orga56c1a9">Setting breakpoints</h3>
 <p>
 Setting a breakpoint in a program can be done using:
 </p>
@@ -172,8 +172,8 @@ Setting a breakpoint in a program can be done using:
 
 </ul>
 </section>
-<section id="slide-org6011d09">
-<h3 id="org6011d09">Stepping through code</h3>
+<section id="slide-org7945896">
+<h3 id="org7945896">Stepping through code</h3>
 <ul>
 <li class="fragment appear"><code>next</code> - Execute current line and jump to the next one</li>
 <li class="fragment appear"><code>step</code> - Execute current line and jump to the function definition</li>
@@ -183,38 +183,22 @@ Setting a breakpoint in a program can be done using:
 
 </ul>
 </section>
-<section id="slide-orgbeba313">
-<h3 id="orgbeba313">Printing variables</h3>
+<section id="slide-orgca302df">
+<h3 id="orgca302df">Printing variables</h3>
 <ul>
 <li class="fragment appear"><code>print expression</code> - print an expression’s value</li>
 <li class="fragment appear"><code>display expression</code> - print an expression’s value as the program stops</li>
 
 </ul>
 </section>
-<section id="slide-orgc2c6e2b">
-<h3 id="orgc2c6e2b">Listing breakpoints</h3>
-<p>
-You can see all the breakpoints in the program using
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-sh">info breakpoints
-</pre>
-</div>
+<section id="slide-orgafa2f34">
+<h3 id="orgafa2f34"><code>C-x a</code>: See it in action</h3>
 </section>
-<section id="slide-org6d15cf1">
-<h3 id="org6d15cf1">Deleting breakpoints</h3>
-<p>
-You can delete a breakpoint using the <b><b>number</b></b> from the <code>info</code>:
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-sh">delete 3
-</pre>
-</div>
+<section id="slide-orgccd5cf9">
+<h3 id="orgccd5cf9"><code>C-l</code>: Reprint screen</h3>
 </section>
-<section id="slide-org9ae66ec">
-<h3 id="org9ae66ec">Watchpoints</h3>
+<section id="slide-org53fb848">
+<h3 id="org53fb848">Watchpoints</h3>
 <p>
 Keep track of a variable and break whenever its value changes.
 </p>
@@ -224,20 +208,110 @@ Keep track of a variable and break whenever its value changes.
 </pre>
 </div>
 </section>
+<section id="slide-org71ba8ca">
+<h3 id="org71ba8ca">Listing breakpoints</h3>
+<p>
+You can see all the breakpoints in the program using
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-sh">info breakpoints
+</pre>
+</div>
+</section>
+<section id="slide-org7fc3f16">
+<h3 id="org7fc3f16">Deleting breakpoints</h3>
+<p>
+You can delete a breakpoint using the <b><b>number</b></b> from the <code>info</code>:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-sh">delete 3
+</pre>
+</div>
+</section>
+<section id="slide-org72698ed">
+<h3 id="org72698ed">A sample program</h3>
+<div class="org-src-container">
+
+<pre  class="src src-C"><span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">stdio.h</span><span style="color: #AE81FF;">&gt;</span>
+<span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">string.h</span><span style="color: #AE81FF;">&gt;</span>
+<span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">malloc.h</span><span style="color: #AE81FF;">&gt;</span>
+
+<span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #AE81FF;">()</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">size</span> = 1 &lt;&lt; 31;
+  <span style="color: #66D9EF;">char</span> *<span style="color: #FD971F;">str</span>;
+  str = <span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">char</span> *<span style="color: #66D9EF;">)</span>malloc<span style="color: #66D9EF;">(</span>size<span style="color: #66D9EF;">)</span>;
+  strcpy<span style="color: #66D9EF;">(</span>str, <span style="color: #E6DB74;">"hello"</span><span style="color: #66D9EF;">)</span>;
+  printf<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"%s"</span>, str<span style="color: #66D9EF;">)</span>;
+  free<span style="color: #66D9EF;">(</span>str<span style="color: #66D9EF;">)</span>;
+  <span style="color: #F92672;">return</span> 0;
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+</section>
+<section id="slide-orga891a89">
+<h3 id="orga891a89">A sample program(Corrected)</h3>
+<div class="org-src-container">
+
+<pre  class="src src-C"><span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">stdio.h</span><span style="color: #AE81FF;">&gt;</span>
+<span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">string.h</span><span style="color: #AE81FF;">&gt;</span>
+<span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">malloc.h</span><span style="color: #AE81FF;">&gt;</span>
+
+<span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #AE81FF;">()</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #66D9EF;">long</span> <span style="color: #66D9EF;">long</span> <span style="color: #FD971F;">size</span> = 1LL &lt;&lt; 31LL;
+  <span style="color: #66D9EF;">char</span> *<span style="color: #FD971F;">str</span>;
+  str = <span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">char</span> *<span style="color: #66D9EF;">)</span>malloc<span style="color: #66D9EF;">(</span>size<span style="color: #66D9EF;">)</span>;
+  strcpy<span style="color: #66D9EF;">(</span>str, <span style="color: #E6DB74;">"hello"</span><span style="color: #66D9EF;">)</span>;
+  printf<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"%s"</span>, str<span style="color: #66D9EF;">)</span>;
+  free<span style="color: #66D9EF;">(</span>str<span style="color: #66D9EF;">)</span>;
+  <span style="color: #F92672;">return</span> 0;
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+</section>
 </section>
 <section>
-<section id="slide-org3caf7fb">
-<h2 id="org3caf7fb">Hardware vs Software Breakpoints</h2>
+<section id="slide-org06bd328">
+<h2 id="org06bd328">Hardware vs Software Breakpoints</h2>
 </section>
 </section>
 <section>
-<section id="slide-org251fe9d">
-<h2 id="org251fe9d">Performance Analysis</h2>
+<section id="slide-orgfaba5bc">
+<h2 id="orgfaba5bc">Performance Analysis</h2>
 </section>
 </section>
 <section>
-<section id="slide-org8d111e5">
-<h2 id="org8d111e5">Thank you</h2>
+<section id="slide-org5359afa">
+<h2 id="org5359afa">File operations in C++</h2>
+<div class="org-src-container">
+
+<pre  class="src src-C++"><span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">iostream</span><span style="color: #AE81FF;">&gt;</span>
+
+<span style="color: #F92672;">using</span> <span style="color: #F92672;">namespace</span> <span style="color: #AE81FF;">std</span>;
+
+<span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #AE81FF;">()</span> <span style="color: #AE81FF;">{</span>
+<span style="color: #F92672;">  #if</span><span style="color: #F92672; font-weight: bold;">n</span><span style="color: #F92672;">def</span> ONLINE_JUDGE
+  freopen<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"input.txt"</span>, <span style="color: #E6DB74;">"r"</span>, stdin<span style="color: #66D9EF;">)</span>;
+  freopen<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"output.txt"</span>, <span style="color: #E6DB74;">"w"</span>, stdout<span style="color: #66D9EF;">)</span>;
+<span style="color: #F92672;">  #endif</span>
+  <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">x</span>;
+  cin &gt;&gt; x;
+  cout &lt;&lt; x;
+  <span style="color: #F92672;">return</span> 0;
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org5477df1">
+<h2 id="org5477df1">Passing command line arguments</h2>
+</section>
+</section>
+<section>
+<section id="slide-org4a8e06d">
+<h2 id="org4a8e06d">Thank you</h2>
 </section>
 </section>
 </div>
