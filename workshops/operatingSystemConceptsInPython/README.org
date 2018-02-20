@@ -1,0 +1,66 @@
+#+AUTHOR: Operating System Applications
+#+OPTIONS: timestamp:nil date:nil toc:nil num:nil
+#+REVEAL_ROOT: ../../reveal.js
+#+REVEAL_TRANS: slide
+#+REVEAL_THEME: black
+#+REVEAL_EXTRA_CSS: ../custom.css
+
+* Basics of =python=
+
+** Launching python
+#+BEGIN_SRC sh -i
+$ python3
+Python 3.6.4 (default, Jan  5 2018, 02:35:40)
+[GCC 7.2.1 20171224] on linux
+Type "help", "copyright", "credits" or "license"
+for more information.
+>>> _
+#+END_SRC
+
+** Print to standard output
+#+BEGIN_SRC python -i
+print("Hello, World!")
+#+END_SRC
+
+** Taking input
+#+BEGIN_SRC python -i
+testCase = input("Enter a test case: ")
+#+END_SRC
+
+** List Datatype
+#+BEGIN_SRC python -i
+l = [1, 5, 2, 24]
+l = range(20)
+l = range(5, 21, 5)
+#+END_SRC
+
+** Loops
+#+BEGIN_SRC python -i :results output :exports both
+for i in [4, 2, 3, 3]:
+    print(i)
+#+END_SRC
+
+#+RESULTS:
+: 4
+: 2
+: 3
+: 3
+
+* Python and operating system
+
+** How do we do it?
+Python provides an interface to the operating system through the =os=
+library of functions which contains several system calls to *retrieve*
+and *manipulate* different parts of operating system.
+#+ATTR_REVEAL: :frag (appear)
+#+BEGIN_SRC python -i
+import os
+#+END_SRC
+
+** What is a process?
+*It is an instance of a computer program that is being executed.* A
+process in execution requires a processing unit(like CPU) to run the
+instructions as specified in the program.
+
+** What is forking?
+A way of creating new processes.

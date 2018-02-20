@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<meta name="author" content="(Operating System Applications)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="../../reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="../../reveal.js/css/theme/black.css" id="theme"/>
+
+<link rel="stylesheet" href="../custom.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '../../reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h2 class="author">Operating System Applications</h2>
+</section>
+
+<section>
+<section id="slide-org71f6e0c">
+<h2 id="org71f6e0c">Basics of <code>python</code></h2>
+<div class="outline-text-2" id="text-org71f6e0c">
+</div>
+</section>
+<section id="slide-org6c3d882">
+<h3 id="org6c3d882">Launching python</h3>
+<div class="org-src-container">
+
+<pre  class="src src-sh">$ python3
+Python 3.6.4 (default, Jan  5 2018, 02:35:40)
+[GCC 7.2.1 20171224] on linux
+Type <span style="color: #E6DB74;">"help"</span>, <span style="color: #E6DB74;">"copyright"</span>, <span style="color: #E6DB74;">"credits"</span> or <span style="color: #E6DB74;">"license"</span>
+<span style="color: #F92672;">for</span> more information.
+&gt;&gt;&gt; _
+</pre>
+</div>
+
+</section>
+<section id="slide-orgc7fc078">
+<h3 id="orgc7fc078">Print to standard output</h3>
+<div class="org-src-container">
+
+<pre  class="src src-python"><span style="color: #F92672;">print</span>(<span style="color: #E6DB74;">"Hello, World!"</span>)
+</pre>
+</div>
+
+</section>
+<section id="slide-org71900a8">
+<h3 id="org71900a8">Taking input</h3>
+<div class="org-src-container">
+
+<pre  class="src src-python"><span style="color: #FD971F;">testCase</span> = <span style="color: #F92672;">input</span>(<span style="color: #E6DB74;">"Enter a test case: "</span>)
+</pre>
+</div>
+
+</section>
+<section id="slide-org2a9ed26">
+<h3 id="org2a9ed26">List Datatype</h3>
+<div class="org-src-container">
+
+<pre  class="src src-python"><span style="color: #FD971F;">l</span> = [1, 5, 2, 24]
+<span style="color: #FD971F;">l</span> = <span style="color: #F92672;">range</span>(20)
+<span style="color: #FD971F;">l</span> = <span style="color: #F92672;">range</span>(5, 21, 5)
+</pre>
+</div>
+
+</section>
+<section id="slide-org30e9f4c">
+<h3 id="org30e9f4c">Loops</h3>
+<div class="org-src-container">
+
+<pre  class="src src-python"><span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> [4, 2, 3, 3]:
+    <span style="color: #F92672;">print</span>(i)
+</pre>
+</div>
+
+<pre class="example">
+4
+2
+3
+3
+
+</pre>
+
+</section>
+</section>
+<section>
+<section id="slide-org387cbef">
+<h2 id="org387cbef">Python and operating system</h2>
+<div class="outline-text-2" id="text-org387cbef">
+</div>
+</section>
+<section id="slide-org7149100">
+<h3 id="org7149100">How do we do it?</h3>
+<p>
+Python provides an interface to the operating system through the <code>os</code>
+library of functions which contains several system calls to <b>retrieve</b>
+and <b>manipulate</b> different parts of operating system.
+</p>
+<div class="org-src-container">
+
+<pre  class="fragment (appear)"><span style="color: #F92672;">import</span> os
+</pre>
+</div>
+
+</section>
+<section id="slide-org8693850">
+<h3 id="org8693850">What is a process?</h3>
+<p>
+<b>It is an instance of a computer program that is being executed.</b> A
+process in execution requires a processing unit(like CPU) to run the
+instructions as specified in the program.
+</p>
+
+</section>
+<section id="slide-org03e92e5">
+<h3 id="org03e92e5">What is forking?</h3>
+<p>
+A way of creating new processes.
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="../../reveal.js/lib/js/head.min.js"></script>
+<script src="../../reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'slide', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: '../../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: '../../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: '../../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: '../../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: '../../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
