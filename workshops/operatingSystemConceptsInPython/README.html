@@ -31,18 +31,18 @@
 </section>
 
 <section>
-<section id="slide-org71f6e0c">
-<h2 id="org71f6e0c">Basics of <code>python</code></h2>
-<div class="outline-text-2" id="text-org71f6e0c">
+<section id="slide-org033c172">
+<h2 id="org033c172">Basics of <code>python</code></h2>
+<div class="outline-text-2" id="text-org033c172">
 </div>
 </section>
-<section id="slide-org6c3d882">
-<h3 id="org6c3d882">Launching python</h3>
+<section id="slide-org35cca0e">
+<h3 id="org35cca0e">Launching python</h3>
 <div class="org-src-container">
 
 <pre  class="src src-sh">$ python3
-Python 3.6.4 (default, Jan  5 2018, 02:35:40)
-[GCC 7.2.1 20171224] on linux
+Python 3.6.4 <span style="color: #AE81FF;">(</span>default, Jan  5 2018, 02:35:40<span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">[</span>GCC 7.2.1 20171224<span style="color: #AE81FF;">]</span> on linux
 Type <span style="color: #E6DB74;">"help"</span>, <span style="color: #E6DB74;">"copyright"</span>, <span style="color: #E6DB74;">"credits"</span> or <span style="color: #E6DB74;">"license"</span>
 <span style="color: #F92672;">for</span> more information.
 &gt;&gt;&gt; _
@@ -50,41 +50,30 @@ Type <span style="color: #E6DB74;">"help"</span>, <span style="color: #E6DB74;">
 </div>
 
 </section>
-<section id="slide-orgc7fc078">
-<h3 id="orgc7fc078">Print to standard output</h3>
+<section id="slide-orga21ec34">
+<h3 id="orga21ec34">Print to standard output</h3>
 <div class="org-src-container">
 
-<pre  class="src src-python"><span style="color: #F92672;">print</span>(<span style="color: #E6DB74;">"Hello, World!"</span>)
+<pre  class="src src-python"><span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Hello, World!"</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 
 </section>
-<section id="slide-org71900a8">
-<h3 id="org71900a8">Taking input</h3>
+<section id="slide-orgeb4396c">
+<h3 id="orgeb4396c">Taking input</h3>
 <div class="org-src-container">
 
-<pre  class="src src-python"><span style="color: #FD971F;">testCase</span> = <span style="color: #F92672;">input</span>(<span style="color: #E6DB74;">"Enter a test case: "</span>)
+<pre  class="src src-python"><span style="color: #FD971F;">testCase</span> = <span style="color: #F92672;">input</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Enter a test case: "</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 
 </section>
-<section id="slide-org2a9ed26">
-<h3 id="org2a9ed26">List Datatype</h3>
+<section id="slide-org23db3fb">
+<h3 id="org23db3fb">Loops</h3>
 <div class="org-src-container">
 
-<pre  class="src src-python"><span style="color: #FD971F;">l</span> = [1, 5, 2, 24]
-<span style="color: #FD971F;">l</span> = <span style="color: #F92672;">range</span>(20)
-<span style="color: #FD971F;">l</span> = <span style="color: #F92672;">range</span>(5, 21, 5)
-</pre>
-</div>
-
-</section>
-<section id="slide-org30e9f4c">
-<h3 id="org30e9f4c">Loops</h3>
-<div class="org-src-container">
-
-<pre  class="src src-python"><span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> [4, 2, 3, 3]:
-    <span style="color: #F92672;">print</span>(i)
+<pre  class="src src-python"><span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #AE81FF;">[</span>4, 2, 3, 3<span style="color: #AE81FF;">]</span>:
+<span style="background-color: #64645E;"> </span>   <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>i<span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 
@@ -97,15 +86,163 @@ Type <span style="color: #E6DB74;">"help"</span>, <span style="color: #E6DB74;">
 </pre>
 
 </section>
+<section id="slide-orgdae60ad">
+<h3 id="orgdae60ad">Slices in String</h3>
+<div class="org-src-container">
+
+<pre  class="src src-python"><span style="color: #FD971F;">s</span> = <span style="color: #E6DB74;">"Hello"</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"0"</span>, s<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"1"</span>, s<span style="color: #66D9EF;">[</span>2<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"2"</span>, s<span style="color: #66D9EF;">[</span>1:3<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"3"</span>, s<span style="color: #66D9EF;">[</span>:3<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"4"</span>, s<span style="color: #66D9EF;">[</span>2:<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<pre class="example">
+0 Hello
+1 l
+2 el
+3 Hel
+4 llo
+
+</pre>
+
+</section>
+<section id="slide-org7e1eddb">
+<h3 id="org7e1eddb">List Datatype</h3>
+<div class="org-src-container">
+
+<pre  class="src src-python"><span style="color: #FD971F;">l</span> = <span style="color: #AE81FF;">[</span>1, 5, 2, 24<span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">l</span> = <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span>20<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">l</span> = <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span>5, 21, 5<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-org3aa5e28">
+<h3 id="org3aa5e28">Dictionaries</h3>
+<div class="org-src-container">
+
+<pre  class="src src-python"><span style="color: #FD971F;">d</span> = <span style="color: #AE81FF;">{</span><span style="color: #E6DB74;">"x"</span>: 2, <span style="color: #E6DB74;">"y"</span>: 3, 4: 5<span style="color: #AE81FF;">}</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>d<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>d<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">"x"</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">print(d[3])</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>d<span style="color: #66D9EF;">[</span>4<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<pre class="example">
+{'x': 2, 'y': 3, 4: 5}
+2
+5
+
+</pre>
+
+</section>
+<section id="slide-org9ff6689">
+<h3 id="org9ff6689">Defining functions</h3>
+<div class="org-src-container">
+
+<pre  class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">isPrime</span><span style="color: #AE81FF;">(</span>n<span style="color: #AE81FF;">)</span>:
+<span style="background-color: #64645E;"> </span>   <span style="color: #F92672;">if</span> n &lt; 2:
+<span style="background-color: #64645E;"> </span>   <span style="background-color: #64645E;"> </span>   <span style="color: #F92672;">return</span> <span style="color: #AE81FF;">False</span>
+<span style="background-color: #64645E;"> </span>   <span style="color: #F92672;">else</span> <span style="color: #F92672;">if</span> n == 2:
+<span style="background-color: #64645E;"> </span>   <span style="background-color: #64645E;"> </span>   <span style="color: #F92672;">return</span> <span style="color: #AE81FF;">True</span>
+<span style="background-color: #64645E;"> </span>   <span style="color: #F92672;">else</span> <span style="color: #F92672;">if</span> n % 2 == 0:
+<span style="background-color: #64645E;"> </span>   <span style="background-color: #64645E;"> </span>   <span style="color: #F92672;">return</span> <span style="color: #AE81FF;">False</span>
+<span style="background-color: #64645E;"> </span>   <span style="color: #F92672;">else</span>:
+<span style="background-color: #64645E;"> </span>   <span style="background-color: #64645E;"> </span>   <span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span>3, <span style="color: #F92672;">int</span><span style="color: #66D9EF;">(</span>n ** i<span style="color: #66D9EF;">)</span> + 1, 2<span style="color: #AE81FF;">)</span>:
+<span style="background-color: #64645E;"> </span>   <span style="background-color: #64645E;"> </span>   <span style="background-color: #64645E;"> </span>   <span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span>n % i == 0<span style="color: #AE81FF;">)</span>:
+<span style="background-color: #64645E;"> </span>   <span style="background-color: #64645E;"> </span>   <span style="background-color: #64645E;"> </span>   <span style="background-color: #64645E;"> </span>   <span style="color: #F92672;">return</span> <span style="color: #AE81FF;">False</span>
+<span style="background-color: #64645E;"> </span>   <span style="background-color: #64645E;"> </span>   <span style="color: #F92672;">return</span> <span style="color: #AE81FF;">True</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-org5e9bef1">
+<h3 id="org5e9bef1"><code>if __name__ == '__main__':</code></h3>
+
+</section>
 </section>
 <section>
-<section id="slide-org387cbef">
-<h2 id="org387cbef">Python and operating system</h2>
-<div class="outline-text-2" id="text-org387cbef">
+<section id="slide-org6b0f6a6">
+<h2 id="org6b0f6a6">File Handling in Python</h2>
+<div class="outline-text-2" id="text-org6b0f6a6">
 </div>
 </section>
-<section id="slide-org7149100">
-<h3 id="org7149100">How do we do it?</h3>
+<section id="slide-org231524a">
+<h3 id="org231524a">Contents of <code>filename.txt</code></h3>
+<pre class="example">
+There is some text
+
+You can write more of it
+And enjoy
+</pre>
+
+</section>
+<section id="slide-org3aabbe1">
+<h3 id="org3aabbe1">Reading a file</h3>
+<div class="org-src-container">
+
+<pre  class="src src-python"><span style="color: #FD971F;">f</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"filename.txt"</span>, <span style="color: #E6DB74;">"r"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>f.read<span style="color: #66D9EF;">(</span>2<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>f.readline<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>f.readline<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>f.readline<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<pre class="example">
+Th
+ere is some text
+
+
+
+You can write more of it
+
+
+</pre>
+
+</section>
+<section id="slide-org9eb0825">
+<h3 id="org9eb0825">Read all at once</h3>
+<div class="org-src-container">
+
+<pre  class="src src-python"><span style="color: #FD971F;">f</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"filename.txt"</span>, <span style="color: #E6DB74;">"r"</span><span style="color: #AE81FF;">)</span>  <span style="color: #75715E;"># </span><span style="color: #75715E;">Open in read mode</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>f.read<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<pre class="example">
+There is some text
+
+You can write more of it
+And enjoy
+
+
+</pre>
+
+</section>
+<section id="slide-org7238e8e">
+<h3 id="org7238e8e">Writing to a file</h3>
+<div class="org-src-container">
+
+<pre  class="src src-python"><span style="color: #FD971F;">f</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"file.txt"</span>, <span style="color: #E6DB74;">"w"</span><span style="color: #AE81FF;">)</span>  <span style="color: #75715E;">#</span><span style="color: #75715E;">Open in write mode</span>
+f.write<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"I don't need an editor."</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org4199073">
+<h2 id="org4199073">Operating system</h2>
+<div class="outline-text-2" id="text-org4199073">
+</div>
+</section>
+<section id="slide-orgc29326c">
+<h3 id="orgc29326c">How do we do it?</h3>
 <p>
 Python provides an interface to the operating system through the <code>os</code>
 library of functions which contains several system calls to <b>retrieve</b>
@@ -118,20 +255,29 @@ and <b>manipulate</b> different parts of operating system.
 </div>
 
 </section>
-<section id="slide-org8693850">
-<h3 id="org8693850">What is a process?</h3>
+<section id="slide-orge256997">
+<h3 id="orge256997">What is a process?</h3>
 <p>
 <b>It is an instance of a computer program that is being executed.</b> A
 process in execution requires a processing unit(like CPU) to run the
 instructions as specified in the program.
 </p>
+<div class="org-src-container">
 
+<pre  class="src src-python"><span style="color: #F92672;">import</span> os
+os.<span style="color: #F92672;">exec</span>
+os.fork
+os.wait
+</pre>
+</div>
 </section>
-<section id="slide-org03e92e5">
-<h3 id="org03e92e5">What is forking?</h3>
-<p>
-A way of creating new processes.
-</p>
+<section id="slide-orgb780874">
+<h3 id="orgb780874">What is forking?</h3>
+<ul>
+<li class="fragment appear">A way of cloning processes.</li>
+<li class="fragment appear">Continues execution from the next line.</li>
+
+</ul>
 </section>
 </section>
 </div>

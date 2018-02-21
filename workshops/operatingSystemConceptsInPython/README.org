@@ -27,13 +27,6 @@ print("Hello, World!")
 testCase = input("Enter a test case: ")
 #+END_SRC
 
-** List Datatype
-#+BEGIN_SRC python -i
-l = [1, 5, 2, 24]
-l = range(20)
-l = range(5, 21, 5)
-#+END_SRC
-
 ** Loops
 #+BEGIN_SRC python -i :results output :exports both
 for i in [4, 2, 3, 3]:
@@ -46,8 +39,101 @@ for i in [4, 2, 3, 3]:
 : 3
 : 3
 
-* Python and operating system
+** Slices in String
+#+BEGIN_SRC python -i :results output :exports both
+s = "Hello"
+print("0", s)
+print("1", s[2])
+print("2", s[1:3])
+print("3", s[:3])
+print("4", s[2:])
+#+END_SRC
 
+#+RESULTS:
+: Hello
+: l
+: el
+: Hel
+: llo
+
+** List Datatype
+#+BEGIN_SRC python -i
+l = [1, 5, 2, 24]
+l = range(20)
+l = range(5, 21, 5)
+#+END_SRC
+
+** Dictionaries
+#+BEGIN_SRC python -i :results output :exports both
+d = {"x": 2, "y": 3, 4: 5}
+print(d)
+print(d["x"])
+# print(d[3])
+print(d[4])
+#+END_SRC
+
+#+RESULTS:
+: {'x': 2, 'y': 3, 4: 5}
+: 2
+: 5
+
+** Defining functions
+#+BEGIN_SRC python -i
+def isPrime(n):
+    if n < 2:
+        return False
+    else if n == 2:
+        return True
+    else if n % 2 == 0:
+        return False
+    else:
+        for i in range(3, int(n ** i) + 1, 2):
+            if (n % i == 0):
+                return False
+        return True
+#+END_SRC
+
+** ~if __name__ == '__main__':~
+
+* File Handling in Python
+
+** Contents of =filename.txt=
+#+BEGIN_EXAMPLE
+There is some text
+
+You can write more of it
+And enjoy
+#+END_EXAMPLE
+
+** Reading a file
+#+BEGIN_SRC python -i :results output :exports both
+f = open("filename.txt", "r")
+print(f.read(2))
+print(f.readline())
+print(f.readline())
+print(f.readline())
+#+END_SRC
+
+#+RESULTS:
+: There is some text
+:
+: You can write more of it
+: And enjoy
+:
+
+** Read all at once
+#+BEGIN_SRC python -i :results output :exports both
+f = open("filename.txt", "r")  # Open in read mode
+print(f.read())
+#+END_SRC
+
+** Writing to a file
+#+BEGIN_SRC python -i
+f = open("file.txt", "w")  #Open in write mode
+f.write("I don't need an editor.")
+#+END_SRC
+
+* Operating system
 ** How do we do it?
 Python provides an interface to the operating system through the =os=
 library of functions which contains several system calls to *retrieve*
@@ -61,6 +147,13 @@ import os
 *It is an instance of a computer program that is being executed.* A
 process in execution requires a processing unit(like CPU) to run the
 instructions as specified in the program.
-
+#+BEGIN_SRC python -i
+import os
+os.exec
+os.fork
+os.wait
+#+END_SRC
 ** What is forking?
-A way of creating new processes.
+#+ATTR_REVEAL: :frag (appear)
++ A way of cloning processes.
++ Continues execution from the next line.
