@@ -31,13 +31,13 @@
 </section>
 
 <section>
-<section id="slide-org033c172">
-<h2 id="org033c172">Basics of <code>python</code></h2>
-<div class="outline-text-2" id="text-org033c172">
+<section id="slide-orgdbfc705">
+<h2 id="orgdbfc705">Basics of <code>python</code></h2>
+<div class="outline-text-2" id="text-orgdbfc705">
 </div>
 </section>
-<section id="slide-org35cca0e">
-<h3 id="org35cca0e">Launching python</h3>
+<section id="slide-org645d5e5">
+<h3 id="org645d5e5">Launching python</h3>
 <div class="org-src-container">
 
 <pre  class="src src-sh">$ python3
@@ -50,8 +50,8 @@ Type <span style="color: #E6DB74;">"help"</span>, <span style="color: #E6DB74;">
 </div>
 
 </section>
-<section id="slide-orga21ec34">
-<h3 id="orga21ec34">Print to standard output</h3>
+<section id="slide-org166d772">
+<h3 id="org166d772">Print to standard output</h3>
 <div class="org-src-container">
 
 <pre  class="src src-python"><span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Hello, World!"</span><span style="color: #AE81FF;">)</span>
@@ -59,8 +59,8 @@ Type <span style="color: #E6DB74;">"help"</span>, <span style="color: #E6DB74;">
 </div>
 
 </section>
-<section id="slide-orgeb4396c">
-<h3 id="orgeb4396c">Taking input</h3>
+<section id="slide-org3adda76">
+<h3 id="org3adda76">Taking input</h3>
 <div class="org-src-container">
 
 <pre  class="src src-python"><span style="color: #FD971F;">testCase</span> = <span style="color: #F92672;">input</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Enter a test case: "</span><span style="color: #AE81FF;">)</span>
@@ -68,8 +68,8 @@ Type <span style="color: #E6DB74;">"help"</span>, <span style="color: #E6DB74;">
 </div>
 
 </section>
-<section id="slide-org23db3fb">
-<h3 id="org23db3fb">Loops</h3>
+<section id="slide-orgac4fa5d">
+<h3 id="orgac4fa5d">Loops</h3>
 <div class="org-src-container">
 
 <pre  class="src src-python"><span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #AE81FF;">[</span>4, 2, 3, 3<span style="color: #AE81FF;">]</span>:
@@ -86,8 +86,8 @@ Type <span style="color: #E6DB74;">"help"</span>, <span style="color: #E6DB74;">
 </pre>
 
 </section>
-<section id="slide-orgdae60ad">
-<h3 id="orgdae60ad">Slices in String</h3>
+<section id="slide-org1156328">
+<h3 id="org1156328">Slices in String</h3>
 <div class="org-src-container">
 
 <pre  class="src src-python"><span style="color: #FD971F;">s</span> = <span style="color: #E6DB74;">"Hello"</span>
@@ -109,8 +109,8 @@ Type <span style="color: #E6DB74;">"help"</span>, <span style="color: #E6DB74;">
 </pre>
 
 </section>
-<section id="slide-org7e1eddb">
-<h3 id="org7e1eddb">List Datatype</h3>
+<section id="slide-org0790bd8">
+<h3 id="org0790bd8">List Datatype</h3>
 <div class="org-src-container">
 
 <pre  class="src src-python"><span style="color: #FD971F;">l</span> = <span style="color: #AE81FF;">[</span>1, 5, 2, 24<span style="color: #AE81FF;">]</span>
@@ -120,8 +120,8 @@ Type <span style="color: #E6DB74;">"help"</span>, <span style="color: #E6DB74;">
 </div>
 
 </section>
-<section id="slide-org3aa5e28">
-<h3 id="org3aa5e28">Dictionaries</h3>
+<section id="slide-orgb6a012c">
+<h3 id="orgb6a012c">Dictionaries</h3>
 <div class="org-src-container">
 
 <pre  class="src src-python"><span style="color: #FD971F;">d</span> = <span style="color: #AE81FF;">{</span><span style="color: #E6DB74;">"x"</span>: 2, <span style="color: #E6DB74;">"y"</span>: 3, 4: 5<span style="color: #AE81FF;">}</span>
@@ -140,8 +140,8 @@ Type <span style="color: #E6DB74;">"help"</span>, <span style="color: #E6DB74;">
 </pre>
 
 </section>
-<section id="slide-org9ff6689">
-<h3 id="org9ff6689">Defining functions</h3>
+<section id="slide-org82251fa">
+<h3 id="org82251fa">Defining functions</h3>
 <div class="org-src-container">
 
 <pre  class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">isPrime</span><span style="color: #AE81FF;">(</span>n<span style="color: #AE81FF;">)</span>:
@@ -160,19 +160,79 @@ Type <span style="color: #E6DB74;">"help"</span>, <span style="color: #E6DB74;">
 </div>
 
 </section>
-<section id="slide-org5e9bef1">
-<h3 id="org5e9bef1"><code>if __name__ == '__main__':</code></h3>
+<section id="slide-org3df7c63">
+<h3 id="org3df7c63">Mysterious <code>__name__</code></h3>
+<ul>
+<li class="fragment appear">Carries the name of the current module</li>
+<li class="fragment appear">File under execution has the value <code>__main__</code></li>
 
+</ul>
+
+</section>
+<section id="slide-orgd331b35">
+<h4 id="orgd331b35"><code>myModule.py</code></h4>
+<div class="org-src-container">
+
+<pre  class="src src-python"><span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">__name__</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<p>
+Run:
+</p>
+<div class="org-src-container">
+
+<pre  class="fragment (appear)">$ python3 myModule.py
+</pre>
+</div>
+<p>
+Output:
+</p>
+<div class="org-src-container">
+
+<pre  class="fragment (appear)">__main__
+</pre>
+</div>
+
+</section>
+<section id="slide-orgf5a407f">
+<h4 id="orgf5a407f"><code>other.py</code></h4>
+<div class="org-src-container">
+
+<pre  class="src src-python"><span style="color: #F92672;">import</span> myModule
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">__name__</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<p>
+Run:
+</p>
+<div class="org-src-container">
+
+<pre  class="fragment (appear)">$ python3 other.py
+</pre>
+</div>
+<p>
+Output:
+</p>
+<div class="org-src-container">
+
+<pre  class="fragment (appear)">myModule
+__main__
+</pre>
+</div>
+
+</section>
+<section id="slide-orgdd20119">
+<h3 id="orgdd20119"><code>lambda</code> functions</h3>
 </section>
 </section>
 <section>
-<section id="slide-org6b0f6a6">
-<h2 id="org6b0f6a6">File Handling in Python</h2>
-<div class="outline-text-2" id="text-org6b0f6a6">
+<section id="slide-org112dc5b">
+<h2 id="org112dc5b">File Handling in Python</h2>
+<div class="outline-text-2" id="text-org112dc5b">
 </div>
 </section>
-<section id="slide-org231524a">
-<h3 id="org231524a">Contents of <code>filename.txt</code></h3>
+<section id="slide-orgab29ca7">
+<h3 id="orgab29ca7">Contents of <code>filename.txt</code></h3>
 <pre class="example">
 There is some text
 
@@ -181,8 +241,8 @@ And enjoy
 </pre>
 
 </section>
-<section id="slide-org3aabbe1">
-<h3 id="org3aabbe1">Reading a file</h3>
+<section id="slide-org8e2fce5">
+<h3 id="org8e2fce5">Reading a file</h3>
 <div class="org-src-container">
 
 <pre  class="src src-python"><span style="color: #FD971F;">f</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"filename.txt"</span>, <span style="color: #E6DB74;">"r"</span><span style="color: #AE81FF;">)</span>
@@ -190,6 +250,7 @@ And enjoy
 <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>f.readline<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
 <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>f.readline<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
 <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>f.readline<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+f.close<span style="color: #AE81FF;">()</span>
 </pre>
 </div>
 
@@ -205,12 +266,13 @@ You can write more of it
 </pre>
 
 </section>
-<section id="slide-org9eb0825">
-<h3 id="org9eb0825">Read all at once</h3>
+<section id="slide-orgffadd2d">
+<h3 id="orgffadd2d">Read all at once</h3>
 <div class="org-src-container">
 
 <pre  class="src src-python"><span style="color: #FD971F;">f</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"filename.txt"</span>, <span style="color: #E6DB74;">"r"</span><span style="color: #AE81FF;">)</span>  <span style="color: #75715E;"># </span><span style="color: #75715E;">Open in read mode</span>
 <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>f.read<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+f.close<span style="color: #AE81FF;">()</span>
 </pre>
 </div>
 
@@ -224,25 +286,26 @@ And enjoy
 </pre>
 
 </section>
-<section id="slide-org7238e8e">
-<h3 id="org7238e8e">Writing to a file</h3>
+<section id="slide-orgd1bcf23">
+<h3 id="orgd1bcf23">Writing to a file</h3>
 <div class="org-src-container">
 
 <pre  class="src src-python"><span style="color: #FD971F;">f</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"file.txt"</span>, <span style="color: #E6DB74;">"w"</span><span style="color: #AE81FF;">)</span>  <span style="color: #75715E;">#</span><span style="color: #75715E;">Open in write mode</span>
 f.write<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"I don't need an editor."</span><span style="color: #AE81FF;">)</span>
+f.close<span style="color: #AE81FF;">()</span>
 </pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-org4199073">
-<h2 id="org4199073">Operating system</h2>
-<div class="outline-text-2" id="text-org4199073">
+<section id="slide-orgd0734a8">
+<h2 id="orgd0734a8">Operating system</h2>
+<div class="outline-text-2" id="text-orgd0734a8">
 </div>
 </section>
-<section id="slide-orgc29326c">
-<h3 id="orgc29326c">How do we do it?</h3>
+<section id="slide-orga8195b3">
+<h3 id="orga8195b3">How do we do it?</h3>
 <p>
 Python provides an interface to the operating system through the <code>os</code>
 library of functions which contains several system calls to <b>retrieve</b>
@@ -255,8 +318,8 @@ and <b>manipulate</b> different parts of operating system.
 </div>
 
 </section>
-<section id="slide-orge256997">
-<h3 id="orge256997">What is a process?</h3>
+<section id="slide-org0171485">
+<h3 id="org0171485">What is a process?</h3>
 <p>
 <b>It is an instance of a computer program that is being executed.</b> A
 process in execution requires a processing unit(like CPU) to run the
@@ -271,8 +334,8 @@ os.wait
 </pre>
 </div>
 </section>
-<section id="slide-orgb780874">
-<h3 id="orgb780874">What is forking?</h3>
+<section id="slide-org2901331">
+<h3 id="org2901331">What is forking?</h3>
 <ul>
 <li class="fragment appear">A way of cloning processes.</li>
 <li class="fragment appear">Continues execution from the next line.</li>

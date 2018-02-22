@@ -93,8 +93,44 @@ def isPrime(n):
         return True
 #+END_SRC
 
-** ~if __name__ == '__main__':~
+** Mysterious ~__name__~
+#+ATTR_REVEAL: :frag (appear)
++ Carries the name of the current module
++ File under execution has the value ~__main__~
 
+*** =myModule.py=
+#+BEGIN_SRC python -i :tangle myModule.py :results output :exports code
+print(__name__)
+#+END_SRC
+Run:
+#+ATTR_REVEAL: :frag (appear)
+#+BEGIN_SRC sh :exports code
+$ python3 myModule.py
+#+END_SRC
+Output:
+#+ATTR_REVEAL: :frag (appear)
+#+BEGIN_SRC text
+__main__
+#+END_SRC
+
+*** =other.py=
+#+BEGIN_SRC python -i :tangle other.py :results output :exports code
+import myModule
+print(__name__)
+#+END_SRC
+Run:
+#+ATTR_REVEAL: :frag (appear)
+#+BEGIN_SRC sh :exports code
+$ python3 other.py
+#+END_SRC
+Output:
+#+ATTR_REVEAL: :frag (appear)
+#+BEGIN_SRC text
+myModule
+__main__
+#+END_SRC
+
+** ~lambda~ functions
 * File Handling in Python
 
 ** Contents of =filename.txt=
@@ -112,6 +148,7 @@ print(f.read(2))
 print(f.readline())
 print(f.readline())
 print(f.readline())
+f.close()
 #+END_SRC
 
 #+RESULTS:
@@ -125,12 +162,14 @@ print(f.readline())
 #+BEGIN_SRC python -i :results output :exports both
 f = open("filename.txt", "r")  # Open in read mode
 print(f.read())
+f.close()
 #+END_SRC
 
 ** Writing to a file
 #+BEGIN_SRC python -i
 f = open("file.txt", "w")  #Open in write mode
 f.write("I don't need an editor.")
+f.close()
 #+END_SRC
 
 * Operating system
