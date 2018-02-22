@@ -28,19 +28,19 @@ testCase = input("Enter a test case: ")
 #+END_SRC
 
 ** Loops
-#+BEGIN_SRC python -i :results output :exports both
+#+BEGIN_SRC python -i :results output :exports both :cache yes
 for i in [4, 2, 3, 3]:
     print(i)
 #+END_SRC
 
-#+RESULTS:
+#+RESULTS[235c89ce0984ae8ac63320801045eb774975825e]:
 : 4
 : 2
 : 3
 : 3
 
 ** Slices in String
-#+BEGIN_SRC python -i :results output :exports both
+#+BEGIN_SRC python -i :results output :exports both :cache yes
 s = "Hello"
 print("0", s)
 print("1", s[2])
@@ -49,22 +49,22 @@ print("3", s[:3])
 print("4", s[2:])
 #+END_SRC
 
-#+RESULTS:
-: Hello
-: l
-: el
-: Hel
-: llo
+#+RESULTS[b6fc9c4fe9500a88cba726901f4259db5bbd3f75]:
+: 0 Hello
+: 1 l
+: 2 el
+: 3 Hel
+: 4 llo
 
 ** List Datatype
-#+BEGIN_SRC python -i
+#+BEGIN_SRC python -i :exports code
 l = [1, 5, 2, 24]
 l = range(20)
 l = range(5, 21, 5)
 #+END_SRC
 
 ** Dictionaries
-#+BEGIN_SRC python -i :results output :exports both
+#+BEGIN_SRC python -i :results output :exports both :cache yes
 d = {"x": 2, "y": 3, 4: 5}
 print(d)
 print(d["x"])
@@ -72,13 +72,13 @@ print(d["x"])
 print(d[4])
 #+END_SRC
 
-#+RESULTS:
+#+RESULTS[085410f2d7a1704d2602ddb832a85dbdafd641a6]:
 : {'x': 2, 'y': 3, 4: 5}
 : 2
 : 5
 
 ** Defining functions
-#+BEGIN_SRC python -i
+#+BEGIN_SRC python -i :exports code
 def isPrime(n):
     if n < 2:
         return False
@@ -141,7 +141,7 @@ And enjoy
 #+END_EXAMPLE
 
 ** Reading a file
-#+BEGIN_SRC python -i :results output :exports both
+#+BEGIN_SRC python -i :results output :exports both :cache yes
 f = open("filename.txt", "r")
 print(f.read(2))
 print(f.readline())
@@ -150,19 +150,28 @@ print(f.readline())
 f.close()
 #+END_SRC
 
-#+RESULTS:
+#+RESULTS[a50ca1311af3f9277a87415f84214871e58f615a]:
+: Th
+: ere is some text
+:
+:
+:
+: You can write more of it
+:
+
+** Read all at once
+#+BEGIN_SRC python -i :results output :exports both :cache yes
+f = open("filename.txt", "r")  # Open in read mode
+print(f.read())
+f.close()
+#+END_SRC
+
+#+RESULTS[3ea4ffcd3c842299d6b41e100a34dfa7d59bf591]:
 : There is some text
 :
 : You can write more of it
 : And enjoy
 :
-
-** Read all at once
-#+BEGIN_SRC python -i :results output :exports both
-f = open("filename.txt", "r")  # Open in read mode
-print(f.read())
-f.close()
-#+END_SRC
 
 ** Writing to a file
 #+BEGIN_SRC python -i
@@ -173,11 +182,11 @@ f.close()
 
 * Lambda functions
 #+ATTR_REVEAL: :frag (appear)
-+ Also known as anonymous functions
++ Also known as anonymous function
 + One line only
 + Used for defining in place functions
 + Syntax:
-  #+BEGIN_SRC python -i
+  #+BEGIN_SRC python -i :exports code
 square = lambda x: x * x
 square(4)
   #+END_SRC
@@ -196,7 +205,7 @@ def makeInc(m):
 #+RESULTS:
 
 ** Using =makeInc=
-#+BEGIN_SRC python -i :cache yes :results output :session incsession
+#+BEGIN_SRC python -i :cache yes :results output :session incsession :exports code
 incBy2 = makeInc(2)
 incBy3 = makeInc(3)
 print(incBy2(7))
@@ -218,7 +227,6 @@ Output:
 #+BEGIN_SRC python -i :exports code
 def makeInc(m):
     def inc(n):
-        nonlocal m
         return n + m
     return inc
 #+END_SRC
@@ -230,6 +238,73 @@ def makeInc(m):
 #+ATTR_REVEAL: :frag (appear)
   + =list= to be sorted
   + =compare= to change the order
+* Classes and objects
+** Point to be noted
+#+ATTR_REVEAL: :frag (appear)
++ Python is *not fully object oriented* as it /lacks encapsulation/ i.e. data
+  hiding.
++ The concepts of object oriented programming is out of the scope of this
+  class.
+
+** What is a =class=?
+Basically it means defining a *custom datatype* from the predefined types
+and/or inheriting other types.
+
+** Initializing data members
+Constructors are used for initializing data members of a class.
+#+BEGIN_SRC python -i :results output :exports code :session class
+class complex:
+    def __init__(self, a: int, b: int):
+        # Constructor
+        self.real, self.imag = a, b
+#+END_SRC
+
+#+RESULTS:
+
+** Class methods/member functions
+#+BEGIN_SRC python -i :results output :exports code :session class
+class complex:
+    def __init__(self, a: int, b: int):
+        # Constructor
+        self.real, self.imag = a, b
+    def __add__(self, x: complex):
+        y = complex(self.real + x.real,
+                    self.imag + x.imag)
+        return y
+    def __str__(self):
+        r = str(self.real)
+        i = str(self.imag)
+        return r + "+i" + i
+#+END_SRC
+
+#+RESULTS:
+
+** What is an =object=?
+Object is an instance of a class.
+
+** Creating an instance
+#+BEGIN_SRC python -i :results output :exports code :session class
+x = complex(2, 3)
+y = complex(-1, 4)
+z = x.__add__(y)
+print(z.__str__())
+print(z.__dict__)
+#+END_SRC
+
+#+RESULTS:
+: 1+i7
+: {'real': 1, 'imag': 7}
+
+** Static data members
+#+ATTR_REVEAL: :frag (appear)
++ This kind of data is accessible through the class name
++ Global to all the objects of the same class
+
+** Defining a =class=
+#+BEGIN_SRC python -i :exports code
+class myClass:
+    testVar = 1
+#+END_SRC
 
 * Operating system
 ** How do we do it?
