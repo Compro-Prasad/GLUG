@@ -130,7 +130,6 @@ myModule
 __main__
 #+END_SRC
 
-** ~lambda~ functions
 * File Handling in Python
 
 ** Contents of =filename.txt=
@@ -172,6 +171,66 @@ f.write("I don't need an editor.")
 f.close()
 #+END_SRC
 
+* Lambda functions
+#+ATTR_REVEAL: :frag (appear)
++ Also known as anonymous functions
++ One line only
++ Used for defining in place functions
++ Syntax:
+  #+BEGIN_SRC python -i
+square = lambda x: x * x
+square(4)
+  #+END_SRC
+
+** Merits of lambda
+#+ATTR_REVEAL: :frag (appear)
++ It gets the work done
++ If the function definitions are short
+
+** =makeInc= using =lambda=
+#+BEGIN_SRC python -i :exports code :session incsession
+def makeInc(m):
+    return (lambda n: n + m)
+#+END_SRC
+
+#+RESULTS:
+
+** Using =makeInc=
+#+BEGIN_SRC python -i :cache yes :results output :session incsession
+incBy2 = makeInc(2)
+incBy3 = makeInc(3)
+print(incBy2(7))
+print(incBy3(32))
+#+END_SRC
+Output:
+#+RESULTS[e7590c3681bff4355674536d266540ff74c8dfc9]:
+: 9
+: 35
+
+** What is missing?
++ Lambda is good in *lisp* like languages and *JavaScript*
++ But not particularly in python
++ Cannot write multiple statements
+
+** Are we done with it?
+
+** Implementing better lambdas
+#+BEGIN_SRC python -i :exports code
+def makeInc(m):
+    def inc(n):
+        nonlocal m
+        return n + m
+    return inc
+#+END_SRC
+
+** Write a =mySort= function
+#+ATTR_REVEAL: :frag (appear)
++ Which can sort both increasing and decreasing order on demand
++ Having the following function parameters:
+#+ATTR_REVEAL: :frag (appear)
+  + =list= to be sorted
+  + =compare= to change the order
+
 * Operating system
 ** How do we do it?
 Python provides an interface to the operating system through the =os=
@@ -196,3 +255,4 @@ os.wait
 #+ATTR_REVEAL: :frag (appear)
 + A way of cloning processes.
 + Continues execution from the next line.
+* Structure and Interpretation of Computer Programming
