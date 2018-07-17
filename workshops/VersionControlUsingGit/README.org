@@ -1,0 +1,168 @@
+#+TITLE: Version Control Using Git
+#+OPTIONS: toc:nil num:nil timestamp:nil author:nil
+#+REVEAL_ROOT: ../../reveal.js
+#+REVEAL_TRANS: slide
+#+REVEAL_THEME: black
+#+REVEAL_EXTRA_CSS: ../custom.css
+
+* Prerequisites
+Basic terminal commands
+* Required tools
++ Text Editor
++ Terminal
++ git - [[http://git-scm.com]]
++ A GitHub account
+* Test
+#+BEGIN_EXPORT html
+<div id="test"></div>
+#+END_EXPORT
+* Aim of VC Systems
+Keep *track of history of changes* of a project and other metadata
+like *author* and *timestamp*.
+* Key terms
+#+ATTR_REVEAL: :frag (appear)
++ State / Commit
++ Branch
++ Remote
+* Note
+Git commands only work when you are currently inside a directory
+having ~.git/~ subdirectory.
+* Lets get started
+Open terminal and create a new Git repository
+#+BEGIN_SRC shell -i :exports code
+git init ~/Documents/git/newproject # make .git/
+cd       ~/Documents/git/newproject
+# Now we can run git commands
+#+END_SRC
+* Setting up Author details
+One time setup:
+#+BEGIN_SRC shell :exports code
+git config --global user.name  'github-username'
+git config --global user.email 'email@id'
+#+END_SRC
+* Set up =$EDITOR=
+#+BEGIN_SRC shell -i
+EDITOR='emacsclient -a "" -c'
+#+END_SRC
+* A ~Hello, World!~ program in *C*
+~hello.c~:
+#+BEGIN_SRC C -i :exports code
+#include <stdio.h>
+
+int main() {
+  printf("Hello, World!\n");
+  return 0;
+}
+#+END_SRC
+#+BEGIN_SRC shell -i :exports code
+gcc hello.c   # Compile
+./a.out       # Run
+#+END_SRC
+* State
+A *state* comprises of the /changes/, /timestamp/, /author/,
+/id/ and /parent id/.
+* Creating new states
+#+ATTR_REVEAL: :frag (appear)
++ First, select which changes will be added to the state
++ The /unselected/ ones are part of Git’s *unstaged* changes
++ The /selected/ ones are part of Git’s *staged* changes
++ Once the selection is done we can *commit* the changes
+* ~git status~
+Check if files were changed since the last commit. It shows:
+#+ATTR_REVEAL: :frag (appear)
++ Selected/Staged files
++ Unselected/Unstaged files
++ Unknown/Untracked files
+* Ignoring useless files
+To ignore some files we need to add a file called ~.gitignore~:
+#+BEGIN_EXAMPLE
+a.out
+#+END_EXAMPLE
+* What files to ignore?
+#+ATTR_REVEAL: :frag (appear)
++ Binaries
++ External dependencies
++ Build outputs
++ Cache
++ Databases
+* How to select/stage files
+#+BEGIN_SRC shell -i :exports code
+git add hello.c   # add to staging area
+#+END_SRC
+* How to unstage files
+#+BEGIN_SRC shell -i :exports code
+git reset HEAD -- hello.c
+#+END_SRC
+* Commiting the state
+Add the state to the history:
+#+BEGIN_SRC shell -i
+git commit    # Opens your EDITOR
+#+END_SRC
+Then type in an appropriate message. Save and exit.
+* Tip
+#+ATTR_REVEAL: :frag (appear)
+*Keep your commits short and commit messages descriptive.*
+#+ATTR_REVEAL: :frag (appear)
+It is hard to achieve but start from now and hopefully you will start to embrace
+it and make others happy.
+#+ATTR_REVEAL: :frag (appear)
+*Commit often*
+#+ATTR_REVEAL: :frag (appear)
+This will help you achieve the above.
+* Branch
+#+ATTR_REVEAL: :frag (appear)
++ After commiting, the states become a part of a branch.
++ The default branch name is ~master~.
++ Helps to create different timelines.
++ Technically, it is a pointer to specific commits.
+* List all branches
+#+BEGIN_SRC shell -i :exports code
+git branch -a
+#+END_SRC
+* Creating a new branch
+#+BEGIN_SRC shell -i :exports code
+git branch test  # branch from current commit
+#+END_SRC
+* Switch to a branch
+#+BEGIN_SRC shell -i :exports code
+git checkout test
+#+END_SRC
+Now the commits will be added to ~test~ branch.
+* Change in program
+#+BEGIN_SRC C -i :exports code
+#include <stdio.h>
+
+void greetings(const char *s) {
+  printf("Hello, %s!\n", s);
+}
+
+int main(int argc, char **argv) {
+  greetings(argv[1]);
+  return 0;
+}
+#+END_SRC
+* Then?
+1. Check if you made any changes
+2. Select/Add files
+3. Commit
+* Check for *NULL* in ~argv[1]~
+#+BEGIN_SRC C -i :exports code
+int main(int argc, char **argv)
+{
+  if (argc < 2)
+    greetings("World");
+  else
+    greetings(argv[1]);
+  return 0;
+}
+#+END_SRC
+* Add and commit
+* View the log
+#+BEGIN_SRC shell
+git log --graph --decorate --abbrev-commit --oneline
+#+END_SRC
+* Thank you
+#+BEGIN_EXPORT html
+<script type="text/javascript" src="canvas.js"></script>
+#+END_EXPORT
+#  LocalWords:  SHA
