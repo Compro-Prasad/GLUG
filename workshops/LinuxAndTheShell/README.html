@@ -11,7 +11,7 @@
 
 <link rel="stylesheet" href="../../reveal.js/css/theme/black.css" id="theme"/>
 
-<link rel="stylesheet" href="custom.css"/>
+<link rel="stylesheet" href="../custom.css"/>
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -31,345 +31,135 @@
 </section>
 
 <section>
-<section id="slide-orgcf3ff6f">
-<h2 id="orgcf3ff6f">Prerequisites for this workshop</h2>
+<section id="slide-org7adc380">
+<h2 id="org7adc380">Tools required</h2>
 <ul>
-<li class="fragment appear">Have a *nix system on your laptops</li>
-<li class="fragment appear">Basic understanding of files and directories</li>
-<li class="fragment appear">Basic understanding of text editors and browsers</li>
-
-</ul>
-
-</section>
-</section>
-<section>
-<section id="slide-orgca21859">
-<h2 id="orgca21859">Open</h2>
-<ul>
-<li class="fragment appear">Text Editor (For notes and questions)</li>
-<li class="fragment appear">Terminal (Apparatus)</li>
-<li class="fragment appear">File Manager (See things graphically)</li>
+<li>Text Editor (For notes and questions)</li>
+<li>Terminal (Apparatus)</li>
+<li>File Manager (See things graphically)</li>
 
 </ul>
 </section>
 </section>
 <section>
-<section id="slide-org413764e">
-<h2 id="org413764e">What is *nix?</h2>
+<section id="slide-org62c1e00">
+<h2 id="org62c1e00">What is <b>*nix</b>?</h2>
 <p>
-Unix and Unix like systems are commonly referred to as *nix
+<b>*nix</b> represents <i>Unix</i> and <i>Unix like</i> systems
 </p>
 </section>
 </section>
 <section>
-<section id="slide-org3d624aa">
-<h2 id="org3d624aa">Topics to be covered</h2>
+<section id="slide-org5dfba1c">
+<h2 id="org5dfba1c">Topics to be covered</h2>
 <ul>
-<li class="fragment appear">The shell</li>
-<li class="fragment appear">Basic commands</li>
-<li class="fragment appear">Linux file system(not full)</li>
+<li>The shell</li>
+<li>Basic commands</li>
+<li>Linux file system</li>
 
 </ul>
 </section>
 </section>
 <section>
-<section id="slide-org030f047">
-<h2 id="org030f047">Why Linux?</h2>
+<section id="slide-org1ce3a88">
+<h2 id="org1ce3a88">Why Linux?</h2>
 <ul>
-<li class="fragment appear">Working of Computers can be taught in a better way</li>
-<li class="fragment appear">Grab its source code and modify anything</li>
-<li class="fragment appear">Set on the standards of <b>POSIX</b> (<b>UNIX</b>), <b>ANSI</b>, etc.</li>
-<li class="fragment appear">Developer friendly</li>
+<li>Understand Computers in a better way</li>
+<li>Developer friendly</li>
+<li>It is LICENCED to be hacker friendly</li>
+<li>It is your computer. Know how to fix it.</li>
 
 </ul>
 </section>
 </section>
 <section>
-<section id="slide-org6965d31">
-<h2 id="org6965d31">Why not Linux?</h2>
+<section id="slide-orga8e6898">
+<h2 id="orga8e6898">Why not Linux?</h2>
 <ul>
-<li class="fragment appear">You are religious</li>
-<li class="fragment appear">You have lots of money</li>
-<li class="fragment appear">You are lazy</li>
-<li class="fragment appear">You fear the console</li>
+<li>You are religious</li>
+<li>You are lazy</li>
+<li>You fear the console</li>
 
 </ul>
 </section>
 </section>
 <section>
-<section id="slide-org38ba651">
-<h2 id="org38ba651">The <code>"Hello World!"</code> program</h2>
-<ul>
-<li class="fragment appear"><p>
-The command
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-shell" id="hello-world-in-shell"><span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">'Hello World!'</span>
-</pre>
-</div></li>
-<li class="fragment appear"><p>
-The output
-</p>
-<pre class="example">
+<section id="slide-orgca5b207">
+<h2 id="orgca5b207">The <code>"Hello World!"</code> program</h2>
+<pre class="example" id="hello-world-in-shell">
+$ echo 'Hello World!'
 Hello World!
-</pre></li>
+$ █
+</pre>
+</section>
+</section>
+<section>
+<section id="slide-orgab363bb">
+<h2 id="orgab363bb">Everything is a FILE on *nix systems</h2>
+<ul>
+<li>Storage Devices</li>
+<li>I/O Devices</li>
+<li>Memory</li>
+<li>You can find these in the <code>/dev/</code> directory</li>
 
 </ul>
 
 </section>
 </section>
 <section>
-<section id="slide-org2765bdb">
-<h2 id="org2765bdb">Console vs Shell vs Terminal</h2>
-<div class="outline-text-2" id="text-org2765bdb">
-</div></section>
-<section id="slide-org6b1091a">
-<h3 id="org6b1091a">Console composes of</h3>
-<ul>
-<li class="fragment appear">Terminal drivers for input and output [ <code>/dev/tty*</code> ]</li>
-<li class="fragment appear">Shell for interfacing with the OS and the user</li>
-
-</ul>
-
-</section>
-<section id="slide-org06983e7">
-<h3 id="org06983e7">The Shell</h3>
-<ul>
-<li class="fragment appear">It is used to interface with the operating system</li>
-<li class="fragment appear"><p>
-To see the name of your shell run:
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-shell" id="name-of-shell"><span style="color: #F92672;">echo</span> $<span style="color: #FD971F;">SHELL</span>
-</pre>
-</div></li>
-<li class="fragment appear"><p>
-My output
-</p>
-<pre class="example">
-/bin/bash
-</pre></li>
-
-<li class="fragment appear">Other cool shells worth trying out are
-<ul>
-<li class="fragment appear"><code>fish</code>, <code>zsh</code>, <code>csh</code>, etc.</li>
-
-</ul></li>
-
-</ul>
-</section>
-<section id="slide-orge9adc6d">
-<h3 id="orge9adc6d">Terminal</h3>
-<ul>
-<li class="fragment appear">The most common misinterpreted buzzword for consoles</li>
-<li class="fragment appear">It is actually the DRIVER required to run a console</li>
-<li class="fragment appear">Has a legacy name known as <code>"tty"</code> or TeleTYpewriter</li>
-<li class="fragment appear"><p>
-To know what terminal driver you are using, run:
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-shell"><span style="color: #F92672;">echo</span> $<span style="color: #FD971F;">TERM</span>
-</pre>
-</div></li>
-
-</ul>
-
-</section>
-<section id="slide-org61240fc">
-<h3 id="org61240fc">But what are you running?</h3>
-<ul>
-<li class="fragment appear">A shell</li>
-<li class="fragment appear">A console</li>
-<li class="fragment appear">A terminal</li>
-
-</ul>
-
-</section>
-<section id="slide-orgb3b6921">
-<h3 id="orgb3b6921">None</h3>
-<p class="fragment appear">
-You are running a terminal emulator
-</p>
-
-</section>
-</section>
-<section>
-<section id="slide-orgf0d9b59">
-<h2 id="orgf0d9b59">Everything is a FILE in *nix systems</h2>
+<section id="slide-org1001051">
+<h2 id="org1001051">Environment variables</h2>
 <p>
-Even a Wikipedia article exists on <i>Everything is a File</i>
+These variables <b>govern the way applications communicate with the OS</b> to
+access certain resources.
 </p>
+
+<p>
+Some examples are:
+</p>
+<ul>
+<li><code>$PATH</code>: Stores location of executables on the system</li>
+<li><code>$PWD</code>: Stores the current directory</li>
+<li>And lots more &#x2026;</li>
+
+</ul>
+
 </section>
 </section>
 <section>
-<section id="slide-orgc2e521a">
-<h2 id="orgc2e521a">Time elapsed since last startup</h2>
-<div class="org-src-container">
-
-<pre  class="src src-shell" id="uptime-command">uptime -p
-</pre>
+<section id="slide-orgf0d79eb">
+<h2 id="orgf0d79eb">Most basic commands</h2>
+<div class="outline-text-2" id="text-orgf0d79eb">
 </div>
-<pre class="example">
-up 2 days, 23 hours, 38 minutes
-</pre>
-
 </section>
+<section id="slide-org0842777">
+<h3 id="org0842777"><code>pwd</code> - Shows value of <code>$PWD</code></h3>
 </section>
-<section>
-<section id="slide-org813b391">
-<h2 id="org813b391"><code>pwd</code> command</h2>
+<section id="slide-orgb558ee6">
+<h3 id="orgb558ee6"><code>ls</code> - List files in <code>$PWD</code></h3>
+</section>
+<section id="slide-org970d58d">
+<h3 id="org970d58d"><code>cd path</code> - Change <code>$PWD</code></h3>
+<div class="outline-text-3" id="text-org970d58d">
+</div>
+</section>
+<section id="slide-org2364f04">
+<h4 id="org2364f04">What is a <i>Path</i>?</h4>
 <p>
-To check which directory you are currently in
-</p>
-
-</section>
-</section>
-<section>
-<section id="slide-orgb586bab">
-<h2 id="orgb586bab"><code>ls</code> command - Lists files</h2>
-<ul>
-<li class="fragment appear"><p>
-Syntax:
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-shell">ls &lt;PATH&gt;
-</pre>
-</div></li>
-<li class="fragment appear">If <code>&lt;PATH&gt;</code> is not provided then it defaults to the PWD</li>
-<li class="fragment appear">To show all files try <code>"ls -A"</code></li>
-<li class="fragment appear">To get long listing use <code>"ls -l"</code></li>
-
-</ul>
-</section>
-</section>
-<section>
-<section id="slide-org4039be8">
-<h2 id="org4039be8">How to long list all files?</h2>
-<ul>
-<li class="fragment appear"><code>ls -l-A</code></li>
-<li class="fragment appear"><code>ls -lA</code></li>
-<li class="fragment appear"><code>ls -l -A</code></li>
-<li class="fragment appear"><code>ls -Al</code></li>
-
-</ul>
-</section>
-</section>
-<section>
-<section id="slide-org3e6a460">
-<h2 id="org3e6a460">Where to get help?</h2>
-<ul>
-<li class="fragment appear"><code>&lt;TAB&gt;</code> key</li>
-<li class="fragment appear"><code>man</code> (ual) pages</li>
-<li class="fragment appear"><code>&lt;cmd&gt; -h</code></li>
-<li class="fragment appear"><code>&lt;cmd&gt; --help</code></li>
-<li class="fragment appear">Search Engines</li>
-<li class="fragment appear">Ask someone</li>
-
-</ul>
-</section>
-</section>
-<section>
-<section id="slide-orge5385a5">
-<h2 id="orge5385a5"><code>"/"</code> - The Root directory</h2>
-<ul>
-<li class="fragment appear">The base of the file system</li>
-<li class="fragment appear">All other directories are listed inside it</li>
-<li class="fragment appear">You cannot go outside it</li>
-
-</ul>
-</section>
-</section>
-<section>
-<section id="slide-org0e11ff5">
-<h2 id="org0e11ff5">The binaries directory</h2>
-<ul>
-<li class="fragment appear"><code>/sbin</code>
-<ul>
-<li>Binaries needed for booting</li>
-<li>Low-level system repair</li>
-
-</ul></li>
-
-<li class="fragment appear"><code>/bin</code>
-<ul>
-<li>Binaries needed for normal system functioning</li>
-
-</ul></li>
-
-<li class="fragment appear"><code>/usr/bin</code>
-<ul>
-<li>Application binaries</li>
-<li>Accessed by logged in users</li>
-
-</ul></li>
-
-<li class="fragment appear"><code>/usr/sbin</code>
-<ul>
-<li>Application binaries that support or</li>
-<li>Configure stuff in <code>/sbin</code></li>
-
-</ul></li>
-
-</ul>
-</section>
-</section>
-<section>
-<section id="slide-org80210a2">
-<h2 id="org80210a2">The <code>"/home"</code> directory</h2>
-<ul>
-<li class="fragment appear"><p>
-Run the following command:
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-shell"><span style="color: #F92672;">echo</span> $<span style="color: #FD971F;">HOME</span>
-</pre>
-</div></li>
-<li class="fragment appear"><p>
-A generalized output
-</p>
-<pre class="example">
-/home/user
-</pre></li>
-
-</ul>
-</section>
-</section>
-<section>
-<section id="slide-org2a40590">
-<h2 id="org2a40590"><code>"/boot"</code> - The boot directory</h2>
-<p>
-Keeps the binaries and configurations required at boot time
+A <i>path</i> defines the location of a file
 </p>
 </section>
-</section>
-<section>
-<section id="slide-orga2f28b2">
-<h2 id="orga2f28b2">The <code>&lt;PATH&gt;</code></h2>
+<section id="slide-org6da9432">
+<h4 id="org6da9432">Types of <i>Path</i></h4>
 <ul>
-<li class="fragment appear">Defines the location of a file in the system</li>
-<li class="fragment appear">It is of two types
-<ul>
-<li class="fragment appear">Absolute</li>
-<li class="fragment appear">Relative</li>
-
-</ul></li>
-<li class="fragment appear"><code>"/bin/"</code> is absolute but <code>"bin/"</code> is relative to the PWD</li>
+<li><b>Absolute</b> - <code>/home/username/emacs.pdf</code></li>
+<li><b>Relative</b> - <code>username/emacs.pdf</code> is the path relative to <code>/home</code>
+working directory</li>
 
 </ul>
-<p class="fragment appear">
-So, whatever you type means different in different cases
-</p>
-
 </section>
-</section>
-<section>
-<section id="slide-org56706aa">
-<h2 id="org56706aa">Special directories</h2>
+<section id="slide-org089e118">
+<h4 id="org089e118">Special paths</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -381,150 +171,129 @@ So, whatever you type means different in different cases
 <tbody>
 <tr>
 <td class="org-left"><code>~</code></td>
-<td class="org-left">Home Directory</td>
+<td class="org-left">Home directory</td>
 </tr>
 
 <tr>
 <td class="org-left"><code>.</code></td>
-<td class="org-left">Present Directory</td>
+<td class="org-left">Current directory</td>
 </tr>
 
 <tr>
 <td class="org-left"><code>..</code></td>
-<td class="org-left">Previous Directory</td>
+<td class="org-left">Previous directory</td>
 </tr>
 
 <tr>
 <td class="org-left"><code>/</code></td>
-<td class="org-left">Root Directory</td>
+<td class="org-left">Root directory</td>
 </tr>
 </tbody>
 </table>
 </section>
 </section>
 <section>
-<section id="slide-orgd3f288a">
-<h2 id="orgd3f288a"><code>cd &lt;PATH&gt;</code> - Change directory</h2>
+<section id="slide-org6a932cd">
+<h2 id="org6a932cd">Time elapsed since last startup</h2>
+<div class="org-src-container">
+
+<pre  class="src src-shell" id="uptime-command"><span style="color: #5e9ba1034758;">uptime</span> <span style="color: #e4a16d4f5b4f;">-p</span>
+</pre>
+</div>
+<pre class="example">
+up 2 days, 23 hours, 38 minutes
+
+</pre>
 </section>
 </section>
 <section>
-<section id="slide-orgedfe73e">
-<h2 id="orgedfe73e">True and False</h2>
+<section id="slide-org8e0698b">
+<h2 id="org8e0698b"><code>"/"</code> - The Root directory</h2>
 <ul>
-<li class="fragment appear"><p>
-Run
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-shell">true
-false
-</pre>
-</div></li>
-<li class="fragment appear">Return values respectively are 0 and 1</li>
+<li>The base of the file system</li>
+<li>All other directories are listed inside it</li>
+<li>Even the external devices are mounted inside it</li>
+<li>You cannot go outside it</li>
 
 </ul>
 </section>
 </section>
 <section>
-<section id="slide-org34c819d">
-<h2 id="org34c819d">Command = Function</h2>
-<p>
-<code>func a b c</code> = func(a, b, c)
-</p>
-<p class="fragment appear">
-Here <code>func</code> is the command and <code>a</code>, <code>b</code>, <code>c</code> are the arguments
-</p>
+<section id="slide-org2dc837a">
+<h2 id="org2dc837a"><code>which cmd</code> - Prints path of the executable</h2>
+<div class="outline-text-2" id="text-org2dc837a">
+</div>
+</section>
+<section id="slide-orga269e85">
+<h3 id="orga269e85"><code>/sbin</code>, <code>/bin</code> - Location of commonly used binaries</h3>
 </section>
 </section>
 <section>
-<section id="slide-org1d484e4">
-<h2 id="org1d484e4">Exercise</h2>
+<section id="slide-org34f33bb">
+<h2 id="org34f33bb"><code>/home/username</code> - Home folder of <code>username</code></h2>
+</section>
+</section>
+<section>
+<section id="slide-org182f539">
+<h2 id="org182f539"><code>/boot</code> - Boot files are located here</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf746b98">
+<h2 id="orgf746b98">Each and every command returns an integer after execution</h2>
 <ul>
-<li class="fragment appear"><p>
-Open a text editor &amp; write the following in it
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-C"><span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">argc</span>, <span style="color: #66D9EF;">char</span> **<span style="color: #FD971F;">argv</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
-  <span style="color: #F92672;">return</span> argc - 1;
-<span style="color: #AE81FF;">}</span>
-</pre>
-</div></li>
-<li class="fragment appear">Save it as <i>args.c</i> in your <code>Documents/</code> directory</li>
-<li class="fragment appear"><p>
-Run
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-shell">gcc -o args args.c
-./args &amp;&amp; <span style="color: #F92672;">echo</span> $<span style="color: #FD971F;">?</span>
-./args -o args args.c &amp;&amp; <span style="color: #F92672;">echo</span> $<span style="color: #FD971F;">?</span>
-</pre>
-</div></li>
-<li class="fragment appear"><p>
-Rectify
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-shell">./args -o args args.c || <span style="color: #F92672;">echo</span> $<span style="color: #FD971F;">?</span>
-</pre>
-</div></li>
+<li><code>0</code> represents <b>success</b></li>
+<li><code>Non-zero</code> represents <b>failure</b> of the command</li>
+<li><code>echo $?</code> - Prints return value of last command</li>
 
 </ul>
-
 </section>
 </section>
 <section>
-<section id="slide-org8feffff">
-<h2 id="org8feffff">Make a directory</h2>
+<section id="slide-orgf1e94d6">
+<h2 id="orgf1e94d6">Make a directory</h2>
 <div class="org-src-container">
 
-<pre  class="src src-shell">mkdir &lt;dir_name&gt;
+<pre  class="src src-shell"><span style="color: #e9c8644b8681;">mkdir</span> &lt;<span style="color: #00009dabee86;">dir_name</span>&gt;
 </pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-orgb9e8c7d">
-<h2 id="orgb9e8c7d">Make an empty file</h2>
+<section id="slide-org7ab497e">
+<h2 id="org7ab497e">Make an empty file</h2>
 <div class="org-src-container">
 
-<pre  class="src src-shell">touch &lt;file_name&gt;
+<pre  class="src src-shell"><span style="color: #0000a67e6d82;">touch</span> &lt;<span style="color: #68179fac418f;">file_name</span>&gt;
 </pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-org9fe6899">
-<h2 id="org9fe6899">Remove an empty directory</h2>
+<section id="slide-orgc8bfca0">
+<h2 id="orgc8bfca0">Remove an empty directory</h2>
+<div class="org-src-container">
+
+<pre  class="src src-shell"><span style="color: #0000a887b6ad;">rmdir</span> &lt;<span style="color: #00009dabee86;">dir_name</span>&gt;
+</pre>
+</div>
 <p>
 Use this when safety is the first priority
 </p>
-<div class="org-src-container">
-
-<pre  class="src src-shell">rmdir &lt;dir_name&gt;
-</pre>
-</div>
 
 </section>
 </section>
 <section>
-<section id="slide-org374e05e">
-<h2 id="org374e05e">Remove any directory</h2>
-<ul>
-<li class="fragment appear"><p>
-Syntax
-</p>
+<section id="slide-org383b5e7">
+<h2 id="org383b5e7">Remove any directory</h2>
 <div class="org-src-container">
 
-<pre  class="src src-shell">rm -rf &lt;dir_name&gt;
+<pre  class="src src-shell"><span style="color: #208ca595648b;">rm</span> <span style="color: #0000a488dd0c;">-rf</span> &lt;<span style="color: #00009dabee86;">dir_name</span>&gt;
 </pre>
-</div></li>
-<li class="fragment appear"><p>
-Option description
-</p>
+</div>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -544,165 +313,127 @@ Option description
 <td class="org-left">Force</td>
 </tr>
 </tbody>
-</table></li>
-
-</ul>
+</table>
 </section>
 </section>
 <section>
-<section id="slide-org2f7c481">
-<h2 id="org2f7c481">CLI Editors</h2>
-<div class="outline-text-2" id="text-org2f7c481">
-</div></section>
-<section id="slide-orgd9f1692">
-<h3 id="orgd9f1692">nano</h3>
+<section id="slide-org9e6c445">
+<h2 id="org9e6c445">Editors</h2>
 <ul>
-<li class="fragment appear"><code>^X</code> to exit</li>
-<li class="fragment appear"><code>M-I</code> to enable Auto Indent</li>
-
-</ul>
-<p class="fragment appear">
-<code>M</code> = <code>ESC</code> or <code>Alt</code>
-</p>
-</section>
-<section id="slide-org94e5a5a">
-<h3 id="org94e5a5a">vi</h3>
-<ul>
-<li class="fragment appear">A modal editor
-<ul>
-<li class="fragment appear">Get into Insert mode(<code>I</code> or <code>A</code>)</li>
-<li class="fragment appear">Get into Command mode(<code>ESC</code>)</li>
-
-</ul></li>
-<li class="fragment appear">In command mode
-<ul>
-<li class="fragment appear">Save a file(<code>:w filename</code>)</li>
-<li class="fragment appear">Quit (<code>:q</code>)</li>
-<li class="fragment appear">Force Quit (<code>:q!</code>)</li>
-<li class="fragment appear">Save and Quit (<code>:wq</code> or <code>:x</code>)</li>
-<li class="fragment appear">Auto indent (<code>:set autoindent</code>)</li>
-
-</ul></li>
+<li>ed</li>
+<li>nano</li>
+<li>vi</li>
+<li>Emacs</li>
 
 </ul>
 </section>
-</section>
-<section>
-<section id="slide-orgb7c5cc2">
-<h2 id="orgb7c5cc2">Job control</h2>
-<div class="outline-text-2" id="text-orgb7c5cc2">
-</div></section>
-<section id="slide-org9722b7f">
-<h3 id="org9722b7f">Aborting a process</h3>
+<section id="slide-orgef9b598">
+<h3 id="orgef9b598">nano</h3>
+<ul>
+<li><code>^X</code> to exit</li>
+<li><code>M-I</code> to enable Auto Indent</li>
+
+</ul>
 <p>
-One of its forms is Ctrl-C or ^C
+<code>M</code> = <code>ESC</code> or <code>Alt</code> <br />
+<code>^</code> = <code>Ctrl</code>
 </p>
 </section>
-<section id="slide-org93fef99">
-<h3 id="org93fef99">Pause a process</h3>
+<section id="slide-orge4513ab">
+<h3 id="orge4513ab">vi</h3>
 <ul>
-<li class="fragment appear">Use Ctrl-Z to pause the currently running process</li>
-<li class="fragment appear">Use <code>fg</code> command to resume the process to run in the <code>ForeGround</code></li>
-<li class="fragment appear">Use <code>bg</code> command to resume the process to run in the <code>BackGround</code></li>
+<li>A modal editor</li>
+<li>Get into Insert mode(<code>I</code> or <code>A</code>)
+<ul>
+<li>Get into Command mode(<code>ESC</code>)</li>
+
+</ul></li>
+<li>In command mode</li>
+<li>Save a file(<code>:w filename</code>)
+<ul>
+<li>Quit (<code>:q</code>)</li>
+<li>Force Quit (<code>:q!</code>)</li>
+<li>Save and Quit (<code>:wq</code> or <code>:x</code>)</li>
+<li>Auto indent (<code>:set autoindent</code>)</li>
+
+</ul></li>
 
 </ul>
 </section>
-<section id="slide-org1a0ebb7">
-<h3 id="org1a0ebb7">Running a process in the background</h3>
+</section>
+<section>
+<section id="slide-orge1651c2">
+<h2 id="orge1651c2">Controlling processes</h2>
+<div class="outline-text-2" id="text-orge1651c2">
+</div>
+</section>
+<section id="slide-org802749e">
+<h3 id="org802749e"><code>Ctrl+C</code> force quits a running process</h3>
+</section>
+<section id="slide-org762a8f0">
+<h3 id="org762a8f0">Pause a process</h3>
+<ul>
+<li><code>Ctrl-Z</code> pauses the currently running process</li>
+<li><code>fg</code> resumes the process in the <code>ForeGround</code></li>
+<li><code>bg</code> resumes the process in the <code>BackGround</code></li>
+
+</ul>
+</section>
+<section id="slide-orga61bd40">
+<h3 id="orga61bd40">Running a process in the background</h3>
 <div class="org-src-container">
 
-<pre  class="src src-shell">&lt;full_command&gt; &amp;
+<pre  class="src src-shell">&lt;<span style="color: #0000a8b0b19d;">full_command</span>&gt; &amp;
+</pre>
+</div>
+
+</section>
+<section id="slide-orgdc3a5a7">
+<h3 id="orgdc3a5a7">Listing running processes</h3>
+<div class="org-src-container">
+
+<pre  class="src src-shell"><span style="color: #afe48ccb285f;">ps</span> <span style="color: #ccdd7ec0382f;">-e</span>   <span style="color: #75715E;"># </span><span style="color: #75715E;">Gives simple list</span>
+<span style="color: #afe48ccb285f;">ps</span> <span style="color: #ce2e6f1ec053;">aux</span>  <span style="color: #75715E;"># </span><span style="color: #75715E;">Gives verbose list</span>
+<span style="color: #e75064769353;">top</span>     <span style="color: #75715E;"># </span><span style="color: #75715E;">Priority based ordering of processes</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-org446de91">
+<h3 id="org446de91">Kill a process</h3>
+<div class="org-src-container">
+
+<pre  class="src src-shell"><span style="color: #F92672;">kill</span> <span style="color: #AE81FF;">1234</span>           <span style="color: #75715E;"># </span><span style="color: #75715E;">Like ^C</span>
+<span style="color: #be1d75c4cee1;">killall</span> <span style="color: #cfcf7cfc3b00;">-9</span> <span style="color: #bcb47651cff0;">firefox</span>  <span style="color: #75715E;"># </span><span style="color: #75715E;">Force kill</span>
 </pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-org1f3704d">
-<h2 id="org1f3704d">List running processes</h2>
+<section id="slide-orgbe808c5">
+<h2 id="orgbe808c5">File redirection</h2>
 <ul>
-<li class="fragment appear"><p>
-Default usage
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-shell">ps -e
-</pre>
-</div></li>
-<li class="fragment appear"><p>
-Verbose usage
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-shell">ps aux
-</pre>
-</div></li>
-
-</ul>
-
-</section>
-</section>
-<section>
-<section id="slide-org663c29d">
-<h2 id="org663c29d">Signaling a process</h2>
-<p>
-Signals are sent to a process using the <code>kill</code> command
-<img src="66795398.jpg" alt="66795398.jpg" />
-</p>
-
-</section>
-<section id="slide-org56ef2c0">
-<h3 id="org56ef2c0">Kill a process</h3>
-<ul>
-<li class="fragment appear"><p>
-Give a last wish
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-shell"><span style="color: #F92672;">kill</span> 1234
-</pre>
-</div></li>
-<li class="fragment appear"><p>
-Show no mercy
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-shell"><span style="color: #F92672;">kill</span> -9 1234
-</pre>
-</div></li>
-
-</ul>
-
-</section>
-</section>
-<section>
-<section id="slide-orge234af9">
-<h2 id="orge234af9">File redirection</h2>
-<ul>
-<li class="fragment appear">Send output elsewhere</li>
-<li class="fragment appear"><p>
+<li>Send output elsewhere</li>
+<li><p>
 Example
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-shell">ls -l &gt; ls.txt   <span style="color: #75715E;"># </span><span style="color: #75715E;">Sends output(stdout) to ls.txt</span>
-cat &lt; ls.txt     <span style="color: #75715E;"># </span><span style="color: #75715E;">Sends input from ls.txt to cat</span>
+<pre  class="src src-shell"><span style="color: #b6f389d72a64;">ls</span> <span style="color: #e4886d675b0c;">-l</span> &gt; <span style="color: #9a1f947328f4;">ls.txt</span>   <span style="color: #75715E;"># </span><span style="color: #75715E;">Sends output(stdout) to ls.txt</span>
+<span style="color: #ea5c65de76f3;">cat</span> &lt; <span style="color: #9a1f947328f4;">ls.txt</span>     <span style="color: #75715E;"># </span><span style="color: #75715E;">Sends input from ls.txt to cat</span>
 </pre>
 </div></li>
-<li class="fragment appear">Replacing <code>&gt;</code> with <code>&gt;&gt;</code> appends to the file</li>
-<li class="fragment appear"><code>stderr</code> is represented as <code>2&gt;</code></li>
+<li>Replacing <code>&gt;</code> with <code>&gt;&gt;</code> appends to the file</li>
+<li><code>stderr</code> is represented as <code>2&gt;</code></li>
 
 </ul>
 
 </section>
 </section>
 <section>
-<section id="slide-org86d87a6">
-<h2 id="org86d87a6"><code>/dev</code> - The devices</h2>
-<ul>
-<li class="fragment appear">Contains device files</li>
-<li class="fragment appear">Helps in directly interacting with hardware</li>
-<li class="fragment appear">Some files worth mentioning
+<section id="slide-org5f49a89">
+<h2 id="org5f49a89"><code>/dev</code> - The devices</h2>
 <ul>
 <li><code>/dev/null</code></li>
 <li><code>/dev/zero</code></li>
@@ -710,21 +441,19 @@ cat &lt; ls.txt     <span style="color: #75715E;"># </span><span style="color: #
 <li><code>/dev/input/mouse0</code> (may not work)</li>
 <li><code>/dev/sd?*/</code></li>
 
-</ul></li>
-
 </ul>
 
 </section>
 </section>
 <section>
-<section id="slide-orga2b7001">
-<h2 id="orga2b7001">Pipes</h2>
+<section id="slide-orgfe12f85">
+<h2 id="orgfe12f85">Pipes</h2>
 
 </section>
 </section>
 <section>
-<section id="slide-orgb1bea63">
-<h2 id="orgb1bea63">Questions</h2>
+<section id="slide-org79d127f">
+<h2 id="org79d127f">Questions</h2>
 </section>
 </section>
 </div>

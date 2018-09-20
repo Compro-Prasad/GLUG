@@ -5,89 +5,63 @@
 #+REVEAL_THEME: black
 #+REVEAL_EXTRA_CSS: ../custom.css
 
-* Prerequisites for this workshop
-#+ATTR_REVEAL: :frag (appear)
-+ Have a *nix system on your laptops
-+ Basic understanding of files and directories
-+ Basic understanding of text editors and browsers
-* Open
-#+ATTR_REVEAL: :frag (appear)
+* Tools required
 + Text Editor (For notes and questions)
 + Terminal (Apparatus)
 + File Manager (See things graphically)
-* What is *nix?
-Unix and Unix like systems are commonly referred to as *nix
+* What is **nix*?
+**nix* represents /Unix/ and /Unix like/ systems
 * Topics to be covered
-#+ATTR_REVEAL: :frag (appear)
 + The shell
 + Basic commands
-+ Linux file system(not full)
++ Linux file system
 * Why Linux?
-#+ATTR_REVEAL: :frag (appear)
-+ Working of Computers can be taught in a better way
-+ Grab its source code and modify anything
-+ Set on the standards of *POSIX* (*UNIX*), *ANSI*, etc.
++ Understand Computers in a better way
 + Developer friendly
++ It is LICENCED to be hacker friendly
++ It is your computer. Know how to fix it.
 * Why not Linux?
-#+ATTR_REVEAL: :frag (appear)
 + You are religious
-+ You have lots of money
 + You are lazy
 + You fear the console
 * The ="Hello World!"= program
-#+ATTR_REVEAL: :frag (appear)
-+ The command
-  #+NAME: hello-world-in-shell
-  #+BEGIN_SRC shell :exports both :cache yes
-  echo 'Hello World!'
-  #+END_SRC
-+ The output
-  #+RESULTS[bdd19f3d6c0729c793788791b9ae3dcf60925676]: hello-world-in-shell
-  : Hello World!
+#+NAME: hello-world-in-shell
+#+BEGIN_EXAMPLE
+$ echo 'Hello World!'
+Hello World!
+$ █
+#+END_EXAMPLE
+* Everything is a FILE on *nix systems
++ Storage Devices
++ I/O Devices
++ Memory
++ You can find these in the =/dev/= directory
 
-* Console vs Shell vs Terminal
-** Console composes of
-#+ATTR_REVEAL: :frag (appear)
-+ Terminal drivers for input and output [ =/dev/tty*= ]
-+ Shell for interfacing with the OS and the user
+* Environment variables
+These variables *govern the way applications communicate with the OS* to
+access certain resources.
 
-** The Shell
-#+ATTR_REVEAL: :frag (appear)
-+ It is used to interface with the operating system
-+ To see the name of your shell run:
-  #+NAME: name-of-shell
-  #+BEGIN_SRC shell :exports both :cache yes
-    echo $SHELL
-  #+END_SRC
-+ My output
-  #+RESULTS[15232dd9a76117161d2d2396a6a6a3cec4d6b83b]: name-of-shell
-  : /bin/bash
+Some examples are:
++ =$PATH=: Stores location of executables on the system
++ =$PWD=: Stores the current directory
++ And lots more ...
 
-+ Other cool shells worth trying out are
-  #+ATTR_REVEAL: :frag (appear)
-  + =fish=, =zsh=, =csh=, etc.
-** Terminal
-#+ATTR_REVEAL: :frag (appear)
-+ The most common misinterpreted buzzword for consoles
-+ It is actually the DRIVER required to run a console
-+ Has a legacy name known as ="tty"= or TeleTYpewriter
-+ To know what terminal driver you are using, run:
-  #+BEGIN_SRC shell :exports code
-    echo $TERM
-  #+END_SRC
+* Most basic commands
 
-** But what are you running?
-#+ATTR_REVEAL: :frag (appear)
-+ A shell
-+ A console
-+ A terminal
-
-** None
-#+ATTR_REVEAL: :frag appear
-You are running a terminal emulator
-
-* Everything is a FILE in *nix systems
-Even a Wikipedia article exists on /Everything is a File/
+** =pwd= - Shows value of =$PWD=
+** =ls= - List files in =$PWD=
+** =cd path= - Change =$PWD=
+*** What is a /Path/?
+A /path/ defines the location of a file
+*** Types of /Path/
++ *Absolute* - =/home/username/emacs.pdf=
++ *Relative* - =username/emacs.pdf= is the path relative to =/home=
+  working directory
+*** Special paths
+| =~=  | Home directory     |
+| =.=  | Current directory  |
+| =..= | Previous directory |
+| =/=  | Root directory     |
 * Time elapsed since last startup
 #+NAME: uptime-command
 #+BEGIN_SRC shell :results output :exports both :cache yes
@@ -95,116 +69,20 @@ Even a Wikipedia article exists on /Everything is a File/
 #+END_SRC
 #+RESULTS[a48b79ef3365541dd80715d61cb5ceb16ea90280]: uptime-command
 : up 2 days, 23 hours, 38 minutes
-
-* =pwd= command
-To check which directory you are currently in
-
-* =ls= command - Lists files
-#+ATTR_REVEAL: :frag (appear)
-+ Syntax:
-  #+BEGIN_SRC shell :exports code
-    ls <PATH>
-  #+END_SRC
-+ If =<PATH>= is not provided then it defaults to the PWD
-+ To show all files try ="ls -A"=
-+ To get long listing use ="ls -l"=
-* How to long list all files?
-#+ATTR_REVEAL: :frag (appear)
-+ =ls -l-A=
-+ =ls -lA=
-+ =ls -l -A=
-+ =ls -Al=
-* =cd <PATH>= - Change directory
-* Where to get help?
-#+ATTR_REVEAL: :frag (appear)
-+ =<TAB>= key
-+ =man= (ual) pages
-+ =<cmd> -h=
-+ =<cmd> --help=
-+ Search Engines
-+ Ask someone
 * ="/"= - The Root directory
-#+ATTR_REVEAL: :frag (appear)
 + The base of the file system
 + All other directories are listed inside it
++ Even the external devices are mounted inside it
 + You cannot go outside it
-* The binaries directory
-#+ATTR_REVEAL: :frag (appear)
-+ =/sbin=
-  + Binaries needed for booting
-  + Low-level system repair
+* =which cmd= - Prints path of the executable
+** =/sbin=, =/bin= - Location of commonly used binaries
+* =/home/username= - Home folder of =username=
+* =/boot= - Boot files are located here
 
-+ =/bin=
-  + Binaries needed for normal system functioning
-
-+ =/usr/bin=
-  + Application binaries
-  + Accessed by logged in users
-
-+ =/usr/sbin=
-  + Application binaries that support or
-  + Configure stuff in =/sbin=
-* The ="/home"= directory
-#+ATTR_REVEAL: :frag (appear)
-+ Run the following command:
-  #+BEGIN_SRC shell :exports code :cache yes
-    echo $HOME
-  #+END_SRC
-+ A generalized output
-  #+RESULTS[de08a75445499dc5314c07a7b0955a2a21442948]:
-  : /home/user
-* ="/boot"= - The boot directory
-Keeps the binaries and configurations required at boot time
-* The =<PATH>=
-#+ATTR_REVEAL: :frag (appear)
-+ Defines the location of a file in the system
-+ It is of two types
-  #+ATTR_REVEAL: :frag (appear)
-  + Absolute
-  + Relative
-+ ="/bin/"= is absolute but ="bin/"= is relative to the PWD
-#+ATTR_REVEAL: :frag appear
-So, whatever you type means different in different cases
-
-* Special directories
-| =~=  | Home Directory     |
-| =.=  | Present Directory  |
-| =..= | Previous Directory |
-| =/=  | Root Directory     |
-* True and False
-#+ATTR_REVEAL: :frag (appear)
-+ Run
-  #+BEGIN_SRC shell :exports code :cache yes
-    true
-    false
-  #+END_SRC
-+ Return values respectively are 0 and 1
-* Command = Function
-=func a b c= = func(a, b, c)
-#+ATTR_REVEAL: :frag appear
-Here =func= is the command and =a=, =b=, =c= are the arguments
-* Exercise
-#+ATTR_REVEAL: :frag (appear)
-+ Open a text editor & write the following in it
-  #+BEGIN_SRC C -i :results value
-int main(int argc, char **argv) {
-  return argc - 1;
-}
-  #+END_SRC
-+ Save it as /args.c/ in your =Documents/= directory
-+ Run
-  #+BEGIN_SRC shell :exports code
-    gcc -o args args.c
-    ./args && echo $?
-    ./args -o args args.c && echo $?
-  #+END_SRC
-+ Rectify
-  #+BEGIN_SRC shell :exports code
-    ./args -o args args.c || echo $?
-  #+END_SRC
-
-#+RESULTS:
-
+* Each and every command returns an integer after execution
++ =0= represents *success*
++ =Non-zero= represents *failure* of the command
++ =echo $?= - Prints return value of last command
 * Make a directory
 #+BEGIN_SRC shell :exports code
   mkdir <dir_name>
@@ -216,81 +94,62 @@ int main(int argc, char **argv) {
 #+END_SRC
 
 * Remove an empty directory
-Use this when safety is the first priority
 #+BEGIN_SRC shell :exports code
   rmdir <dir_name>
 #+END_SRC
+Use this when safety is the first priority
 
 * Remove any directory
-#+ATTR_REVEAL: :frag (appear)
-+ Syntax
-  #+BEGIN_SRC shell :exports code
-    rm -rf <dir_name>
-  #+END_SRC
-+ Option description
-  | -r | Recursively |
-  | -f | Force       |
-* CLI Editors
+#+BEGIN_SRC shell :exports code
+  rm -rf <dir_name>
+#+END_SRC
+| -r | Recursively |
+| -f | Force       |
+* Editors
++ ed
++ nano
++ vi
++ Emacs
 ** nano
-#+ATTR_REVEAL: :frag (appear)
 + =^X= to exit
 + =M-I= to enable Auto Indent
-#+ATTR_REVEAL: :frag appear
-=M= = =ESC= or =Alt=
+=M= = =ESC= or =Alt= \\
+=^= = =Ctrl=
 ** vi
-#+ATTR_REVEAL: :frag (appear)
 + A modal editor
-  #+ATTR_REVEAL: :frag (appear)
-  + Get into Insert mode(=I= or =A=)
++ Get into Insert mode(=I= or =A=)
   + Get into Command mode(=ESC=)
 + In command mode
-  #+ATTR_REVEAL: :frag (appear)
-  + Save a file(=:w filename=)
++ Save a file(=:w filename=)
   + Quit (=:q=)
   + Force Quit (=:q!=)
   + Save and Quit (=:wq= or =:x=)
   + Auto indent (=:set autoindent=)
-* Job control
-** Aborting a process
-One of its forms is Ctrl-C or ^C
+* Controlling processes
+** =Ctrl+C= force quits a running process
 ** Pause a process
-#+ATTR_REVEAL: :frag (appear)
-+ Use Ctrl-Z to pause the currently running process
-+ Use =fg= command to resume the process to run in the =ForeGround=
-+ Use =bg= command to resume the process to run in the =BackGround=
++ =Ctrl-Z= pauses the currently running process
++ =fg= resumes the process in the =ForeGround=
++ =bg= resumes the process in the =BackGround=
 ** Running a process in the background
 #+BEGIN_SRC shell
   <full_command> &
 #+END_SRC
 
-* List running processes
-#+ATTR_REVEAL: :frag (appear)
-+ Default usage
-  #+BEGIN_SRC shell :exports code
-    ps -e
-  #+END_SRC
-+ Verbose usage
-  #+BEGIN_SRC shell :exports code
-    ps aux
-  #+END_SRC
-
-* Signaling a process
-Signals are sent to a process using the =kill= command
-[[file:66795398.jpg]]
+** Listing running processes
+#+BEGIN_SRC shell :exports code
+  ps -e   # Gives simple list
+  ps aux  # Gives verbose list
+  top     # Priority based ordering of processes
+#+END_SRC
 
 ** Kill a process
-#+ATTR_REVEAL: :frag (appear)
-+ Give a last wish
-  #+BEGIN_SRC shell :exports code
-    kill 1234
-  #+END_SRC
-+ Show no mercy
-  #+BEGIN_SRC shell :exports code
-    kill -9 1234
-  #+END_SRC
+#+BEGIN_SRC shell :exports code
+  kill 1234           # Like ^C
+  killall -9 firefox  # Force kill
+#+END_SRC
 
 * File redirection
-#+ATTR_REVEAL: :frag (appear)
 + Send output elsewhere
 + Example
   #+BEGIN_SRC shell :exports code
@@ -301,15 +160,11 @@ Signals are sent to a process using the =kill= command
 + =stderr= is represented as =2>=
 
 * =/dev= - The devices
-#+ATTR_REVEAL: :frag (appear)
-+ Contains device files
-+ Helps in directly interacting with hardware
-+ Some files worth mentioning
-  + =/dev/null=
-  + =/dev/zero=
-  + =/dev/input/mice= (may not work)
-  + =/dev/input/mouse0= (may not work)
-  + =/dev/sd?*/=
++ =/dev/null=
++ =/dev/zero=
++ =/dev/input/mice= (may not work)
++ =/dev/input/mouse0= (may not work)
++ =/dev/sd?*/=
 
 * Pipes
 
