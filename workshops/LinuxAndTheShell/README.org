@@ -36,7 +36,6 @@ $ █
 + I/O Devices
 + Memory
 + You can find these in the =/dev/= directory
-
 * Environment variables
 These variables *govern the way applications communicate with the OS* to
 access certain resources.
@@ -62,6 +61,12 @@ A /path/ defines the location of a file
 | =.=  | Current directory  |
 | =..= | Previous directory |
 | =/=  | Root directory     |
+* Getting help
+#+BEGIN_SRC shell
+  man ls          # Manual entry for ls
+  help pwd        # Shell's pwd help
+  /bin/pwd --help # Command specific help
+#+END_SRC
 * Time elapsed since last startup
 #+NAME: uptime-command
 #+BEGIN_SRC shell :results output :exports both :cache yes
@@ -106,31 +111,37 @@ Use this when safety is the first priority
 | -r | Recursively |
 | -f | Force       |
 * Editors
-+ ed
-+ nano
-+ vi
-+ Emacs
++ ed - Simplest
++ nano - Easiest
++ vim - Best
++ Emacs - Elisp interpreter
 ** nano
 + =^X= to exit
 + =M-I= to enable Auto Indent
 =M= = =ESC= or =Alt= \\
 =^= = =Ctrl=
-** vi
-+ A modal editor
-+ Get into Insert mode(=I= or =A=)
-  + Get into Command mode(=ESC=)
-+ In command mode
-+ Save a file(=:w filename=)
-  + Quit (=:q=)
-  + Force Quit (=:q!=)
-  + Save and Quit (=:wq= or =:x=)
-  + Auto indent (=:set autoindent=)
+** vim
+It is a *modal editor*.
+| /Mode/       | /Comment/          |
+|--------------+--------------------|
+| Command      | Pressing shortcuts |
+| Insert       | Inserting text     |
+| Command line | Writing commands   |
+*** Remember
++ Press =ESC= to cancel action or go to *command mode*
++ Always be in command mode unless specified
++ Press =i= or =a= to get into *insert mode*
++ Press =:= to get into *command line mode*
+*** =:q!= - Force Quit
+*** =:x= - Save and Quit
+*** =:set autoindent= - Auto indent
 * Controlling processes
-** =Ctrl+C= force quits a running process
-** Pause a process
-+ =Ctrl-Z= pauses the currently running process
+** =Ctrl+C= sends *force quit* signal to a running process
+** =Ctrl+Z= to pause a process
+** After pausing you have two options
 + =fg= resumes the process in the =ForeGround=
 + =bg= resumes the process in the =BackGround=
++ Or kill it :)
 ** Running a process in the background
 #+BEGIN_SRC shell
   <full_command> &
@@ -149,6 +160,31 @@ Use this when safety is the first priority
   killall -9 firefox  # Force kill
 #+END_SRC
 
+* Network interaction
+** Get IP address from host name
+#+BEGIN_SRC shell
+  resolveip localhost
+#+END_SRC
+** Is a host connected in a network?
+#+BEGIN_SRC shell
+  ping 127.0.0.1 -c 1
+#+END_SRC
+** Restart network module [ **root** ]
+#+BEGIN_SRC shell
+  systemctl restart NetworkManager
+#+END_SRC
+** Changing proxy
+*** Set proxy
+#+BEGIN_SRC shell
+  export HTTP_PROXY='IP:PORT'
+  export HTTPS_PROXY='IP:PORT'
+  export http_proxy='IP:PORT'
+  export https_proxy='IP:PORT'
+#+END_SRC
+*** Unset proxy
+#+BEGIN_SRC shell
+  unset https_proxy, http_proxy, HTTP_PROXY, HTTPS_PROXY
+#+END_SRC
 * File redirection
 + Send output elsewhere
 + Example
@@ -162,8 +198,8 @@ Use this when safety is the first priority
 * =/dev= - The devices
 + =/dev/null=
 + =/dev/zero=
-+ =/dev/input/mice= (may not work)
-+ =/dev/input/mouse0= (may not work)
++ =/dev/input/mice=
++ =/dev/input/mouse0=
 + =/dev/sd?*/=
 
 * Pipes
