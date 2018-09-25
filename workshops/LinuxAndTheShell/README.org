@@ -5,6 +5,10 @@
 #+REVEAL_THEME: black
 #+REVEAL_EXTRA_CSS: ../custom.css
 
+
+* =SPACE= for next slide
+
+* =Shift+SPACE= for previous slide
 * Tools required
 + Text Editor (For notes and questions)
 + Terminal (Apparatus)
