@@ -209,4 +209,4 @@ Use =h=, =j=, =k= and =l= keys to select the region.
 
 * Pipes
 
-* Questions
+* The internet is your best friend
