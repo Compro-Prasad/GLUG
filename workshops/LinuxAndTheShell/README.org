@@ -201,21 +201,11 @@ Use =h=, =j=, =k= and =l= keys to select the region.
   unset https_proxy, http_proxy, HTTP_PROXY, HTTPS_PROXY
 #+END_SRC
 * File redirection
-+ Send output elsewhere
-+ Example
-  #+BEGIN_SRC shell :exports code
-    ls -l > ls.txt   # Sends output(stdout) to ls.txt
-    cat < ls.txt     # Sends input from ls.txt to cat
-  #+END_SRC
-+ Replacing =>= with =>>= appends to the file
-+ =stderr= is represented as =2>=
-
-* =/dev= - The devices
-+ =/dev/null=
-+ =/dev/zero=
-+ =/dev/input/mice=
-+ =/dev/input/mouse0=
-+ =/dev/sd?*/=
+#+BEGIN_SRC shell :exports code
+  ls -l > ls.txt     # stdout to ls.txt
+  ls /x 2> lserr.txt # stderr to lserr.txt
+  cat < ls.txt       # stdin from ls.txt
+#+END_SRC
 
 * Pipes
 
