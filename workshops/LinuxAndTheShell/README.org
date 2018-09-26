@@ -137,8 +137,19 @@ It is a *modal editor*.
 + Press =i= or =a= to get into *insert mode*
 + Press =:= to get into *command line mode*
 *** =:q!= - Force Quit
+*** =dd= - Deletes a line
+*** =v= - To enter visual mode
+Use =h=, =j=, =k= and =l= keys to select the region.
+- =x= - To *cut*
+- =y= - To *copy* / *yank*
+- =p= - To paste
 *** =:x= - Save and Quit
 *** =:set autoindent= - Auto indent
+*** Learn advanced vim from
+- [[https://www.digitalocean.com/community/tutorials/how-to-use-vim-for-advanced-editing-of-plain-text-or-code-on-a-vps--2][Digital Ocean]]
+- [[https://github.com/akrawchyk/awesome-vim][Awesome Vim]]
+- [[https://www.openvim.com/][Vim tutorial]]
+- [[https://vimvalley.com/][Advanced vim tutorial]] - Freemium
 * Controlling processes
 ** =Ctrl+C= sends *force quit* signal to a running process
 ** =Ctrl+Z= to pause a process
