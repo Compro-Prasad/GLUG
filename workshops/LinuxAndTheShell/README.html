@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <title>Linux And The Console</title>
-<meta name="author" content="(Compro Prasad)"/>
+<meta name="author" content="Compro Prasad"/>
 <style type="text/css">
 .underline { text-decoration: underline; }
 </style>
@@ -27,87 +27,83 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">Linux And The Console</h1>
+<section id="sec-title-slide">
+<h1 class="title">Linux And The Console</h1>
 </section>
-
 
 <section>
-<section id="slide-org62e0346">
-<h2 id="org62e0346"><code>SPACE</code> for next slide</h2>
+<section id="slide-orga265566">
+<h2 id="orga265566"><code>SPACE</code> for next slide</h2>
 
-</section>
-</section>
-<section>
-<section id="slide-orgf8e76c7">
-<h2 id="orgf8e76c7"><code>Shift+SPACE</code> for previous slide</h2>
 </section>
 </section>
 <section>
-<section id="slide-org4474ff2">
-<h2 id="org4474ff2">Tools required</h2>
+<section id="slide-org21defbf">
+<h2 id="org21defbf"><code>Shift+SPACE</code> for previous slide</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-org53376fb">
+<h2 id="org53376fb">Why are we having this session?</h2>
 <ul>
-<li>Text Editor (For notes and questions)</li>
-<li>Terminal (Apparatus)</li>
-<li>File Manager (See things graphically)</li>
+<li>Linux CLI is the very first thing that should be taught</li>
+<li>Widely used</li>
+<li>Automation is fun</li>
+<li>Its hard to make a GUI apps compared to CLI apps</li>
 
 </ul>
+
 </section>
 </section>
 <section>
-<section id="slide-org39fcfa2">
-<h2 id="org39fcfa2">What is <b>*nix</b>?</h2>
+<section id="slide-org1316531">
+<h2 id="org1316531">What is <b>*nix</b>?</h2>
 <p>
 <b>*nix</b> represents <i>Unix</i> and <i>Unix like</i> systems
 </p>
-</section>
-</section>
-<section>
-<section id="slide-org72f9390">
-<h2 id="org72f9390">Topics to be covered</h2>
-<ul>
-<li>The shell</li>
-<li>Basic commands</li>
-<li>Linux file system</li>
 
-</ul>
 </section>
 </section>
 <section>
-<section id="slide-orgc29d8a3">
-<h2 id="orgc29d8a3">Why Linux?</h2>
+<section id="slide-org2da1f89">
+<h2 id="org2da1f89">Why Linux?</h2>
 <ul>
 <li>Understand Computers in a better way</li>
 <li>Developer friendly</li>
-<li>It is LICENCED to be hacker friendly</li>
+<li>It is licenced to be hacker friendly</li>
 <li>It is your computer. Know how to fix it.</li>
 
 </ul>
+
 </section>
 </section>
 <section>
-<section id="slide-orgb00192f">
-<h2 id="orgb00192f">Why not Linux?</h2>
+<section id="slide-org24ed6fa">
+<h2 id="org24ed6fa">Why not Linux?</h2>
 <ul>
-<li>You are religious</li>
+<li>You are religious about your choices</li>
 <li>You are lazy</li>
 <li>You fear the console</li>
 
 </ul>
+
 </section>
 </section>
 <section>
-<section id="slide-org817df5e">
-<h2 id="org817df5e">The <code>"Hello World!"</code> program</h2>
-<pre class="example" id="hello-world-in-shell">
+<section id="slide-org76da129">
+<h2 id="org76da129">The <code>"Hello World!"</code> program</h2>
+<pre class="example" id="orgb556f78">
 $ echo 'Hello World!'
 Hello World!
 $ █
 </pre>
+
 </section>
 </section>
 <section>
-<section id="slide-org510dbb0">
-<h2 id="org510dbb0">Everything is a FILE on *nix systems</h2>
+<section id="slide-org725414d">
+<h2 id="org725414d">Everything is a FILE on *nix systems</h2>
 <ul>
 <li>Storage Devices</li>
 <li>I/O Devices</li>
@@ -115,11 +111,12 @@ $ █
 <li>You can find these in the <code>/dev/</code> directory</li>
 
 </ul>
+
 </section>
 </section>
 <section>
-<section id="slide-org47aec91">
-<h2 id="org47aec91">Environment variables</h2>
+<section id="slide-org212d082">
+<h2 id="org212d082">Environment variables</h2>
 <p>
 These variables <b>govern the way applications communicate with the OS</b> to
 access certain resources.
@@ -138,39 +135,43 @@ Some examples are:
 </section>
 </section>
 <section>
-<section id="slide-org384f603">
-<h2 id="org384f603">Most basic commands</h2>
-<div class="outline-text-2" id="text-org384f603">
+<section id="slide-org4ace69b">
+<h2 id="org4ace69b">Most basic commands</h2>
+<div class="outline-text-2" id="text-org4ace69b">
 </div>
 </section>
-<section id="slide-org6be309f">
-<h3 id="org6be309f"><code>pwd</code> - Shows value of <code>$PWD</code></h3>
+<section id="slide-org8ee2008">
+<h3 id="org8ee2008"><code>pwd</code> - Shows value of <code>$PWD</code></h3>
+
 </section>
-<section id="slide-org8bf03f9">
-<h3 id="org8bf03f9"><code>ls</code> - List files in <code>$PWD</code></h3>
+<section id="slide-org9943a5d">
+<h3 id="org9943a5d"><code>ls</code> - List files in <code>$PWD</code></h3>
+
 </section>
-<section id="slide-org1294b5a">
-<h3 id="org1294b5a"><code>cd path</code> - Change <code>$PWD</code></h3>
-<div class="outline-text-3" id="text-org1294b5a">
+<section id="slide-org117bd09">
+<h3 id="org117bd09"><code>cd path</code> - Change <code>$PWD</code></h3>
+<div class="outline-text-3" id="text-org117bd09">
 </div>
 </section>
-<section id="slide-org72f2ccc">
-<h4 id="org72f2ccc">What is a <i>Path</i>?</h4>
+<section id="slide-orgb4c5f74">
+<h4 id="orgb4c5f74">What is a <i>Path</i>?</h4>
 <p>
-A <i>path</i> defines the location of a file
+A <i>path</i> defines the location of a file in the file system
 </p>
+
 </section>
-<section id="slide-orgc9a2843">
-<h4 id="orgc9a2843">Types of <i>Path</i></h4>
+<section id="slide-org3e68aee">
+<h4 id="org3e68aee">Types of <i>Path</i></h4>
 <ul>
 <li><b>Absolute</b> - <code>/home/username/emacs.pdf</code></li>
 <li><b>Relative</b> - <code>username/emacs.pdf</code> is the path relative to <code>/home</code>
 working directory</li>
 
 </ul>
+
 </section>
-<section id="slide-org5155254">
-<h4 id="org5155254">Special paths</h4>
+<section id="slide-org58bfb4a">
+<h4 id="org58bfb4a">Special paths</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -201,37 +202,39 @@ working directory</li>
 </tr>
 </tbody>
 </table>
+
 </section>
 </section>
 <section>
-<section id="slide-org382e799">
-<h2 id="org382e799">Getting help</h2>
+<section id="slide-org5475968">
+<h2 id="org5475968">Getting help</h2>
 <div class="org-src-container">
 
-<pre  class="src src-shell"><span style="color: #e7906a316487;">man</span> <span style="color: #b6f389d72a64;">ls</span>          <span style="color: #75715E;"># </span><span style="color: #75715E;">Manual entry for ls</span>
-<span style="color: #F92672;">help</span> <span style="color: #de7667daa9a1;">pwd</span>        <span style="color: #75715E;"># </span><span style="color: #75715E;">Shell's pwd help</span>
-<span style="color: #89f298f02eaa;">/bin/pwd</span> <span style="color: #0000a8a79316;">--help</span> <span style="color: #75715E;"># </span><span style="color: #75715E;">Command specific help</span>
+<pre class="src src-shell">man ls          <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Manual entry for ls</span>
+help pwd        <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Shell's pwd help</span>
+/bin/pwd --help <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Command specific help</span>
 </pre>
 </div>
+
 </section>
 </section>
 <section>
-<section id="slide-org93ef5bf">
-<h2 id="org93ef5bf">Time elapsed since last startup</h2>
+<section id="slide-org2a10ebe">
+<h2 id="org2a10ebe">Time elapsed since last startup</h2>
 <div class="org-src-container">
 
-<pre  class="src src-shell" id="uptime-command"><span style="color: #5e9ba1034758;">uptime</span> <span style="color: #e4a16d4f5b4f;">-p</span>
+<pre class="src src-shell" id="uptime-command">uptime -p
 </pre>
 </div>
 <pre class="example">
 up 2 days, 23 hours, 38 minutes
-
 </pre>
+
 </section>
 </section>
 <section>
-<section id="slide-orgeb296c9">
-<h2 id="orgeb296c9"><code>"/"</code> - The Root directory</h2>
+<section id="slide-org977518d">
+<h2 id="org977518d"><code>"/"</code> - The Root directory</h2>
 <ul>
 <li>The base of the file system</li>
 <li>All other directories are listed inside it</li>
@@ -239,68 +242,83 @@ up 2 days, 23 hours, 38 minutes
 <li>You cannot go outside it</li>
 
 </ul>
-</section>
-</section>
-<section>
-<section id="slide-org18352c0">
-<h2 id="org18352c0"><code>which cmd</code> - Prints path of the executable</h2>
-<div class="outline-text-2" id="text-org18352c0">
-</div>
-</section>
-<section id="slide-org329a2f9">
-<h3 id="org329a2f9"><code>/sbin</code>, <code>/bin</code> - Location of commonly used binaries</h3>
-</section>
-</section>
-<section>
-<section id="slide-orge57773d">
-<h2 id="orge57773d"><code>/home/username</code> - Home folder of <code>username</code></h2>
-</section>
-</section>
-<section>
-<section id="slide-orgcf0cdcf">
-<h2 id="orgcf0cdcf"><code>/boot</code> - Boot files are located here</h2>
 
 </section>
 </section>
 <section>
-<section id="slide-orgad6e45f">
-<h2 id="orgad6e45f">Each and every command returns an integer after execution</h2>
+<section id="slide-org2c7df7f">
+<h2 id="org2c7df7f"><code>which cmd</code> - Prints path of an executable</h2>
+<div class="outline-text-2" id="text-org2c7df7f">
+</div>
+</section>
+<section id="slide-org7191165">
+<h3 id="org7191165"><code>/sbin</code>, <code>/bin</code> - Location of commonly used binaries</h3>
+
+</section>
+</section>
+<section>
+<section id="slide-org1d5e0d3">
+<h2 id="org1d5e0d3"><code>/home/username</code> - Home folder of <code>username</code></h2>
+
+</section>
+</section>
+<section>
+<section id="slide-org0141188">
+<h2 id="org0141188"><code>/boot</code> - Boot files are located here</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-org053d6ed">
+<h2 id="org053d6ed">Each and every command returns an integer after execution</h2>
 <ul>
 <li><code>0</code> represents <b>success</b></li>
 <li><code>Non-zero</code> represents <b>failure</b> of the command</li>
 <li><code>echo $?</code> - Prints return value of last command</li>
 
 </ul>
+
 </section>
 </section>
 <section>
-<section id="slide-org3855247">
-<h2 id="org3855247">Make a directory</h2>
+<section id="slide-org35b6e23">
+<h2 id="org35b6e23">Make a directory</h2>
 <div class="org-src-container">
 
-<pre  class="src src-shell"><span style="color: #e9c8644b8681;">mkdir</span> &lt;<span style="color: #00009dabee86;">dir_name</span>&gt;
+<pre class="src src-shell">mkdir &lt;dir_name&gt;
 </pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-org1dd94c2">
-<h2 id="org1dd94c2">Make an empty file</h2>
+<section id="slide-org27fcc64">
+<h2 id="org27fcc64">Make an empty file</h2>
 <div class="org-src-container">
 
-<pre  class="src src-shell"><span style="color: #0000a67e6d82;">touch</span> &lt;<span style="color: #68179fac418f;">file_name</span>&gt;
+<pre class="src src-shell">touch &lt;file_name&gt;
 </pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-org80af1e7">
-<h2 id="org80af1e7">Remove an empty directory</h2>
+<section id="slide-org5f4a57b">
+<h2 id="org5f4a57b">Show contents of a file</h2>
 <div class="org-src-container">
 
-<pre  class="src src-shell"><span style="color: #0000a887b6ad;">rmdir</span> &lt;<span style="color: #00009dabee86;">dir_name</span>&gt;
+<pre class="src src-shell">cat &lt;file_name&gt;
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orga5c398a">
+<h2 id="orga5c398a">Remove an empty directory</h2>
+<div class="org-src-container">
+
+<pre class="src src-shell">rmdir &lt;dir_name&gt;
 </pre>
 </div>
 <p>
@@ -310,11 +328,11 @@ Use this when safety is the first priority
 </section>
 </section>
 <section>
-<section id="slide-org090eae2">
-<h2 id="org090eae2">Remove any directory</h2>
+<section id="slide-org3566e9f">
+<h2 id="org3566e9f">Remove any directory</h2>
 <div class="org-src-container">
 
-<pre  class="src src-shell"><span style="color: #208ca595648b;">rm</span> <span style="color: #0000a488dd0c;">-rf</span> &lt;<span style="color: #00009dabee86;">dir_name</span>&gt;
+<pre class="src src-shell">rm -rf &lt;dir_name&gt;
 </pre>
 </div>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -337,11 +355,12 @@ Use this when safety is the first priority
 </tr>
 </tbody>
 </table>
+
 </section>
 </section>
 <section>
-<section id="slide-orgd7d8d8b">
-<h2 id="orgd7d8d8b">Editors</h2>
+<section id="slide-orgdfe00bc">
+<h2 id="orgdfe00bc">Editors</h2>
 <ul>
 <li>ed - Simplest</li>
 <li>nano - Easiest</li>
@@ -349,9 +368,10 @@ Use this when safety is the first priority
 <li>Emacs - Elisp interpreter</li>
 
 </ul>
+
 </section>
-<section id="slide-orgb0ad7bb">
-<h3 id="orgb0ad7bb">nano</h3>
+<section id="slide-org775eeb8">
+<h3 id="org775eeb8">nano (<a href="https://duckduckgo.com/?q=nano+cheatsheet&amp;t=ffab&amp;ia=cheatsheet&amp;iax=cheatsheet">Cheatsheet</a>)</h3>
 <ul>
 <li><code>^X</code> to exit</li>
 <li><code>M-I</code> to enable Auto Indent</li>
@@ -361,9 +381,10 @@ Use this when safety is the first priority
 <code>M</code> = <code>ESC</code> or <code>Alt</code> <br />
 <code>^</code> = <code>Ctrl</code>
 </p>
+
 </section>
-<section id="slide-org0562ecc">
-<h3 id="org0562ecc">vim</h3>
+<section id="slide-org4c9424e">
+<h3 id="org4c9424e">vim (<a href="https://duckduckgo.com/?q=vi+cheatsheet&amp;t=ffab&amp;ia=answer&amp;iax=1">Cheatsheet</a>)</h3>
 <p>
 It is a <b>modal editor</b>.
 </p>
@@ -399,8 +420,8 @@ It is a <b>modal editor</b>.
 </tbody>
 </table>
 </section>
-<section id="slide-org57fa223">
-<h4 id="org57fa223">Remember</h4>
+<section id="slide-org8f4782d">
+<h4 id="org8f4782d">Remember</h4>
 <ul>
 <li>Press <code>ESC</code> to cancel action or go to <b>command mode</b></li>
 <li>Always be in command mode unless specified</li>
@@ -409,14 +430,14 @@ It is a <b>modal editor</b>.
 
 </ul>
 </section>
-<section id="slide-orgcf30f73">
-<h4 id="orgcf30f73"><code>:q!</code> - Force Quit</h4>
+<section id="slide-orga0080bd">
+<h4 id="orga0080bd"><code>:q!</code> - Force Quit</h4>
 </section>
-<section id="slide-org4ce3561">
-<h4 id="org4ce3561"><code>dd</code> - Deletes a line</h4>
+<section id="slide-org3d873b1">
+<h4 id="org3d873b1"><code>dd</code> - Deletes a line</h4>
 </section>
-<section id="slide-org62ccdb6">
-<h4 id="org62ccdb6"><code>v</code> - To enter visual mode</h4>
+<section id="slide-org3a829cc">
+<h4 id="org3a829cc"><code>v</code> - To enter visual mode</h4>
 <p>
 Use <code>h</code>, <code>j</code>, <code>k</code> and <code>l</code> keys to select the region.
 </p>
@@ -427,14 +448,14 @@ Use <code>h</code>, <code>j</code>, <code>k</code> and <code>l</code> keys to se
 
 </ul>
 </section>
-<section id="slide-org7050904">
-<h4 id="org7050904"><code>:x</code> - Save and Quit</h4>
+<section id="slide-org3a4597b">
+<h4 id="org3a4597b"><code>:x</code> - Save and Quit</h4>
 </section>
-<section id="slide-org01d20c6">
-<h4 id="org01d20c6"><code>:set autoindent</code> - Auto indent</h4>
+<section id="slide-orgbe6b665">
+<h4 id="orgbe6b665"><code>:set autoindent</code> - Auto indent</h4>
 </section>
-<section id="slide-org76a17a4">
-<h4 id="org76a17a4">Learn advanced vim from</h4>
+<section id="slide-org799a839">
+<h4 id="org799a839">Learn advanced vim from</h4>
 <ul>
 <li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-vim-for-advanced-editing-of-plain-text-or-code-on-a-vps--2">Digital Ocean</a></li>
 <li><a href="https://github.com/akrawchyk/awesome-vim">Awesome Vim</a></li>
@@ -442,144 +463,161 @@ Use <code>h</code>, <code>j</code>, <code>k</code> and <code>l</code> keys to se
 <li><a href="https://vimvalley.com/">Advanced vim tutorial</a> - Freemium</li>
 
 </ul>
+
 </section>
 </section>
 <section>
-<section id="slide-org67482f0">
-<h2 id="org67482f0">Controlling processes</h2>
-<div class="outline-text-2" id="text-org67482f0">
+<section id="slide-org2456e61">
+<h2 id="org2456e61">Controlling processes</h2>
+<div class="outline-text-2" id="text-org2456e61">
 </div>
 </section>
-<section id="slide-org819f8f9">
-<h3 id="org819f8f9"><code>Ctrl+C</code> sends <b>force quit</b> signal to a running process</h3>
+<section id="slide-org498be68">
+<h3 id="org498be68"><code>Ctrl+C</code> sends <b>force quit</b> signal to a running process</h3>
 </section>
-<section id="slide-orgd9499df">
-<h3 id="orgd9499df"><code>Ctrl+Z</code> to pause a process</h3>
+<section id="slide-org00674dd">
+<h3 id="org00674dd"><code>Ctrl+Z</code> to pause a process</h3>
+
 </section>
-<section id="slide-org2621696">
-<h3 id="org2621696">After pausing you have two options</h3>
+<section id="slide-orga0692db">
+<h3 id="orga0692db">After pausing you have two options</h3>
 <ul>
 <li><code>fg</code> resumes the process in the <code>ForeGround</code></li>
 <li><code>bg</code> resumes the process in the <code>BackGround</code></li>
 <li>Or kill it :)</li>
 
 </ul>
+
 </section>
-<section id="slide-org2830f18">
-<h3 id="org2830f18">Running a process in the background</h3>
+<section id="slide-org679a674">
+<h3 id="org679a674">Run a process in the background</h3>
 <div class="org-src-container">
 
-<pre  class="src src-shell">&lt;<span style="color: #0000a8b0b19d;">full_command</span>&gt; &amp;
+<pre class="src src-shell">&lt;full_command&gt; &amp;
 </pre>
 </div>
 
 </section>
-<section id="slide-org60ab600">
-<h3 id="org60ab600">Listing running processes</h3>
+<section id="slide-orgfc8df75">
+<h3 id="orgfc8df75">List running processes</h3>
 <div class="org-src-container">
 
-<pre  class="src src-shell"><span style="color: #afe48ccb285f;">ps</span> <span style="color: #ccdd7ec0382f;">-e</span>   <span style="color: #75715E;"># </span><span style="color: #75715E;">Gives simple list</span>
-<span style="color: #afe48ccb285f;">ps</span> <span style="color: #ce2e6f1ec053;">aux</span>  <span style="color: #75715E;"># </span><span style="color: #75715E;">Gives verbose list</span>
-<span style="color: #e75064769353;">top</span>     <span style="color: #75715E;"># </span><span style="color: #75715E;">Priority based ordering of processes</span>
+<pre class="src src-shell">ps -e   <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Gives simple list</span>
+ps aux  <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Gives verbose list</span>
+top     <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Priority based ordering of processes</span>
 </pre>
 </div>
 
 </section>
-<section id="slide-org2809c93">
-<h3 id="org2809c93">Kill a process</h3>
+<section id="slide-org3d3c658">
+<h3 id="org3d3c658">Kill a process</h3>
 <div class="org-src-container">
 
-<pre  class="src src-shell"><span style="color: #F92672;">kill</span> <span style="color: #AE81FF;">1234</span>           <span style="color: #75715E;"># </span><span style="color: #75715E;">Like ^C</span>
-<span style="color: #be1d75c4cee1;">killall</span> <span style="color: #cfcf7cfc3b00;">-9</span> <span style="color: #bcb47651cff0;">firefox</span>  <span style="color: #75715E;"># </span><span style="color: #75715E;">Force kill</span>
-</pre>
-</div>
-
-</section>
-</section>
-<section>
-<section id="slide-org20e8e2a">
-<h2 id="org20e8e2a">Network interaction</h2>
-<div class="outline-text-2" id="text-org20e8e2a">
-</div>
-</section>
-<section id="slide-org120dc47">
-<h3 id="org120dc47">Get IP address from host name</h3>
-<div class="org-src-container">
-
-<pre  class="src src-shell"><span style="color: #0000a839bd51;">resolveip</span> <span style="color: #e4b365489bb4;">localhost</span>
-</pre>
-</div>
-</section>
-<section id="slide-org3a4627f">
-<h3 id="org3a4627f">Is a host connected in a network?</h3>
-<div class="org-src-container">
-
-<pre  class="src src-shell"><span style="color: #e6306bb85fc7;">ping</span> <span style="color: #AE81FF;">127.0.0.1</span> <span style="color: #b5618a8529d7;">-c</span> <span style="color: #AE81FF;">1</span>
-</pre>
-</div>
-</section>
-<section id="slide-orgcb13bf7">
-<h3 id="orgcb13bf7">Restart network module [ <b><b>root</b></b> ]</h3>
-<div class="org-src-container">
-
-<pre  class="src src-shell"><span style="color: #0000a43bde67;">systemctl</span> <span style="color: #422da3e15760;">restart</span> <span style="color: #0000a415df09;">NetworkManager</span>
-</pre>
-</div>
-</section>
-<section id="slide-org5f2a90d">
-<h3 id="org5f2a90d">Changing proxy</h3>
-<div class="outline-text-3" id="text-org5f2a90d">
-</div>
-</section>
-<section id="slide-org0d1983a">
-<h4 id="org0d1983a">Set proxy</h4>
-<div class="org-src-container">
-
-<pre  class="src src-shell"><span style="color: #F92672;">export</span> <span style="color: #4f52a2c05058;">HTTP_PROXY</span>=<span style="color: #E6DB74;">'IP:PORT'</span>
-<span style="color: #F92672;">export</span> <span style="color: #3c6d935ff202;">HTTPS_PROXY</span>=<span style="color: #E6DB74;">'IP:PORT'</span>
-<span style="color: #F92672;">export</span> <span style="color: #bd1f7627cfa0;">http_proxy</span>=<span style="color: #E6DB74;">'IP:PORT'</span>
-<span style="color: #F92672;">export</span> <span style="color: #187295bff271;">https_proxy</span>=<span style="color: #E6DB74;">'IP:PORT'</span>
-</pre>
-</div>
-</section>
-<section id="slide-org4bc02fa">
-<h4 id="org4bc02fa">Unset proxy</h4>
-<div class="org-src-container">
-
-<pre  class="src src-shell"><span style="color: #F92672;">unset</span> <span style="color: #0000a0dee913;">https_proxy,</span> <span style="color: #c19484dd2f9c;">http_proxy,</span> <span style="color: #cb657052c33d;">HTTP_PROXY,</span> <span style="color: #3c6d935ff202;">HTTPS_PROXY</span>
-</pre>
-</div>
-</section>
-</section>
-<section>
-<section id="slide-orgb3990c9">
-<h2 id="orgb3990c9">File redirection</h2>
-<div class="org-src-container">
-
-<pre  class="src src-shell"><span style="color: #b6f389d72a64;">ls</span> <span style="color: #e4886d675b0c;">-l</span> &gt; <span style="color: #9a1f947328f4;">ls.txt</span>     <span style="color: #75715E;"># </span><span style="color: #75715E;">stdout to ls.txt</span>
-<span style="color: #b6f389d72a64;">ls</span> <span style="color: #e91764338b31;">/x</span> <span style="color: #AE81FF;">2</span>&gt; <span style="color: #0000a7957b78;">lserr.txt</span> <span style="color: #75715E;"># </span><span style="color: #75715E;">stderr to lserr.txt</span>
-<span style="color: #ea5c65de76f3;">cat</span> &lt; <span style="color: #9a1f947328f4;">ls.txt</span>       <span style="color: #75715E;"># </span><span style="color: #75715E;">stdin from ls.txt</span>
+<pre class="src src-shell"><span style="color: #f78fe7;">kill</span> 1234           <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Like ^C</span>
+killall -9 firefox  <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Force kill</span>
 </pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-orgb3a3ee8">
-<h2 id="orgb3a3ee8">Pipes</h2>
+<section id="slide-orgfd6e89a">
+<h2 id="orgfd6e89a">File redirection</h2>
+<div class="org-src-container">
+
+<pre class="src src-shell">ls -l &gt; ls.txt     <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">stdout to ls.txt</span>
+ls /x 2&gt; lserr.txt <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">stderr to lserr.txt</span>
+cat &lt; ls.txt       <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">stdin from ls.txt</span>
+</pre>
+</div>
 
 </section>
 </section>
 <section>
-<section id="slide-org79747a0">
-<h2 id="org79747a0">The internet is your best friend</h2>
+<section id="slide-org543049a">
+<h2 id="org543049a"><code>grep</code> - Finding a string in file(s)</h2>
+<div class="org-src-container">
+
+<pre class="src src-shell">grep import file1 file2  <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Find "import" in file1 and file2</span>
+grep -r import dir  <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Recursively search in a dir</span>
+grep -n import file1  <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Show line numbers of matches</span>
+grep -i import file1  <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Ignore case</span>
+grep -rI import *.txt dir *.py  <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Ignores binary files</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb69b7fd">
+<h2 id="orgb69b7fd"><code>find</code> - Finding a file in a dir</h2>
+<div class="org-src-container">
+
+<pre class="src src-shell">find dir -name <span style="color: #79a8ff;">'*.py'</span>  <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Remember the single quote</span>
+find dir -iname <span style="color: #79a8ff;">'*sys*'</span>  <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Case insensitive search</span>
+find dir -type f -name <span style="color: #79a8ff;">'*.ini'</span>  <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Only show files</span>
+find dir -type f -empty  <span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">Show empty files only</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org20ba216">
+<h2 id="org20ba216"><code>head</code> - Show first few lines</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-org2b96b6b">
+<h2 id="org2b96b6b"><code>tail</code> - Show last few lines</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-orge6c8c8f">
+<h2 id="orge6c8c8f">Pipes</h2>
+<p>
+Passing output from one program to another
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">ps -e | grep py
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org4c9a1ad">
+<h2 id="org4c9a1ad">Nested commands</h2>
+<p>
+Use one program's output as a parameter of another command
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">ls -l <span style="color: #f78fe7;">`which python`</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgbe69978">
+<h2 id="orgbe69978">Thank you</h2>
+<ul>
+<li>Make sure to RTFM</li>
+<li>Then search the internet</li>
+<li>Then ask someone</li>
+<li>If everything fails make sure to DIY</li>
+
+</ul>
 </section>
 </section>
 </div>
 </div>
 <script src="../../reveal.js/lib/js/head.min.js"></script>
 <script src="../../reveal.js/js/reveal.js"></script>
-
 <script>
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
@@ -592,24 +630,25 @@ center: true,
 slideNumber: 'c',
 rollingLinks: false,
 keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
 overview: true,
 
 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'slide', // default/cube/page/concave/zoom/linear/fade/none
+transition: Reveal.getQueryHash().transition || 'slide', // see README of reveal.js for options
 transitionSpeed: 'default',
-multiplex: {
-    secret: '', // null if client
-    id: '', // id, obtained from socket.io server
-    url: '' // Location of socket.io server
-},
 
-// Optional libraries used to extend on reveal.js
+// Optional libraries used to extend reveal.js
 dependencies: [
- { src: '../../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
  { src: '../../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
  { src: '../../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
- { src: '../../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
- { src: '../../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+ { src: '../../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: '../../reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: '../../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
 });
 </script>
 </body>

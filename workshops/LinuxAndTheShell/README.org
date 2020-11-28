@@ -5,29 +5,30 @@
 #+REVEAL_THEME: black
 #+REVEAL_EXTRA_CSS: ../custom.css
 
-
 * =SPACE= for next slide
 
 * =Shift+SPACE= for previous slide
-* Tools required
-+ Text Editor (For notes and questions)
-+ Terminal (Apparatus)
-+ File Manager (See things graphically)
+
+* Why are we having this session?
+  - Linux CLI is the very first thing that should be taught
+  - Widely used
+  - Automation is fun
+  - Its hard to make a GUI apps compared to CLI apps
+
 * What is **nix*?
 **nix* represents /Unix/ and /Unix like/ systems
-* Topics to be covered
-+ The shell
-+ Basic commands
-+ Linux file system
+
 * Why Linux?
 + Understand Computers in a better way
 + Developer friendly
-+ It is LICENCED to be hacker friendly
++ It is licenced to be hacker friendly
 + It is your computer. Know how to fix it.
+
 * Why not Linux?
-+ You are religious
++ You are religious about your choices
 + You are lazy
 + You fear the console
+
 * The ="Hello World!"= program
 #+NAME: hello-world-in-shell
 #+BEGIN_EXAMPLE
@@ -35,42 +36,51 @@ $ echo 'Hello World!'
 Hello World!
 $ █
 #+END_EXAMPLE
+
 * Everything is a FILE on *nix systems
-+ Storage Devices
-+ I/O Devices
-+ Memory
-+ You can find these in the =/dev/= directory
+- Storage Devices
+- I/O Devices
+- Memory
+- You can find these in the =/dev/= directory
+
 * Environment variables
 These variables *govern the way applications communicate with the OS* to
 access certain resources.
 
 Some examples are:
-+ =$PATH=: Stores location of executables on the system
-+ =$PWD=: Stores the current directory
-+ And lots more ...
+- =$PATH=: Stores location of executables on the system
+- =$PWD=: Stores the current directory
+- And lots more ...
 
 * Most basic commands
 
 ** =pwd= - Shows value of =$PWD=
+
 ** =ls= - List files in =$PWD=
+
 ** =cd path= - Change =$PWD=
+
 *** What is a /Path/?
-A /path/ defines the location of a file
+A /path/ defines the location of a file in the file system
+
 *** Types of /Path/
 + *Absolute* - =/home/username/emacs.pdf=
 + *Relative* - =username/emacs.pdf= is the path relative to =/home=
   working directory
+
 *** Special paths
 | =~=  | Home directory     |
 | =.=  | Current directory  |
 | =..= | Previous directory |
 | =/=  | Root directory     |
+
 * Getting help
 #+BEGIN_SRC shell
   man ls          # Manual entry for ls
   help pwd        # Shell's pwd help
   /bin/pwd --help # Command specific help
 #+END_SRC
+
 * Time elapsed since last startup
 #+NAME: uptime-command
 #+BEGIN_SRC shell :results output :exports both :cache yes
@@ -78,20 +88,26 @@ A /path/ defines the location of a file
 #+END_SRC
 #+RESULTS[a48b79ef3365541dd80715d61cb5ceb16ea90280]: uptime-command
 : up 2 days, 23 hours, 38 minutes
+
 * ="/"= - The Root directory
 + The base of the file system
 + All other directories are listed inside it
 + Even the external devices are mounted inside it
 + You cannot go outside it
-* =which cmd= - Prints path of the executable
+
+* =which cmd= - Prints path of an executable
+
 ** =/sbin=, =/bin= - Location of commonly used binaries
+
 * =/home/username= - Home folder of =username=
+
 * =/boot= - Boot files are located here
 
 * Each and every command returns an integer after execution
-+ =0= represents *success*
-+ =Non-zero= represents *failure* of the command
-+ =echo $?= - Prints return value of last command
+- =0= represents *success*
+- =Non-zero= represents *failure* of the command
+- =echo $?= - Prints return value of last command
+
 * Make a directory
 #+BEGIN_SRC shell :exports code
   mkdir <dir_name>
@@ -101,6 +117,11 @@ A /path/ defines the location of a file
 #+BEGIN_SRC shell :exports code
   touch <file_name>
 #+END_SRC
+
+* Show contents of a file
+  #+begin_src shell :exports code
+    cat <file_name>
+  #+end_src
 
 * Remove an empty directory
 #+BEGIN_SRC shell :exports code
@@ -114,17 +135,20 @@ Use this when safety is the first priority
 #+END_SRC
 | -r | Recursively |
 | -f | Force       |
+
 * Editors
 + ed - Simplest
 + nano - Easiest
 + vim - Best
 + Emacs - Elisp interpreter
-** nano
+
+** nano ([[https://duckduckgo.com/?q=nano+cheatsheet&t=ffab&ia=cheatsheet&iax=cheatsheet][Cheatsheet]])
 + =^X= to exit
 + =M-I= to enable Auto Indent
 =M= = =ESC= or =Alt= \\
 =^= = =Ctrl=
-** vim
+
+** vim ([[https://duckduckgo.com/?q=vi+cheatsheet&t=ffab&ia=answer&iax=1][Cheatsheet]])
 It is a *modal editor*.
 | /Mode/       | /Comment/          |
 |--------------+--------------------|
@@ -150,19 +174,23 @@ Use =h=, =j=, =k= and =l= keys to select the region.
 - [[https://github.com/akrawchyk/awesome-vim][Awesome Vim]]
 - [[https://www.openvim.com/][Vim tutorial]]
 - [[https://vimvalley.com/][Advanced vim tutorial]] - Freemium
+
 * Controlling processes
+
 ** =Ctrl+C= sends *force quit* signal to a running process
 ** =Ctrl+Z= to pause a process
+
 ** After pausing you have two options
 + =fg= resumes the process in the =ForeGround=
 + =bg= resumes the process in the =BackGround=
 + Or kill it :)
-** Running a process in the background
+
+** Run a process in the background
 #+BEGIN_SRC shell
   <full_command> &
 #+END_SRC
 
-** Listing running processes
+** List running processes
 #+BEGIN_SRC shell :exports code
   ps -e   # Gives simple list
   ps aux  # Gives verbose list
@@ -175,31 +203,6 @@ Use =h=, =j=, =k= and =l= keys to select the region.
   killall -9 firefox  # Force kill
 #+END_SRC
 
-* Network interaction
-** Get IP address from host name
-#+BEGIN_SRC shell
-  resolveip localhost
-#+END_SRC
-** Is a host connected in a network?
-#+BEGIN_SRC shell
-  ping 127.0.0.1 -c 1
-#+END_SRC
-** Restart network module [ **root** ]
-#+BEGIN_SRC shell
-  systemctl restart NetworkManager
-#+END_SRC
-** Changing proxy
-*** Set proxy
-#+BEGIN_SRC shell
-  export HTTP_PROXY='IP:PORT'
-  export HTTPS_PROXY='IP:PORT'
-  export http_proxy='IP:PORT'
-  export https_proxy='IP:PORT'
-#+END_SRC
-*** Unset proxy
-#+BEGIN_SRC shell
-  unset https_proxy, http_proxy, HTTP_PROXY, HTTPS_PROXY
-#+END_SRC
 * File redirection
 #+BEGIN_SRC shell :exports code
   ls -l > ls.txt     # stdout to ls.txt
@@ -207,6 +210,42 @@ Use =h=, =j=, =k= and =l= keys to select the region.
   cat < ls.txt       # stdin from ls.txt
 #+END_SRC
 
-* Pipes
+* =grep= - Finding a string in file(s)
 
-* The internet is your best friend
+  #+begin_src shell :exports code
+    grep import file1 file2  # Find "import" in file1 and file2
+    grep -r import dir  # Recursively search in a dir
+    grep -n import file1  # Show line numbers of matches
+    grep -i import file1  # Ignore case
+    grep -rI import *.txt dir *.py  # Ignores binary files
+  #+end_src
+
+* =find= - Finding a file in a dir
+  #+begin_src shell :exports code
+    find dir -name '*.py'  # Remember the single quote
+    find dir -iname '*sys*'  # Case insensitive search
+    find dir -type f -name '*.ini'  # Only show files
+    find dir -type f -empty  # Show empty files only
+  #+end_src
+
+* =head= - Show first few lines
+
+* =tail= - Show last few lines
+
+* Pipes
+  Passing output from one program to another
+  #+begin_src shell :exports code
+    ps -e | grep py
+  #+end_src
+
+* Nested commands
+  Use one program's output as a parameter of another command
+  #+begin_src shell :exports code
+    ls -l `which python`
+  #+end_src
+
+* Thank you
+  - Make sure to RTFM
+  - Then search the internet
+  - Then ask someone
+  - If everything fails make sure to DIY
