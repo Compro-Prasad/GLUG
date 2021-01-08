@@ -7,18 +7,26 @@
 
 * Prerequisites
 Basic terminal commands
-* Required tools
-+ Text Editor
-+ Terminal
-+ git - [[http://git-scm.com]]
-+ A GitHub account
 * Test
 #+BEGIN_EXPORT html
 <div id="test"></div>
 #+END_EXPORT
+* Imagining a world without version control systems
+** Team members keep different copies of the same project
+** Using a messaging service to send files that were changed
+** The other person spends some time reviewing the changes
+** Merge code but some code was missing
+** More back and forth on messaging services
+** On completion the boss takes the credit from his co-workers
+** Time passes
+** Code breaks
+** No track of changes
+** Code needs fixing or write the project from scratch
+** Vicous loop begins
 * Aim of VC Systems
-Keep *track of history of changes* of a project and other metadata
-like *author* and *timestamp*.
+- Keeps multiple working states with the help of branches
+- Revert to any change made in the past
+- Helps in merging two different branches
 * Key terms
 #+ATTR_REVEAL: :frag (appear)
 + State / Commit
