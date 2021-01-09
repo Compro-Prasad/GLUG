@@ -24,7 +24,7 @@ Basic terminal commands
 ** Code breaks
 ** No track of changes
 ** Code needs fixing or write the project from scratch
-** Vicous loop begins
+** Vicious loop begins
 
 * Aim of VC Systems
 - Keeps multiple working states with the help of branches
