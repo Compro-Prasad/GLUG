@@ -32,93 +32,100 @@
 </section>
 
 <section>
-<section id="slide-org3e2b043">
-<h2 id="org3e2b043">Prerequisites</h2>
+<section id="slide-org55f3b3f">
+<h2 id="org55f3b3f">Prerequisites</h2>
 <p>
 Basic terminal commands
 </p>
+
 </section>
 </section>
 <section>
-<section id="slide-org140eaa7">
-<h2 id="org140eaa7">Test</h2>
+<section id="slide-org745562b">
+<h2 id="org745562b">Test</h2>
 <div id="test"></div>
+
 </section>
 </section>
 <section>
-<section id="slide-org97163ac">
-<h2 id="org97163ac">Imagining a world without version control systems</h2>
-<div class="outline-text-2" id="text-org97163ac">
+<section id="slide-org6fc40d2">
+<h2 id="org6fc40d2">Imagining a world without version control systems</h2>
+<div class="outline-text-2" id="text-org6fc40d2">
 </div>
 </section>
-<section id="slide-org898fc60">
-<h3 id="org898fc60">Team members keep different copies of the same project</h3>
+<section id="slide-orgbddfa1f">
+<h3 id="orgbddfa1f">Team members keep different copies of the same project</h3>
 </section>
-<section id="slide-orgee18f28">
-<h3 id="orgee18f28">Using a messaging service to send files that were changed</h3>
+<section id="slide-orgdf96af0">
+<h3 id="orgdf96af0">Using a messaging service to send files that were changed</h3>
 </section>
-<section id="slide-orgfdd65c6">
-<h3 id="orgfdd65c6">The other person spends some time reviewing the changes</h3>
+<section id="slide-org5d14c92">
+<h3 id="org5d14c92">The other person spends some time reviewing the changes</h3>
 </section>
-<section id="slide-org4ca684d">
-<h3 id="org4ca684d">Merge code but some code was missing</h3>
+<section id="slide-orgf3224dc">
+<h3 id="orgf3224dc">Manually merge the code</h3>
 </section>
-<section id="slide-org2b2e081">
-<h3 id="org2b2e081">More back and forth on messaging services</h3>
+<section id="slide-org0d4310b">
+<h3 id="org0d4310b">More back and forth on messaging services</h3>
 </section>
-<section id="slide-orgaf7da6c">
-<h3 id="orgaf7da6c">On completion the boss takes the credit from his co-workers</h3>
+<section id="slide-orgb1ed797">
+<h3 id="orgb1ed797">On completion the boss takes the credit from his co-workers</h3>
 </section>
-<section id="slide-org3b19f57">
-<h3 id="org3b19f57">Time passes</h3>
+<section id="slide-orgadb3ef6">
+<h3 id="orgadb3ef6">Time passes</h3>
 </section>
-<section id="slide-org5256973">
-<h3 id="org5256973">Code breaks</h3>
+<section id="slide-org9c5fa68">
+<h3 id="org9c5fa68">Code breaks</h3>
 </section>
-<section id="slide-org3c039d8">
-<h3 id="org3c039d8">No track of changes</h3>
+<section id="slide-orgf376db6">
+<h3 id="orgf376db6">No track of changes</h3>
 </section>
-<section id="slide-org7c72a23">
-<h3 id="org7c72a23">Code needs fixing or write the project from scratch</h3>
+<section id="slide-orgb834583">
+<h3 id="orgb834583">Code needs fixing or write the project from scratch</h3>
 </section>
-<section id="slide-orgc4999ac">
-<h3 id="orgc4999ac">Vicous loop begins</h3>
+<section id="slide-orge4ea855">
+<h3 id="orge4ea855">Vicous loop begins</h3>
+
 </section>
 </section>
 <section>
-<section id="slide-org85b5447">
-<h2 id="org85b5447">Aim of VC Systems</h2>
+<section id="slide-org14ac23e">
+<h2 id="org14ac23e">Aim of VC Systems</h2>
 <ul>
 <li>Keeps multiple working states with the help of branches</li>
 <li>Revert to any change made in the past</li>
-<li>Helps in merging two different branches</li>
+<li>Helps in merging two different branch</li>
+<li>Provides an API query software history</li>
 
 </ul>
+
 </section>
 </section>
 <section>
-<section id="slide-org5edf4b9">
-<h2 id="org5edf4b9">Key terms</h2>
+<section id="slide-org4986d29">
+<h2 id="org4986d29">Key terms</h2>
 <ul>
 <li class="fragment appear">State / Commit</li>
 <li class="fragment appear">Branch</li>
 <li class="fragment appear">Remote</li>
 
 </ul>
+
 </section>
 </section>
 <section>
-<section id="slide-org2ca5f97">
-<h2 id="org2ca5f97">Note</h2>
+<section id="slide-org793c401">
+<h2 id="org793c401">Note</h2>
 <p>
 Git commands only work when you are currently inside a directory
 having <code>.git/</code> subdirectory.
 </p>
+
 </section>
 </section>
 <section>
-<section id="slide-org809351a">
-<h2 id="org809351a">Lets get started</h2>
+<section id="slide-org988594c">
+<h2 id="org988594c">Lets get started</h2>
 <p>
 Open terminal and create a new Git repository
 </p>
@@ -129,11 +136,12 @@ Open terminal and create a new Git repository
 <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Now we can run git commands</span>
 </pre>
 </div>
+
 </section>
 </section>
 <section>
-<section id="slide-org72f7513">
-<h2 id="org72f7513">Setting up Author details</h2>
+<section id="slide-org745d9ff">
+<h2 id="org745d9ff">Setting up Author details</h2>
 <p>
 One time setup:
 </p>
@@ -143,21 +151,23 @@ One time setup:
 git config --global user.email <span style="color: #2d9574;">'email@id'</span>
 </pre>
 </div>
+
 </section>
 </section>
 <section>
-<section id="slide-org43684e2">
-<h2 id="org43684e2">Set up <code>$EDITOR</code></h2>
+<section id="slide-org1a6e626">
+<h2 id="org1a6e626">Set up <code>$EDITOR</code></h2>
 <div class="org-src-container">
 
 <pre class="src src-shell"><span style="color: #7590db;">EDITOR</span>=<span style="color: #2d9574;">'emacsclient -a "" -c'</span>
 </pre>
 </div>
+
 </section>
 </section>
 <section>
-<section id="slide-org140aa46">
-<h2 id="org140aa46">A <code>Hello, World!</code> program in <b>C</b></h2>
+<section id="slide-org724374d">
+<h2 id="org724374d">A <code>Hello, World!</code> program in <b>C</b></h2>
 <p>
 <code>hello.c</code>:
 </p>
@@ -177,20 +187,22 @@ git config --global user.email <span style="color: #2d9574;">'email@id'</span>
 ./a.out       <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Run</span>
 </pre>
 </div>
+
 </section>
 </section>
 <section>
-<section id="slide-org417adbc">
-<h2 id="org417adbc">State</h2>
+<section id="slide-org24c39af">
+<h2 id="org24c39af">State</h2>
 <p>
 A <b>state</b> comprises of the <i>changes</i>, <i>timestamp</i>, <i>author</i>,
 <i>id</i> and <i>parent id</i>.
 </p>
+
 </section>
 </section>
 <section>
-<section id="slide-org4bd86c5">
-<h2 id="org4bd86c5">Creating new states</h2>
+<section id="slide-orgd0ee5dc">
+<h2 id="orgd0ee5dc">Creating new states</h2>
 <ul>
 <li class="fragment appear">First, select which changes will be added to the state</li>
 <li class="fragment appear">The <i>unselected</i> ones are part of Git’s <b>unstaged</b> changes</li>
@@ -198,11 +210,12 @@ A <b>state</b> comprises of the <i>changes</i>, <i>timestamp</i>, <i>author</i>,
 <li class="fragment appear">Once the selection is done we can <b>commit</b> the changes</li>
 
 </ul>
+
 </section>
 </section>
 <section>
-<section id="slide-org57975f5">
-<h2 id="org57975f5"><code>git status</code></h2>
+<section id="slide-org437dba5">
+<h2 id="org437dba5"><code>git status</code></h2>
 <p>
 Check if files were changed since the last commit. It shows:
 </p>
@@ -212,22 +225,24 @@ Check if files were changed since the last commit. It shows:
 <li class="fragment appear">Unknown/Untracked files</li>
 
 </ul>
+
 </section>
 </section>
 <section>
-<section id="slide-org34954ec">
-<h2 id="org34954ec">Ignoring useless files</h2>
+<section id="slide-orgc436cf7">
+<h2 id="orgc436cf7">Ignoring useless files</h2>
 <p>
 To ignore some files we need to add a file called <code>.gitignore</code>:
 </p>
-<pre class="example" id="orgb298b26">
+<pre class="example" id="org5a56fb0">
 a.out
 </pre>
+
 </section>
 </section>
 <section>
-<section id="slide-orgee80d99">
-<h2 id="orgee80d99">What files to ignore?</h2>
+<section id="slide-orgbfc24e1">
+<h2 id="orgbfc24e1">What files to ignore?</h2>
 <ul>
 <li class="fragment appear">Binaries</li>
 <li class="fragment appear">External dependencies</li>
@@ -236,31 +251,34 @@ a.out
 <li class="fragment appear">Databases</li>
 
 </ul>
+
 </section>
 </section>
 <section>
-<section id="slide-org1b31139">
-<h2 id="org1b31139">How to select/stage files</h2>
+<section id="slide-orga2aafa2">
+<h2 id="orga2aafa2">How to select/stage files</h2>
 <div class="org-src-container">
 
 <pre class="src src-shell">git add hello.c   <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">add to staging area</span>
 </pre>
 </div>
+
 </section>
 </section>
 <section>
-<section id="slide-org9574ea1">
-<h2 id="org9574ea1">How to unstage files</h2>
+<section id="slide-org730a04a">
+<h2 id="org730a04a">How to unstage files</h2>
 <div class="org-src-container">
 
 <pre class="src src-shell">git reset HEAD -- hello.c
 </pre>
 </div>
+
 </section>
 </section>
 <section>
-<section id="slide-orgcda2bca">
-<h2 id="orgcda2bca">Commiting the state</h2>
+<section id="slide-org3e803fa">
+<h2 id="org3e803fa">Commiting the state</h2>
 <p>
 Add the state to the history:
 </p>
@@ -272,11 +290,12 @@ Add the state to the history:
 <p>
 Then type in an appropriate message. Save and exit.
 </p>
+
 </section>
 </section>
 <section>
-<section id="slide-orgcb0c4c1">
-<h2 id="orgcb0c4c1">Tip</h2>
+<section id="slide-org756d30c">
+<h2 id="org756d30c">Tip</h2>
 <p class="fragment (appear)">
 <b>Keep your commits short and commit messages descriptive.</b>
 </p>
@@ -290,11 +309,12 @@ it and make others happy.
 <p class="fragment (appear)">
 This will help you achieve the above.
 </p>
+
 </section>
 </section>
 <section>
-<section id="slide-org89f08c1">
-<h2 id="org89f08c1">Branch</h2>
+<section id="slide-org78f6ff8">
+<h2 id="org78f6ff8">Branch</h2>
 <ul>
 <li class="fragment appear">After commiting, the states become a part of a branch.</li>
 <li class="fragment appear">The default branch name is <code>master</code>.</li>
@@ -302,31 +322,34 @@ This will help you achieve the above.
 <li class="fragment appear">Technically, it is a pointer to specific commits.</li>
 
 </ul>
+
 </section>
 </section>
 <section>
-<section id="slide-org970958a">
-<h2 id="org970958a">List all branches</h2>
+<section id="slide-orgf4caa76">
+<h2 id="orgf4caa76">List all branches</h2>
 <div class="org-src-container">
 
 <pre class="src src-shell">git branch -a
 </pre>
 </div>
+
 </section>
 </section>
 <section>
-<section id="slide-orge6979ee">
-<h2 id="orge6979ee">Creating a new branch</h2>
+<section id="slide-orgc0b59e6">
+<h2 id="orgc0b59e6">Creating a new branch</h2>
 <div class="org-src-container">
 
 <pre class="src src-shell">git branch test  <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">branch from current commit</span>
 </pre>
 </div>
+
 </section>
 </section>
 <section>
-<section id="slide-org5f6f3d0">
-<h2 id="org5f6f3d0">Switch to a branch</h2>
+<section id="slide-orgb6439e7">
+<h2 id="orgb6439e7">Switch to a branch</h2>
 <div class="org-src-container">
 
 <pre class="src src-shell">git checkout test
@@ -335,11 +358,12 @@ This will help you achieve the above.
 <p>
 Now the commits will be added to <code>test</code> branch.
 </p>
+
 </section>
 </section>
 <section>
-<section id="slide-org27f2422">
-<h2 id="org27f2422">Change in program</h2>
+<section id="slide-org4a79bff">
+<h2 id="org4a79bff">Change in program</h2>
 <div class="org-src-container">
 
 <pre class="src src-C"><span style="color: #bc6ec5;">#include</span> <span style="color: #2d9574;">&lt;stdio.h&gt;</span>
@@ -354,22 +378,24 @@ Now the commits will be added to <code>test</code> branch.
 }
 </pre>
 </div>
+
 </section>
 </section>
 <section>
-<section id="slide-org369d12d">
-<h2 id="org369d12d">Then?</h2>
+<section id="slide-org56cc884">
+<h2 id="org56cc884">Then?</h2>
 <ol>
 <li>Check if you made any changes</li>
 <li>Select/Add files</li>
 <li>Commit</li>
 
 </ol>
+
 </section>
 </section>
 <section>
-<section id="slide-org51392ec">
-<h2 id="org51392ec">Check for <b>NULL</b> in <code>argv[1]</code></h2>
+<section id="slide-orgea2c252">
+<h2 id="orgea2c252">Check for <b>NULL</b> in <code>argv[1]</code></h2>
 <div class="org-src-container">
 
 <pre class="src src-C"><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">main</span>(<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">argc</span>, <span style="color: #ce537a; font-weight: bold;">char</span> **<span style="color: #7590db;">argv</span>)
@@ -382,26 +408,29 @@ Now the commits will be added to <code>test</code> branch.
 }
 </pre>
 </div>
+
 </section>
 </section>
 <section>
-<section id="slide-org355338f">
-<h2 id="org355338f">Add and commit</h2>
+<section id="slide-org60cac44">
+<h2 id="org60cac44">Add and commit</h2>
+
 </section>
 </section>
 <section>
-<section id="slide-org15822bc">
-<h2 id="org15822bc">View the log</h2>
+<section id="slide-org44e592b">
+<h2 id="org44e592b">View the log</h2>
 <div class="org-src-container">
 
 <pre class="src src-shell">git log --graph --decorate --abbrev-commit --oneline
 </pre>
 </div>
+
 </section>
 </section>
 <section>
-<section id="slide-orgd4df62b">
-<h2 id="orgd4df62b">Thank you</h2>
+<section id="slide-org5ed0f07">
+<h2 id="org5ed0f07">Thank you</h2>
 <script type="text/javascript" src="canvas.js"></script>
 </section>
 </section>
