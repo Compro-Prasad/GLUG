@@ -98,6 +98,11 @@ One time setup:
 git config --global user.name  'Ratan Tata'
 git config --global user.email 'ratantata@tata.com'
 #+END_SRC
+On a per repository basis one can do:
+#+BEGIN_SRC shell :exports code
+git config user.name  'Secret Org'
+git config user.email 'secretname@secret.org'
+#+END_SRC
 
 * Set up =$EDITOR=
 #+BEGIN_SRC shell -i
