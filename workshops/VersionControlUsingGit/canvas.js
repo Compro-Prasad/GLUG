@@ -7,10 +7,10 @@ let ctx = canvas.getContext("2d");
 
 ctx.fillStyle = "#222";
 ctx.fillRect(0, 0, w, h);
-function createCircle(height, width, radius = 10, fillColor = "yellow",
+function createCircle(x, y, radius = 5, fillColor = "yellow",
                       strokeColor = "yellow", fill = true, stroke = true) {
     ctx.beginPath();
-    ctx.arc(width, height, radius, 0, 2*3.14159, false);
+    ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
     if (fill) {
         ctx.fillStyle = fillColor;
         ctx.fill();
@@ -52,11 +52,14 @@ function createArrow(x1, y1, x2, y2) {
     ctx.lineTo(x2, y2);
     ctx.stroke();
 }
+RADIUS = 5
+// for (let i = 0; i < 9; i++) {
+//     createCircle(100, 40 + i * 70, 11);
+// }
+createCircle(40, 100, RADIUS);
+createCircle(100, 100, RADIUS);
 
-for (let i = 0; i < 9; i++) {
-    createCircle(100, 40 + i * 70, 11);
-}
-
-for (let i = 1; i < 9; i++) {
-    createArrow(30 + i * 70, 100, 50 + (i - 1) * 70, 100);
-}
+// for (let i = 1; i < 9; i++) {
+//     createArrow(30 + i * 70, 100, 50 + (i - 1) * 70, 100);
+// }
+createArrow(100 - RADIUS, 100, 40 + RADIUS, 100);

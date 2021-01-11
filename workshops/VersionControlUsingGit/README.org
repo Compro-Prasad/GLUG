@@ -27,81 +27,95 @@ Basic terminal commands
 ** Vicious loop begins
 
 * Aim of VC Systems
-- Keeps multiple working states with the help of branches
-- Revert to any change made in the past
-- Helps in merging two different branch
-- Provides an API query software history
+#+ATTR_REVEAL: :frag (appear)
+- Can keep multiple working states with the help of branches
+- Can help in reverting to any change made in the past
+- Helps in merging two different branches
+- Retains the time and author of a set of changes
+- Provides an API to query software history
 
 * Key terms
 #+ATTR_REVEAL: :frag (appear)
-+ State / Commit
++ State / Commit / Changeset
 + Branch
 + Remote
 
 * Note
 Git commands only work when you are currently inside a directory
-having ~.git/~ subdirectory.
+having the ~.git/~ subdirectory.
+
+** Dirs where =git= commands work
+ If a =.git/= dir is at =~/projects/favproject/.git/= then you can run =git= commands
+ from:
+ - =~/projects/favproject/= or
+ - =~/projects/favproject/subdir/=
+
+** Dirs where =git= commands work
+If a =.git/= dir is at =~/projects/favproject/.git/= then you cannot run =git= from:
+ - =~/= or
+ - =~/favproject/= or
+ - =~/projects/favproject/.git/=
+
 
 * Lets get started
 Open terminal and create a new Git repository
 #+BEGIN_SRC shell -i :exports code
-git init ~/Documents/git/newproject # make .git/
-cd       ~/Documents/git/newproject
+git init ~/newproject  # make .git/
+cd ~/newproject
 # Now we can run git commands
 #+END_SRC
 
 * Setting up Author details
 One time setup:
 #+BEGIN_SRC shell :exports code
-git config --global user.name  'github-username'
-git config --global user.email 'email@id'
+git config --global user.name  'Ratan Tata'
+git config --global user.email 'ratantata@tata.com'
 #+END_SRC
 
 * Set up =$EDITOR=
 #+BEGIN_SRC shell -i
-EDITOR='emacsclient -a "" -c'
+EDITOR=emacs
 #+END_SRC
+You can use the following in your =~/.profile= or =~/.bashrc=
+#+begin_src shell
+export EDITOR=emacs
+#+end_src
 
-* A ~Hello, World!~ program in *C*
-~hello.c~:
-#+BEGIN_SRC C -i :exports code
-#include <stdio.h>
-
-int main() {
-  printf("Hello, World!\n");
-  return 0;
-}
+* A ~Hello, World!~ program in Python
+~hello.py~:
+#+BEGIN_SRC python -i :exports code :tangle hello.py
+print("Hello, World!")
 #+END_SRC
+Running the script:
 #+BEGIN_SRC shell -i :exports code
-gcc hello.c   # Compile
-./a.out       # Run
+python3 hello.py
 #+END_SRC
 
 * State
-A *state* comprises of the /changes/, /timestamp/, /author/,
-/id/ and /parent id/.
+A *state* comprises of the /changes/, /timestamp/, /author/, /id/ and /parent id/.
 
-* Creating new states
+* Creating new states/commits
 #+ATTR_REVEAL: :frag (appear)
-+ First, select which changes will be added to the state
-+ The /unselected/ ones are part of Git’s *unstaged* changes
-+ The /selected/ ones are part of Git’s *staged* changes
-+ Once the selection is done we can *commit* the changes
+- First, select which changes will be added to the state
+- The /unselected/ ones are part of Git’s *unstaged* changes
+- The /selected/ ones are part of Git’s *staged* changes
+- Once the selection is done we can *commit* the changes
 
 * ~git status~
 Check if files were changed since the last commit. It shows:
 #+ATTR_REVEAL: :frag (appear)
-+ Selected/Staged files
-+ Unselected/Unstaged files
-+ Unknown/Untracked files
+- Selected/Staged files
+- Unselected/Unstaged files
+- Unknown/Untracked files
 
 * Ignoring useless files
 To ignore some files we need to add a file called ~.gitignore~:
 #+BEGIN_EXAMPLE
-a.out
+*.pyc
+__pycache__/
 #+END_EXAMPLE
 
-* What files to ignore?
+* What files are good to ignore?
 #+ATTR_REVEAL: :frag (appear)
 + Binaries
 + External dependencies
@@ -122,13 +136,13 @@ git reset HEAD -- hello.c
 * Commiting the state
 Add the state to the history:
 #+BEGIN_SRC shell -i
-git commit    # Opens your EDITOR
+git commit    # Opens your $EDITOR
 #+END_SRC
 Then type in an appropriate message. Save and exit.
 
 * Tip
 #+ATTR_REVEAL: :frag (appear)
-*Keep your commits short and commit messages descriptive.*
+*Keep your changes short and commit messages descriptive.*
 #+ATTR_REVEAL: :frag (appear)
 It is hard to achieve but start from now and hopefully you will start to embrace
 it and make others happy.
@@ -139,10 +153,10 @@ This will help you achieve the above.
 
 * Branch
 #+ATTR_REVEAL: :frag (appear)
-+ After commiting, the states become a part of a branch.
-+ The default branch name is ~master~.
-+ Helps to create different timelines.
-+ Technically, it is a pointer to specific commits.
+- After commiting, the states become a part of a branch.
+- The default branch name is ~master~.
+- Helps to create different timelines.
+- Technically, it is a pointer to specific commits.
 
 * List all branches
 #+BEGIN_SRC shell -i :exports code
@@ -154,44 +168,41 @@ git branch -a
 git branch test  # branch from current commit
 #+END_SRC
 
-* Switch to a branch
+* Switching to a branch
 #+BEGIN_SRC shell -i :exports code
 git checkout test
 #+END_SRC
 Now the commits will be added to ~test~ branch.
 
+* =HEAD=
+#+ATTR_REVEAL: :frag (appear)
+- =HEAD= is a special branch
+- Wherever you go =HEAD= follows you
+- When you =checkout= to a commit/branch you change position of =HEAD=
+- When you add a new commit, =HEAD= moves forward along with the branch to which
+  =HEAD= points to
+
 * Change in program
-#+BEGIN_SRC C -i :exports code
-#include <stdio.h>
+#+BEGIN_SRC python -i :exports code :tangle hello.py
+def greetings(name):
+    print(f"Hello, {name}!")
 
-void greetings(const char *s) {
-  printf("Hello, %s!\n", s);
-}
-
-int main(int argc, char **argv) {
-  greetings(argv[1]);
-  return 0;
-}
+if __name__ == '__main__':
+    import sys
+    greetings(sys.argv[1])
 #+END_SRC
+Running the program:
+#+begin_src shell -i :exports both :results output :cache yes
+python3 hello.py "Ratan Tata"
+#+end_src
+
+#+RESULTS[1c1bb5cf9981f08eb77cff8cedca12fa7d148851]:
+: Hello, World!
 
 * Then?
 1. Check if you made any changes
 2. Select/Add files
 3. Commit
-
-* Check for *NULL* in ~argv[1]~
-#+BEGIN_SRC C -i :exports code
-int main(int argc, char **argv)
-{
-  if (argc < 2)
-    greetings("World");
-  else
-    greetings(argv[1]);
-  return 0;
-}
-#+END_SRC
-
-* Add and commit
 
 * View the log
 #+BEGIN_SRC shell
