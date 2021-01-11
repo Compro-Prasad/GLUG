@@ -1,21 +1,23 @@
 #+TITLE: Version Control Using Git
 #+OPTIONS: toc:nil num:nil timestamp:nil author:nil
 #+REVEAL_ROOT: ../../reveal.js
-#+REVEAL_TRANS: slide
-#+REVEAL_THEME: black
-#+REVEAL_EXTRA_CSS: ../custom.css
+#+REVEAL_TRANS: concave
+#+REVEAL_THEME: white
+#+REVEAL_EXTRA_CSS: ../custom-light.css
+#+REVEAL_EXTRA_CSS: https://pagecdn.io/lib/easyfonts/comfortaa.css
+#+REVEAL_EXTRA_CSS: https://pagecdn.io/lib/easyfonts/ubuntu.css
 
 * Prerequisites
 Basic terminal commands
 
-* Test
+* COMMENT Test
 #+BEGIN_EXPORT html
 <div id="test"></div>
 #+END_EXPORT
 
 * Imagining a world without version control systems
 ** Team members keep different copies of the same project
-** Using a messaging service to send files that were changed
+** Using a service to send files that were changed
 ** The other person spends some time reviewing the changes
 ** Manually merge the code
 ** More back and forth on messaging services
@@ -28,11 +30,24 @@ Basic terminal commands
 
 * Aim of VC Systems
 #+ATTR_REVEAL: :frag (appear)
-- Can keep multiple working states with the help of branches
-- Can help in reverting to any change made in the past
-- Helps in merging two different branches
-- Retains the time and author of a set of changes
-- Provides an API to query software history
+- Can keep /multiple working states/ with the help of *branches*
+- Can help in *reverting* to any change made in the past
+- Helps in *merging* two different branches
+- Retains the *time* and *author* of a set of changes
+- Provides an *API to query software history*
+
+* What is Git?
+[[https://en.wikipedia.org/wiki/Git][Git]] is the most popular version control system started by [[https://en.wikipedia.org/wiki/Linus_Torvalds][Linus Torvalds]] as a
+replacement for [[https://en.wikipedia.org/wiki/BitKeeper][BitKeeper]].
+
+* 
+:PROPERTIES:
+:reveal_background: ./images/git-xkcd-save-a-copy.png
+:reveal_background_trans: slide
+:reveal_background_size: 300px
+:reveal_background_repeat: none
+:reveal_background_opacity: 0.2
+:END:
 
 * Key terms
 #+ATTR_REVEAL: :frag (appear)
@@ -45,17 +60,29 @@ Git commands only work when you are currently inside a directory
 having the ~.git/~ subdirectory.
 
 ** Dirs where =git= commands work
- If a =.git/= dir is at =~/projects/favproject/.git/= then you can run =git= commands
- from:
- - =~/projects/favproject/= or
- - =~/projects/favproject/subdir/=
+:PROPERTIES:
+:EXPORT_INIT_OPTIONS: transition: 'cube'
+:END:
+#+ATTR_REVEAL: :frag (appear)
+If a =.git/= dir is at:
+#+ATTR_REVEAL: :frag (appear)
+=~/projects/favproject/.git/=
+#+ATTR_REVEAL: :frag (appear)
+then you can run =git= commands from:
+#+ATTR_REVEAL: :frag (appear)
+- =~/projects/favproject/= or
+- =~/projects/favproject/subdir/=
 
-** Dirs where =git= commands work
-If a =.git/= dir is at =~/projects/favproject/.git/= then you cannot run =git= from:
- - =~/= or
- - =~/favproject/= or
- - =~/projects/favproject/.git/=
+** Dirs where =git= commands don't work
+If a =.git/= dir is at:
 
+=~/projects/favproject/.git/=
+
+then you can not run =git= commands from:
+#+ATTR_REVEAL: :frag (appear)
+- =~/= or
+- =~/favproject/= or
+- =~/projects/favproject/.git/=
 
 * Lets get started
 Open terminal and create a new Git repository
@@ -81,7 +108,7 @@ You can use the following in your =~/.profile= or =~/.bashrc=
 export EDITOR=emacs
 #+end_src
 
-* A ~Hello, World!~ program in Python
+* ~Hello, World!~ in Python
 ~hello.py~:
 #+BEGIN_SRC python -i :exports code :tangle hello.py
 print("Hello, World!")
@@ -109,7 +136,8 @@ Check if files were changed since the last commit. It shows:
 - Unknown/Untracked files
 
 * Ignoring useless files
-To ignore some files we need to add a file called ~.gitignore~:
+To ignore some files we need to add a file called ~.gitignore~ with the following
+contents:
 #+BEGIN_EXAMPLE
 *.pyc
 __pycache__/
@@ -125,7 +153,7 @@ __pycache__/
 
 * How to select/stage files
 #+BEGIN_SRC shell -i :exports code
-git add hello.c   # add to staging area
+git add hello.py   # add to staging area
 #+END_SRC
 
 * How to unstage files
@@ -155,7 +183,7 @@ This will help you achieve the above.
 #+ATTR_REVEAL: :frag (appear)
 - After commiting, the states become a part of a branch.
 - The default branch name is ~master~.
-- Helps to create different timelines.
+- Helps to create different /timelines/.
 - Technically, it is a pointer to specific commits.
 
 * List all branches
@@ -177,8 +205,8 @@ Now the commits will be added to ~test~ branch.
 * =HEAD=
 #+ATTR_REVEAL: :frag (appear)
 - =HEAD= is a special branch
-- Wherever you go =HEAD= follows you
-- When you =checkout= to a commit/branch you change position of =HEAD=
+- Wherever you go, =HEAD= follows you
+- When you =checkout= to a commit/branch, you change position of =HEAD=
 - When you add a new commit, =HEAD= moves forward along with the branch to which
   =HEAD= points to
 
@@ -197,7 +225,7 @@ python3 hello.py "Ratan Tata"
 #+end_src
 
 #+RESULTS[1c1bb5cf9981f08eb77cff8cedca12fa7d148851]:
-: Hello, World!
+: Hello, Ratan Tata!
 
 * Then?
 1. Check if you made any changes
@@ -205,11 +233,61 @@ python3 hello.py "Ratan Tata"
 3. Commit
 
 * View the log
-#+BEGIN_SRC shell
-git log --graph --decorate --abbrev-commit --oneline
+#+BEGIN_SRC shell :exports code
+  git log --all --graph \
+      --decorate \
+      --pretty=oneline \
+      --abbrev-commit
 #+END_SRC
+It is recommended that you alias this long command in your =~/.bashrc=:
+#+begin_src shell :exports code
+  alias gitlog='git log --all --graph \
+        --decorate \
+        --pretty=oneline \
+        --abbrev-commit'
+#+end_src
+You can also run the above command in your current bash session for it to take
+effect.
+
+* Different scenarios
+
+** Part of feature done but a critical bug fix requires attention
+
+*** Solution
+- =git stash=, fix bug, commit, =git stash pop= or
+- =git checkout -b newbranch=, commit, =git checkout original=, fix bug, commit
+
+** Use =git pull --rebase= to update changes
+
+** Different types of merging strategies
+https://www.freecodecamp.org/news/an-introduction-to-git-merge-and-rebase-what-they-are-and-how-to-use-them-131b863785f/
+*** Fast forward
+- =git merge --ff <branch>=
+- Simplest
+- No merge conflict
+- Branch reference is updated to the latest commit which makes it look like /full
+  history was copied/
+- It is the default strategy when we try to =git pull= /without/ =--rebase=
+- Not always possible
+
+*** No fast forward
+- =git merge --no-ff <branch>=
+- Always creates a new commit which has 2 parents, one from current branch and
+  one from the source branch
+- When *fast forward fails*, =git pull= without =--rebase= uses this strategy
+- Always possible
+- New merge commit is like a noise in the commit history
+
+*** Rebase
+- =git rebase <branch>=
+- Always possible
+- Clumsier than other two
+- Doesn't create any new commit
+- More risky, so don't rebase on a public branch (like =master=)
+- Rebase temporary feature branches
 
 * Thank you
+* TODO Add images
 #+BEGIN_EXPORT html
 <script type="text/javascript" src="canvas.js"></script>
 #+END_EXPORT

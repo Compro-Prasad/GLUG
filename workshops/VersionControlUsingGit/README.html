@@ -9,9 +9,13 @@
 </style>
 <link rel="stylesheet" href="../../reveal.js/css/reveal.css"/>
 
-<link rel="stylesheet" href="../../reveal.js/css/theme/black.css" id="theme"/>
+<link rel="stylesheet" href="../../reveal.js/css/theme/white.css" id="theme"/>
 
-<link rel="stylesheet" href="../custom.css"/>
+<link rel="stylesheet" href="../custom-light.css"/>
+
+<link rel="stylesheet" href="https://pagecdn.io/lib/easyfonts/comfortaa.css"/>
+
+<link rel="stylesheet" href="https://pagecdn.io/lib/easyfonts/ubuntu.css"/>
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -32,8 +36,8 @@
 </section>
 
 <section>
-<section id="slide-org9780b62">
-<h2 id="org9780b62">Prerequisites</h2>
+<section id="slide-orgfbaec68">
+<h2 id="orgfbaec68">Prerequisites</h2>
 <p>
 Basic terminal commands
 </p>
@@ -41,70 +45,79 @@ Basic terminal commands
 </section>
 </section>
 <section>
-<section id="slide-org8d74e46">
-<h2 id="org8d74e46">Test</h2>
-<div id="test"></div>
-
-</section>
-</section>
-<section>
-<section id="slide-orgffe6bde">
-<h2 id="orgffe6bde">Imagining a world without version control systems</h2>
-<div class="outline-text-2" id="text-orgffe6bde">
+<section id="slide-orgca75612">
+<h2 id="orgca75612">Imagining a world without version control systems</h2>
+<div class="outline-text-2" id="text-orgca75612">
 </div>
 </section>
-<section id="slide-org2074930">
-<h3 id="org2074930">Team members keep different copies of the same project</h3>
+<section id="slide-org6b18d35">
+<h3 id="org6b18d35">Team members keep different copies of the same project</h3>
 </section>
-<section id="slide-orge6fc416">
-<h3 id="orge6fc416">Using a messaging service to send files that were changed</h3>
+<section id="slide-org1f09fd4">
+<h3 id="org1f09fd4">Using a service to send files that were changed</h3>
 </section>
-<section id="slide-orge00c140">
-<h3 id="orge00c140">The other person spends some time reviewing the changes</h3>
+<section id="slide-orgfd2d353">
+<h3 id="orgfd2d353">The other person spends some time reviewing the changes</h3>
 </section>
-<section id="slide-org82c6297">
-<h3 id="org82c6297">Manually merge the code</h3>
+<section id="slide-orgaae4b9f">
+<h3 id="orgaae4b9f">Manually merge the code</h3>
 </section>
-<section id="slide-orge787e47">
-<h3 id="orge787e47">More back and forth on messaging services</h3>
+<section id="slide-orgfbf93f0">
+<h3 id="orgfbf93f0">More back and forth on messaging services</h3>
 </section>
-<section id="slide-orgacf613c">
-<h3 id="orgacf613c">On completion the boss takes the credit from his co-workers</h3>
+<section id="slide-orgd335693">
+<h3 id="orgd335693">On completion the boss takes the credit from his co-workers</h3>
 </section>
-<section id="slide-orga8611f6">
-<h3 id="orga8611f6">Time passes</h3>
+<section id="slide-org4175dde">
+<h3 id="org4175dde">Time passes</h3>
 </section>
-<section id="slide-org07aa432">
-<h3 id="org07aa432">Code breaks</h3>
+<section id="slide-org95ef49d">
+<h3 id="org95ef49d">Code breaks</h3>
 </section>
-<section id="slide-org96c0aff">
-<h3 id="org96c0aff">No track of changes</h3>
+<section id="slide-org4fc9e0e">
+<h3 id="org4fc9e0e">No track of changes</h3>
 </section>
-<section id="slide-orgd05be5b">
-<h3 id="orgd05be5b">Code needs fixing or write the project from scratch</h3>
+<section id="slide-org11578dc">
+<h3 id="org11578dc">Code needs fixing or write the project from scratch</h3>
 </section>
-<section id="slide-org3935417">
-<h3 id="org3935417">Vicious loop begins</h3>
+<section id="slide-orge585fa2">
+<h3 id="orge585fa2">Vicious loop begins</h3>
 
 </section>
 </section>
 <section>
-<section id="slide-org703dedd">
-<h2 id="org703dedd">Aim of VC Systems</h2>
+<section id="slide-orgdd47d02">
+<h2 id="orgdd47d02">Aim of VC Systems</h2>
 <ul>
-<li class="fragment appear">Can keep multiple working states with the help of branches</li>
-<li class="fragment appear">Can help in reverting to any change made in the past</li>
-<li class="fragment appear">Helps in merging two different branches</li>
-<li class="fragment appear">Retains the time and author of a set of changes</li>
-<li class="fragment appear">Provides an API to query software history</li>
+<li class="fragment appear">Can keep <i>multiple working states</i> with the help of <b>branches</b></li>
+<li class="fragment appear">Can help in <b>reverting</b> to any change made in the past</li>
+<li class="fragment appear">Helps in <b>merging</b> two different branches</li>
+<li class="fragment appear">Retains the <b>time</b> and <b>author</b> of a set of changes</li>
+<li class="fragment appear">Provides an <b>API to query software history</b></li>
 
 </ul>
 
 </section>
 </section>
 <section>
-<section id="slide-orgd2d8f79">
-<h2 id="orgd2d8f79">Key terms</h2>
+<section id="slide-org8055efc">
+<h2 id="org8055efc">What is Git?</h2>
+<p>
+<a href="https://en.wikipedia.org/wiki/Git">Git</a> is the most popular version control system started by <a href="https://en.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a> as a
+replacement for <a href="https://en.wikipedia.org/wiki/BitKeeper">BitKeeper</a>.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org47dcfd5" data-background="./images/git-xkcd-save-a-copy.png" data-background-size="300px" data-background-repeat="none" data-background-transition="slide">
+<h2 id="org47dcfd5"></h2>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf74bcd8">
+<h2 id="orgf74bcd8">Key terms</h2>
 <ul>
 <li class="fragment appear">State / Commit / Changeset</li>
 <li class="fragment appear">Branch</li>
@@ -115,45 +128,57 @@ Basic terminal commands
 </section>
 </section>
 <section>
-<section id="slide-org69803e3">
-<h2 id="org69803e3">Note</h2>
+<section id="slide-orgb8f9225">
+<h2 id="orgb8f9225">Note</h2>
 <p>
 Git commands only work when you are currently inside a directory
 having the <code>.git/</code> subdirectory.
 </p>
 
 </section>
-<section id="slide-org2099cfc">
-<h3 id="org2099cfc">Dirs where <code>git</code> commands work</h3>
-<p>
-If a <code>.git/</code> dir is at <code>~/projects/favproject/.git/</code> then you can run <code>git</code> commands
-from:
+<section id="slide-org49a1dd0">
+<h3 id="org49a1dd0">Dirs where <code>git</code> commands work</h3>
+<p class="fragment (appear)">
+If a <code>.git/</code> dir is at:
+</p>
+<p class="fragment (appear)">
+<code>~/projects/favproject/.git/</code>
+</p>
+<p class="fragment (appear)">
+then you can run <code>git</code> commands from:
 </p>
 <ul>
-<li><code>~/projects/favproject/</code> or</li>
-<li><code>~/projects/favproject/subdir/</code></li>
+<li class="fragment appear"><code>~/projects/favproject/</code> or</li>
+<li class="fragment appear"><code>~/projects/favproject/subdir/</code></li>
 
 </ul>
 
 </section>
-<section id="slide-org7c893b0">
-<h3 id="org7c893b0">Dirs where <code>git</code> commands work</h3>
+<section id="slide-org1743df4">
+<h3 id="org1743df4">Dirs where <code>git</code> commands don't work</h3>
 <p>
-If a <code>.git/</code> dir is at <code>~/projects/favproject/.git/</code> then you cannot run <code>git</code> from:
+If a <code>.git/</code> dir is at:
+</p>
+
+<p>
+<code>~/projects/favproject/.git/</code>
+</p>
+
+<p>
+then you can not run <code>git</code> commands from:
 </p>
 <ul>
-<li><code>~/</code> or</li>
-<li><code>~/favproject/</code> or</li>
-<li><code>~/projects/favproject/.git/</code></li>
+<li class="fragment appear"><code>~/</code> or</li>
+<li class="fragment appear"><code>~/favproject/</code> or</li>
+<li class="fragment appear"><code>~/projects/favproject/.git/</code></li>
 
 </ul>
-
 
 </section>
 </section>
 <section>
-<section id="slide-orgc235afe">
-<h2 id="orgc235afe">Lets get started</h2>
+<section id="slide-orgb67ddde">
+<h2 id="orgb67ddde">Lets get started</h2>
 <p>
 Open terminal and create a new Git repository
 </p>
@@ -168,8 +193,8 @@ Open terminal and create a new Git repository
 </section>
 </section>
 <section>
-<section id="slide-orga455ce7">
-<h2 id="orga455ce7">Setting up Author details</h2>
+<section id="slide-orgc0a5416">
+<h2 id="orgc0a5416">Setting up Author details</h2>
 <p>
 One time setup:
 </p>
@@ -183,8 +208,8 @@ git config --global user.email <span style="color: #2d9574;">'ratantata@tata.com
 </section>
 </section>
 <section>
-<section id="slide-orgcdd81c4">
-<h2 id="orgcdd81c4">Set up <code>$EDITOR</code></h2>
+<section id="slide-orgc36f036">
+<h2 id="orgc36f036">Set up <code>$EDITOR</code></h2>
 <div class="org-src-container">
 
 <pre class="src src-shell"><span style="color: #7590db;">EDITOR</span>=emacs
@@ -202,8 +227,8 @@ You can use the following in your <code>~/.profile</code> or <code>~/.bashrc</co
 </section>
 </section>
 <section>
-<section id="slide-orgcccb6dc">
-<h2 id="orgcccb6dc">A <code>Hello, World!</code> program in Python</h2>
+<section id="slide-orgd39141c">
+<h2 id="orgd39141c"><code>Hello, World!</code> in Python</h2>
 <p>
 <code>hello.py</code>:
 </p>
@@ -224,8 +249,8 @@ Running the script:
 </section>
 </section>
 <section>
-<section id="slide-orgb21bc86">
-<h2 id="orgb21bc86">State</h2>
+<section id="slide-org9646c0b">
+<h2 id="org9646c0b">State</h2>
 <p>
 A <b>state</b> comprises of the <i>changes</i>, <i>timestamp</i>, <i>author</i>, <i>id</i> and <i>parent id</i>.
 </p>
@@ -233,8 +258,8 @@ A <b>state</b> comprises of the <i>changes</i>, <i>timestamp</i>, <i>author</i>,
 </section>
 </section>
 <section>
-<section id="slide-org6f981af">
-<h2 id="org6f981af">Creating new states/commits</h2>
+<section id="slide-orge744cff">
+<h2 id="orge744cff">Creating new states/commits</h2>
 <ul>
 <li class="fragment appear">First, select which changes will be added to the state</li>
 <li class="fragment appear">The <i>unselected</i> ones are part of Git’s <b>unstaged</b> changes</li>
@@ -246,8 +271,8 @@ A <b>state</b> comprises of the <i>changes</i>, <i>timestamp</i>, <i>author</i>,
 </section>
 </section>
 <section>
-<section id="slide-orgb0ecf01">
-<h2 id="orgb0ecf01"><code>git status</code></h2>
+<section id="slide-org67619c0">
+<h2 id="org67619c0"><code>git status</code></h2>
 <p>
 Check if files were changed since the last commit. It shows:
 </p>
@@ -261,12 +286,13 @@ Check if files were changed since the last commit. It shows:
 </section>
 </section>
 <section>
-<section id="slide-org8eda14d">
-<h2 id="org8eda14d">Ignoring useless files</h2>
+<section id="slide-orgf12b1f9">
+<h2 id="orgf12b1f9">Ignoring useless files</h2>
 <p>
-To ignore some files we need to add a file called <code>.gitignore</code>:
+To ignore some files we need to add a file called <code>.gitignore</code> with the following
+contents:
 </p>
-<pre class="example" id="org4c68d5b">
+<pre class="example" id="org71469d4">
 *.pyc
 __pycache__/
 </pre>
@@ -274,8 +300,8 @@ __pycache__/
 </section>
 </section>
 <section>
-<section id="slide-org3c57e9d">
-<h2 id="org3c57e9d">What files are good to ignore?</h2>
+<section id="slide-orge902a86">
+<h2 id="orge902a86">What files are good to ignore?</h2>
 <ul>
 <li class="fragment appear">Binaries</li>
 <li class="fragment appear">External dependencies</li>
@@ -288,19 +314,19 @@ __pycache__/
 </section>
 </section>
 <section>
-<section id="slide-org39338f8">
-<h2 id="org39338f8">How to select/stage files</h2>
+<section id="slide-org8b47224">
+<h2 id="org8b47224">How to select/stage files</h2>
 <div class="org-src-container">
 
-<pre class="src src-shell">git add hello.c   <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">add to staging area</span>
+<pre class="src src-shell">git add hello.py   <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">add to staging area</span>
 </pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-orgd47f9e7">
-<h2 id="orgd47f9e7">How to unstage files</h2>
+<section id="slide-orgf93abbd">
+<h2 id="orgf93abbd">How to unstage files</h2>
 <div class="org-src-container">
 
 <pre class="src src-shell">git reset HEAD -- hello.c
@@ -310,8 +336,8 @@ __pycache__/
 </section>
 </section>
 <section>
-<section id="slide-org54b06c3">
-<h2 id="org54b06c3">Commiting the state</h2>
+<section id="slide-org90304f6">
+<h2 id="org90304f6">Commiting the state</h2>
 <p>
 Add the state to the history:
 </p>
@@ -327,8 +353,8 @@ Then type in an appropriate message. Save and exit.
 </section>
 </section>
 <section>
-<section id="slide-orgc702fe7">
-<h2 id="orgc702fe7">Tip</h2>
+<section id="slide-org38ce505">
+<h2 id="org38ce505">Tip</h2>
 <p class="fragment (appear)">
 <b>Keep your changes short and commit messages descriptive.</b>
 </p>
@@ -346,12 +372,12 @@ This will help you achieve the above.
 </section>
 </section>
 <section>
-<section id="slide-org351021c">
-<h2 id="org351021c">Branch</h2>
+<section id="slide-orgf1893ca">
+<h2 id="orgf1893ca">Branch</h2>
 <ul>
 <li class="fragment appear">After commiting, the states become a part of a branch.</li>
 <li class="fragment appear">The default branch name is <code>master</code>.</li>
-<li class="fragment appear">Helps to create different timelines.</li>
+<li class="fragment appear">Helps to create different <i>timelines</i>.</li>
 <li class="fragment appear">Technically, it is a pointer to specific commits.</li>
 
 </ul>
@@ -359,8 +385,8 @@ This will help you achieve the above.
 </section>
 </section>
 <section>
-<section id="slide-orgb791a8f">
-<h2 id="orgb791a8f">List all branches</h2>
+<section id="slide-org3bfddd5">
+<h2 id="org3bfddd5">List all branches</h2>
 <div class="org-src-container">
 
 <pre class="src src-shell">git branch -a
@@ -370,8 +396,8 @@ This will help you achieve the above.
 </section>
 </section>
 <section>
-<section id="slide-org13aaf40">
-<h2 id="org13aaf40">Creating a new branch</h2>
+<section id="slide-orgae21ef6">
+<h2 id="orgae21ef6">Creating a new branch</h2>
 <div class="org-src-container">
 
 <pre class="src src-shell">git branch test  <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">branch from current commit</span>
@@ -381,8 +407,8 @@ This will help you achieve the above.
 </section>
 </section>
 <section>
-<section id="slide-org275e872">
-<h2 id="org275e872">Switching to a branch</h2>
+<section id="slide-org8898eaa">
+<h2 id="org8898eaa">Switching to a branch</h2>
 <div class="org-src-container">
 
 <pre class="src src-shell">git checkout test
@@ -395,12 +421,12 @@ Now the commits will be added to <code>test</code> branch.
 </section>
 </section>
 <section>
-<section id="slide-org10a9e14">
-<h2 id="org10a9e14"><code>HEAD</code></h2>
+<section id="slide-org9d15d23">
+<h2 id="org9d15d23"><code>HEAD</code></h2>
 <ul>
 <li class="fragment appear"><code>HEAD</code> is a special branch</li>
-<li class="fragment appear">Wherever you go <code>HEAD</code> follows you</li>
-<li class="fragment appear">When you <code>checkout</code> to a commit/branch you change position of <code>HEAD</code></li>
+<li class="fragment appear">Wherever you go, <code>HEAD</code> follows you</li>
+<li class="fragment appear">When you <code>checkout</code> to a commit/branch, you change position of <code>HEAD</code></li>
 <li class="fragment appear">When you add a new commit, <code>HEAD</code> moves forward along with the branch to which
 <code>HEAD</code> points to</li>
 
@@ -409,8 +435,8 @@ Now the commits will be added to <code>test</code> branch.
 </section>
 </section>
 <section>
-<section id="slide-org72eac8b">
-<h2 id="org72eac8b">Change in program</h2>
+<section id="slide-org30456ac">
+<h2 id="org30456ac">Change in program</h2>
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">greetings</span>(name):
@@ -431,14 +457,14 @@ Running the program:
 </div>
 
 <pre class="example">
-Hello, World!
+Hello, Ratan Tata!
 </pre>
 
 </section>
 </section>
 <section>
-<section id="slide-org614f9b7">
-<h2 id="org614f9b7">Then?</h2>
+<section id="slide-orgc480575">
+<h2 id="orgc480575">Then?</h2>
 <ol>
 <li>Check if you made any changes</li>
 <li>Select/Add files</li>
@@ -449,19 +475,113 @@ Hello, World!
 </section>
 </section>
 <section>
-<section id="slide-org2c0a9e3">
-<h2 id="org2c0a9e3">View the log</h2>
+<section id="slide-org115cc8b">
+<h2 id="org115cc8b">View the log</h2>
 <div class="org-src-container">
 
-<pre class="src src-shell">git log --graph --decorate --abbrev-commit --oneline
+<pre class="src src-shell">git log --all --graph <span style="color: #2d9574;">\</span>
+    --decorate <span style="color: #2d9574;">\</span>
+    --pretty=oneline <span style="color: #2d9574;">\</span>
+    --abbrev-commit
 </pre>
 </div>
+<p>
+It is recommended that you alias this long command in your <code>~/.bashrc</code>:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #4f97d7;">alias</span> <span style="color: #7590db;">gitlog</span>=<span style="color: #2d9574;">'git log --all --graph \</span>
+<span style="color: #2d9574;">      --decorate \</span>
+<span style="color: #2d9574;">      --pretty=oneline \</span>
+<span style="color: #2d9574;">      --abbrev-commit'</span>
+</pre>
+</div>
+<p>
+You can also run the above command in your current bash session for it to take
+effect.
+</p>
 
 </section>
 </section>
 <section>
-<section id="slide-org0999a8e">
-<h2 id="org0999a8e">Thank you</h2>
+<section id="slide-orgae3813c">
+<h2 id="orgae3813c">Different scenarios</h2>
+<div class="outline-text-2" id="text-orgae3813c">
+</div>
+</section>
+<section id="slide-orgb5f32b7">
+<h3 id="orgb5f32b7">Part of feature done but a critical bug fix requires attention</h3>
+<div class="outline-text-3" id="text-orgb5f32b7">
+</div>
+</section>
+<section id="slide-orgc924add">
+<h4 id="orgc924add">Solution</h4>
+<ul>
+<li><code>git stash</code>, fix bug, commit, <code>git stash pop</code> or</li>
+<li><code>git checkout -b newbranch</code>, commit, <code>git checkout original</code>, fix bug, commit</li>
+
+</ul>
+
+</section>
+<section id="slide-org278cc3f">
+<h3 id="org278cc3f">Use <code>git pull --rebase</code> to update changes</h3>
+
+</section>
+<section id="slide-org10e9438">
+<h3 id="org10e9438">Different types of merging strategies</h3>
+<p>
+<a href="https://www.freecodecamp.org/news/an-introduction-to-git-merge-and-rebase-what-they-are-and-how-to-use-them-131b863785f/">https://www.freecodecamp.org/news/an-introduction-to-git-merge-and-rebase-what-they-are-and-how-to-use-them-131b863785f/</a>
+</p>
+</section>
+<section id="slide-org07e6aa0">
+<h4 id="org07e6aa0">Fast forward</h4>
+<ul>
+<li><code>git merge --ff &lt;branch&gt;</code></li>
+<li>Simplest</li>
+<li>No merge conflict</li>
+<li>Branch reference is updated to the latest commit which makes it look like <i>full
+history was copied</i></li>
+<li>It is the default strategy when we try to <code>git pull</code> <i>without</i> <code>--rebase</code></li>
+<li>Not always possible</li>
+
+</ul>
+
+</section>
+<section id="slide-org268c675">
+<h4 id="org268c675">No fast forward</h4>
+<ul>
+<li><code>git merge --no-ff &lt;branch&gt;</code></li>
+<li>Always creates a new commit which has 2 parents, one from current branch and
+one from the source branch</li>
+<li>When <b>fast forward fails</b>, <code>git pull</code> without <code>--rebase</code> uses this strategy</li>
+<li>Always possible</li>
+<li>New merge commit is like a noise in the commit history</li>
+
+</ul>
+
+</section>
+<section id="slide-orgd38d8ed">
+<h4 id="orgd38d8ed">Rebase</h4>
+<ul>
+<li><code>git rebase &lt;branch&gt;</code></li>
+<li>Always possible</li>
+<li>Clumsier than other two</li>
+<li>Doesn't create any new commit</li>
+<li>More risky, so don't rebase on a public branch (like <code>master</code>)</li>
+<li>Rebase temporary feature branches</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb888eb5">
+<h2 id="orgb888eb5">Thank you</h2>
+</section>
+</section>
+<section>
+<section id="slide-org705f52d">
+<h2 id="org705f52d"><span class="todo TODO">TODO</span> Add images</h2>
 <script type="text/javascript" src="canvas.js"></script>
 </section>
 </section>
@@ -489,7 +609,7 @@ pdfSeparateFragments: true,
 overview: true,
 
 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'slide', // see README of reveal.js for options
+transition: Reveal.getQueryHash().transition || 'concave', // see README of reveal.js for options
 transitionSpeed: 'default',
 
 // Optional libraries used to extend reveal.js
