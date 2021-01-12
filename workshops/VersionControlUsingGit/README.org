@@ -15,7 +15,7 @@ Basic terminal commands
 <div id="test"></div>
 #+END_EXPORT
 
-* Imagining a world without version control systems
+* *Imagining a world without version control systems*
 ** Team members keep different copies of the same project
 ** Using a service to send files that were changed
 ** The other person spends some time reviewing the changes
@@ -79,7 +79,7 @@ If a =.git/= dir is at:
 =~/projects/favproject/.git/=
 
 then you can not run =git= commands from:
-#+ATTR_REVEAL: :frag (appear)
+
 - =~/= or
 - =~/favproject/= or
 - =~/projects/favproject/.git/=
@@ -124,7 +124,12 @@ python3 hello.py
 #+END_SRC
 
 * State
-A *state* comprises of the /changes/, /timestamp/, /author/, /id/ and /parent id/.
+A *state* comprises of:
+- /changes/
+- /timestamp/
+- /author/
+- /id/
+- /parent id/
 
 * Creating new states/commits
 #+ATTR_REVEAL: :frag (appear)
@@ -173,6 +178,14 @@ git commit    # Opens your $EDITOR
 #+END_SRC
 Then type in an appropriate message. Save and exit.
 
+* 
+:PROPERTIES:
+:reveal_background: ./images/git-xkcd-bad-commits.png
+:reveal_background_size: 300px
+:reveal_background_repeat: none
+:reveal_background_opacity: 0.2
+:END:
+
 * Tip
 #+ATTR_REVEAL: :frag (appear)
 *Keep your changes short and commit messages descriptive.*
@@ -188,8 +201,10 @@ This will help you achieve the above.
 #+ATTR_REVEAL: :frag (appear)
 - After commiting, the states become a part of a branch.
 - The default branch name is ~master~.
+- Local branch names are simply named as =<branch>=.
+- Corresponding remote branch name are named as =<remote>/<branch>=.
 - Helps to create different /timelines/.
-- Technically, it is a pointer to specific commits.
+- Technically, it is a *pointer to a specific commit*.
 
 * List all branches
 #+BEGIN_SRC shell -i :exports code
@@ -254,18 +269,84 @@ It is recommended that you alias this long command in your =~/.bashrc=:
 You can also run the above command in your current bash session for it to take
 effect.
 
-* Different scenarios
+* Merging two branches
+#+ATTR_REVEAL: :frag (appear)
+Lets say our feature is complete and we want to merge it into =master=.
+#+ATTR_REVEAL: :frag (appear)
+Here =master= is our destination branch and =test= is our source branch.
+#+ATTR_REVEAL: :frag (appear)
+So, first we switch to destination branch using =git checkout master=.
+#+ATTR_REVEAL: :frag (appear)
+Then we use =git merge test= to merge the source branch.
 
+* Going deeper
+
+** =git stash=
+#+ATTR_REVEAL: :frag (appear)
+- A feature to temporarily store the changes without commiting
+- Since its not commited, you can access it from any branch/commit
+- =git stash list= lists all the stashes
+- Changes can be brought back using =git stash pop=
+- Stack based. Which means, poping a stash will bring in the last changes.
+- =git stash show -p stash@{1}= shows the changes in a stash
+
+** =git checkout=
+#+ATTR_REVEAL: :frag (appear)
+- This command changes the state of the repository and allows you to time travel
+- =git checkout -b newbranch 09abcd= creates a new branch and switches to it
+  starting at =09abcd=
+- =git checkout 09abcd= switches to the commit
+
+** =git remote=
+#+ATTR_REVEAL: :frag (appear)
+- Use =git remote add <some_name> https://some_url.git= to add a new remote
+- After adding remote one can easily refer =<some_name>= to =git pull <some_name>=
+- Use =git remote remove <some_name>= to remove a remote
+- Default remote name is =origin=
+- To list all remotes do =git remote -v=
+
+** =git fetch=
+#+ATTR_REVEAL: :frag (appear)
+- It is used to fetch branches and tags from a remote
+- If you use multiple remotes, you can use =git fetch --all=
+- This will only update remote branches with names =<remote>/<branch>=
+- This will not update local branches with names =<branch>=
+
+** =git pull=
+#+ATTR_REVEAL: :frag (appear)
+- It is used to update local branches after fetching
+- First it does =git fetch= then =git merge <remote>/<branch>=
+- Recommended to use =git pull --rebase=
+
+* Some scenarios
 ** Part of feature done but a critical bug fix requires attention
 
-*** Solution
-- =git stash=, fix bug, commit, =git stash pop= or
-- =git checkout -b newbranch=, commit, =git checkout original=, fix bug, commit
+*** Solution 1
+#+ATTR_REVEAL: :frag (appear)
+- =git stash=
+- fix bug
+- =git commit=
+- =git stash pop=
 
-** Use =git pull --rebase= to update changes
+*** Solution 2
+#+ATTR_REVEAL: :frag (appear)
+- =git checkout -b newbranch=
+- =git commit=
+- =git checkout original=
+- fix bug
+- =git commit=
 
 ** Different types of merging strategies
 https://www.freecodecamp.org/news/an-introduction-to-git-merge-and-rebase-what-they-are-and-how-to-use-them-131b863785f/
+
+*** 
+:PROPERTIES:
+:reveal_background: ./images/git-xkcd-merge.png
+:reveal_background_size: 700px
+:reveal_background_repeat: none
+:reveal_background_opacity: 0.2
+:END:
+
 *** Fast forward
 - =git merge --ff <branch>=
 - Simplest
@@ -286,14 +367,27 @@ https://www.freecodecamp.org/news/an-introduction-to-git-merge-and-rebase-what-t
 *** Rebase
 - =git rebase <branch>=
 - Always possible
-- Clumsier than other two
+- Clumsier than other two in some cases
 - Doesn't create any new commit
 - More risky, so don't rebase on a public branch (like =master=)
 - Rebase temporary feature branches
 
-* Thank you
-* TODO Add images
-#+BEGIN_EXPORT html
-<script type="text/javascript" src="canvas.js"></script>
-#+END_EXPORT
-#  LocalWords:  SHA
+* The End
+
+** The End?
+ #+ATTR_REVEAL: :frag (appear)
+ You can start learning more using the following ways:
+ #+ATTR_REVEAL: :frag (appear)
+ - =man gittutorial= and =man gittutorial-2=
+ - For specific help on commands try:
+   #+ATTR_REVEAL: :frag (appear)
+   - =man git-status=
+   - =git help status=
+   - =git status --help=
+ - Check on the internet for more solutions
+ - Reach out to team members if you feel confused
+
+ #+BEGIN_EXPORT html
+ <script type="text/javascript" src="canvas.js"></script>
+ #+END_EXPORT
+ #  LocalWords:  SHA
