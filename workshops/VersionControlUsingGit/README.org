@@ -339,6 +339,17 @@ Then we use =git merge test= to merge the source branch.
 - fix bug
 - =git commit=
 
+** Modify the last commit message
+#+begin_src sh
+git commit --amend
+#+end_src
+
+** Add more files to the last commit
+#+ATTR_REVEAL: :frag (appear)
+- =git reset --soft HEAD~1= which removes last commit but keeps its changes
+- =git add missed-file.txt=
+- =git commit=
+
 ** Different types of merging strategies
 https://www.freecodecamp.org/news/an-introduction-to-git-merge-and-rebase-what-they-are-and-how-to-use-them-131b863785f/
 
