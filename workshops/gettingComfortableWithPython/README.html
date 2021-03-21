@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Getting comfortable with Python</title>
+<meta name="author" content="Compro Prasad"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="../../reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="../../reveal.js/css/theme/black.css" id="theme"/>
+
+<link rel="stylesheet" href="../custom.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '../../reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Getting comfortable with Python</h1>
+</section>
+
+<section>
+<section id="slide-org9497dd5">
+<h2 id="org9497dd5">What to expect</h2>
+<p>
+Lots of <b>small things</b> that you can do to have a <b>better experience</b> with Python.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org2a6cc29">
+<h2 id="org2a6cc29">What to not expect</h2>
+<ul>
+<li>Writing <code>Hello World</code> program</li>
+<li>Defining <code>variables</code> and <code>functions</code></li>
+<li>Working with various datatypes like <code>list</code>, <code>dict</code>, <code>str</code>, <code>int</code>, etc.</li>
+<li><code>Data structures</code> and <code>algorithms</code></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org86e09f4">
+<h2 id="org86e09f4">Formatted(<code>f</code>) strings</h2>
+<div class="outline-text-2" id="text-org86e09f4">
+</div>
+</section>
+<section id="slide-org6191fdb">
+<h3 id="org6191fdb">Also known as <b>string interpolation</b></h3>
+</section>
+<section id="slide-orgf960138">
+<h3 id="orgf960138">Works in python 3.6 and above</h3>
+</section>
+<section id="slide-org0c4f0e9">
+<h3 id="org0c4f0e9">Normal string</h3>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">get_all_results</span>(table_name):
+     <span style="color: #4f97d7; font-weight: bold;">return</span> run_query(
+          <span style="color: #2d9574;">"SELECT * from "</span> + table_name + <span style="color: #2d9574;">";"</span>
+     )
+</pre>
+</div>
+</section>
+<section id="slide-org7139943">
+<h3 id="org7139943">Using <code>f</code> string</h3>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">get_all_results</span>(table_name):
+     <span style="color: #4f97d7; font-weight: bold;">return</span> run_query(
+          f<span style="color: #2d9574;">"SELECT * from </span>{table_name}<span style="color: #2d9574;">;"</span>
+     )
+</pre>
+</div>
+</section>
+<section id="slide-org014b052">
+<h3 id="org014b052">Further Reference</h3>
+<ul>
+<li><a href="https://docs.python.org/3/whatsnew/3.6.html#whatsnew36-pep498">https://docs.python.org/3/whatsnew/3.6.html#whatsnew36-pep498</a></li>
+<li><a href="http://cis.bentley.edu/sandbox/wp-content/uploads/Documentation-on-f-strings.pdf">http://cis.bentley.edu/sandbox/wp-content/uploads/Documentation-on-f-strings.pdf</a></li>
+<li><a href="https://realpython.com/python-f-strings/">https://realpython.com/python-f-strings/</a></li>
+<li><a href="https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/">https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/</a></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org9ee27de">
+<h2 id="org9ee27de">Raw(<code>r</code>) strings</h2>
+<div class="outline-text-2" id="text-org9ee27de">
+</div>
+</section>
+<section id="slide-org0866760">
+<h3 id="org0866760">Normal string</h3>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">with</span> <span style="color: #4f97d7;">open</span>(<span style="color: #2d9574;">"C:\\Some\\file\\name.txt"</span>) <span style="color: #4f97d7; font-weight: bold;">as</span> f:
+    <span style="color: #4f97d7; font-weight: bold;">print</span>(f.read(100))
+</pre>
+</div>
+</section>
+<section id="slide-orgfae7fa3">
+<h3 id="orgfae7fa3">Using <code>r</code> string</h3>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">with</span> <span style="color: #4f97d7;">open</span>(r<span style="color: #2d9574;">"C:\Some\file\name.txt"</span>) <span style="color: #4f97d7; font-weight: bold;">as</span> f:
+    <span style="color: #4f97d7; font-weight: bold;">print</span>(f.read(100))
+</pre>
+</div>
+</section>
+<section id="slide-org0cfb04c">
+<h3 id="org0cfb04c">How are they different</h3>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">print</span>(r<span style="color: #2d9574;">'Hello\tWorld'</span> != <span style="color: #2d9574;">'Hello\tWorld'</span>)
+</pre>
+</div>
+
+<pre class="example">
+True
+</pre>
+</section>
+<section id="slide-org747fd6c">
+<h3 id="org747fd6c">How are they same</h3>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">print</span>(r<span style="color: #2d9574;">'Hello\tWorld'</span> == <span style="color: #2d9574;">'Hello\\tWorld'</span>)
+</pre>
+</div>
+
+<pre class="example">
+True
+</pre>
+</section>
+<section id="slide-org6f64ec0">
+<h3 id="org6f64ec0">Further Reference</h3>
+<ul>
+<li><a href="https://medium.com/dev-genius/beauty-of-raw-strings-in-python-fa627d674cbf">https://medium.com/dev-genius/beauty-of-raw-strings-in-python-fa627d674cbf</a></li>
+<li><a href="https://www.askpython.com/python/string/python-raw-strings">https://www.askpython.com/python/string/python-raw-strings</a></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org663aacf">
+<h2 id="org663aacf">Exception(Error) handling</h2>
+<div class="outline-text-2" id="text-org663aacf">
+</div>
+</section>
+<section id="slide-orge59da4d">
+<h3 id="orge59da4d">Sample Code</h3>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #7590db;">student</span> = {
+    <span style="color: #2d9574;">"name"</span>: <span style="color: #2d9574;">"Ram"</span>
+}
+<span style="color: #4f97d7; font-weight: bold;">print</span>(student[<span style="color: #2d9574;">"mother"</span>])
+</pre>
+</div>
+
+<p>
+Find the error.
+</p>
+
+</section>
+<section id="slide-org19ea99d">
+<h3 id="org19ea99d">Error</h3>
+<pre class="example" id="org720d6be">
+Traceback (most recent call last):
+File "&lt;stdin&gt;", line 4, in &lt;module&gt;
+KeyError: 'mother'
+</pre>
+<p>
+Here type of the error is <code>KeyError</code>. All errors have this information at the
+end of error output.
+</p>
+
+</section>
+<section id="slide-orgdc354d4">
+<h3 id="orgdc354d4">Catching errors</h3>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #7590db;">student</span> = {
+    <span style="color: #2d9574;">"name"</span>: <span style="color: #2d9574;">"Ram"</span>
+}
+<span style="color: #4f97d7; font-weight: bold;">try</span>:
+    <span style="color: #4f97d7; font-weight: bold;">print</span>(student[<span style="color: #2d9574;">"mother"</span>])
+<span style="color: #4f97d7; font-weight: bold;">except</span> <span style="color: #ce537a; font-weight: bold;">KeyError</span> <span style="color: #4f97d7; font-weight: bold;">as</span> error:
+    <span style="color: #4f97d7; font-weight: bold;">print</span>(f<span style="color: #2d9574;">"Key not found </span>{error}<span style="color: #2d9574;">"</span>)
+</pre>
+</div>
+
+<pre class="example">
+Key not found 'mother'
+</pre>
+
+</section>
+<section id="slide-org56696f8">
+<h3 id="org56696f8">Catching multiple errors?</h3>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #7590db;">student</span> = {
+    <span style="color: #2d9574;">"name"</span>: <span style="color: #2d9574;">"Ram"</span>,
+    <span style="color: #2d9574;">"roll"</span>: 1
+}
+<span style="color: #7590db;">keys</span> = [<span style="color: #2d9574;">"name"</span>, <span style="color: #2d9574;">"roll"</span>, <span style="color: #2d9574;">"dob"</span>]
+<span style="color: #4f97d7; font-weight: bold;">for</span> key <span style="color: #4f97d7; font-weight: bold;">in</span> keys:
+    <span style="color: #4f97d7; font-weight: bold;">print</span>(<span style="color: #2d9574;">"Output:"</span>, student[key] + 1)
+</pre>
+</div>
+
+</section>
+<section id="slide-org460a6c7">
+<h3 id="org460a6c7">Catching multiple errors (Solution)</h3>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #7590db;">student</span> = {
+    <span style="color: #2d9574;">"name"</span>: <span style="color: #2d9574;">"Ram"</span>,
+    <span style="color: #2d9574;">"roll"</span>: 1
+}
+<span style="color: #7590db;">keys</span> = [<span style="color: #2d9574;">"name"</span>, <span style="color: #2d9574;">"roll"</span>, <span style="color: #2d9574;">"dob"</span>]
+<span style="color: #4f97d7; font-weight: bold;">for</span> key <span style="color: #4f97d7; font-weight: bold;">in</span> keys:
+    <span style="color: #4f97d7; font-weight: bold;">try</span>:
+        <span style="color: #4f97d7; font-weight: bold;">print</span>(<span style="color: #2d9574;">"Output:"</span>, student[key] + 1)
+    <span style="color: #4f97d7; font-weight: bold;">except</span> <span style="color: #ce537a; font-weight: bold;">KeyError</span> <span style="color: #4f97d7; font-weight: bold;">as</span> error:
+        <span style="color: #4f97d7; font-weight: bold;">print</span>(f<span style="color: #2d9574;">"Key not found </span>{error}<span style="color: #2d9574;">"</span>)
+    <span style="color: #4f97d7; font-weight: bold;">except</span> <span style="color: #ce537a; font-weight: bold;">TypeError</span>:
+        <span style="color: #4f97d7; font-weight: bold;">print</span>(f<span style="color: #2d9574;">"Can't add 1 to '</span>{key}<span style="color: #2d9574;">'"</span>)
+    <span style="color: #4f97d7; font-weight: bold;">except</span> <span style="color: #ce537a; font-weight: bold;">Exception</span> <span style="color: #4f97d7; font-weight: bold;">as</span> error:
+        <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Catches all other errors</span>
+        <span style="color: #4f97d7; font-weight: bold;">print</span>(f<span style="color: #2d9574;">"Key: '</span>{key}<span style="color: #2d9574;">', Error: </span>{error}<span style="color: #2d9574;">"</span>)
+</pre>
+</div>
+
+</section>
+<section id="slide-orgdc58522">
+<h3 id="orgdc58522">Further reference</h3>
+<ul>
+<li><a href="https://docs.python.org/3/library/exceptions.html">https://docs.python.org/3/library/exceptions.html</a></li>
+<li><a href="https://www.tutorialspoint.com/python/python_exceptions.htm">https://www.tutorialspoint.com/python/python_exceptions.htm</a></li>
+<li><a href="https://www.programiz.com/python-programming/exception-handling">https://www.programiz.com/python-programming/exception-handling</a></li>
+<li><a href="https://www.geeksforgeeks.org/python-exception-handling/">https://www.geeksforgeeks.org/python-exception-handling/</a></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org66328bb">
+<h2 id="org66328bb"><span class="todo TODO">TODO</span> Python Virtual Environment</h2>
+<div class="outline-text-2" id="text-org66328bb">
+</div>
+</section>
+<section id="slide-orgbc40135">
+<h3 id="orgbc40135">Why is it used?</h3>
+<p>
+Isolate different versions of dependencies.
+</p>
+</section>
+<section id="slide-org40a18f6">
+<h3 id="org40a18f6">How to setup using builtin <code>venv</code></h3>
+</section>
+<section id="slide-org492e6e9">
+<h3 id="org492e6e9">What does <code>activate</code> do</h3>
+</section>
+<section id="slide-org3f5c041">
+<h3 id="org3f5c041">What does <code>deactivate</code> do</h3>
+</section>
+<section id="slide-orge9e73d6">
+<h3 id="orge9e73d6">Do not commit into repo</h3>
+</section>
+</section>
+<section>
+<section id="slide-org3146b9f">
+<h2 id="org3146b9f"><span class="todo TODO">TODO</span> Using pylint to write good code</h2>
+</section>
+</section>
+<section>
+<section id="slide-org4cbfde1">
+<h2 id="org4cbfde1"><span class="todo TODO">TODO</span> Unit testing using doctest</h2>
+</section>
+</section>
+<section>
+<section id="slide-orgb6ce074">
+<h2 id="orgb6ce074"><span class="todo TODO">TODO</span> Importing local modules</h2>
+<div class="outline-text-2" id="text-orgb6ce074">
+</div>
+</section>
+<section id="slide-orgd2e4175">
+<h3 id="orgd2e4175">Make sure you don't use module names same as builtins</h3>
+</section>
+</section>
+<section>
+<section id="slide-orgd7b1bfa">
+<h2 id="orgd7b1bfa"><span class="todo TODO">TODO</span> Pretty printing large list/dict</h2>
+</section>
+</section>
+<section>
+<section id="slide-org61080af">
+<h2 id="org61080af"><span class="todo TODO">TODO</span> Using datetime and timedelta</h2>
+</section>
+</section>
+<section>
+<section id="slide-orgff112c3">
+<h2 id="orgff112c3"><span class="todo TODO">TODO</span> Using <code>__repr__</code> and <code>__str__</code></h2>
+</section>
+</section>
+<section>
+<section id="slide-org9b650ce">
+<h2 id="org9b650ce"><span class="todo TODO">TODO</span> Not using regular expressions</h2>
+</section>
+</section>
+<section>
+<section id="slide-org776f9dc">
+<h2 id="org776f9dc"><span class="todo TODO">TODO</span> Good IDEs for Python</h2>
+<div class="outline-text-2" id="text-org776f9dc">
+</div>
+</section>
+<section id="slide-org99e0a22">
+<h3 id="org99e0a22">Pycharm</h3>
+</section>
+<section id="slide-orgd79e954">
+<h3 id="orgd79e954">VS Code with Python plugin</h3>
+</section>
+</section>
+</div>
+</div>
+<script src="../../reveal.js/lib/js/head.min.js"></script>
+<script src="../../reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'slide', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: '../../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: '../../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: '../../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: '../../reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: '../../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>

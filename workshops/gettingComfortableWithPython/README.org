@@ -1,0 +1,162 @@
+#+TITLE: Getting comfortable with Python
+#+OPTIONS: toc:nil num:nil timestamp:nil author:nil
+#+REVEAL_ROOT: ../../reveal.js
+#+REVEAL_TRANS: slide
+#+REVEAL_THEME: black
+#+REVEAL_EXTRA_CSS: ../custom.css
+
+* What to expect
+  Lots of *small things* that you can do to have a *better experience* with Python.
+* What to not expect
+  - Writing =Hello World= program
+  - Defining =variables= and =functions=
+  - Working with various datatypes like =list=, =dict=, =str=, =int=, etc.
+  - =Data structures= and =algorithms=
+* Formatted(=f=) strings
+** Also known as *string interpolation*
+** Works in python 3.6 and above
+** Normal string
+   #+begin_src python :results none :exports code
+     def get_all_results(table_name):
+          return run_query(
+               "SELECT * from " + table_name + ";"
+          )
+   #+end_src
+** Using =f= string
+   #+begin_src python :results none :exports code
+     def get_all_results(table_name):
+          return run_query(
+               f"SELECT * from {table_name};"
+          )
+   #+end_src
+** Further Reference
+   - https://docs.python.org/3/whatsnew/3.6.html#whatsnew36-pep498
+   - http://cis.bentley.edu/sandbox/wp-content/uploads/Documentation-on-f-strings.pdf
+   - https://realpython.com/python-f-strings/
+   - https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/
+
+* Raw(=r=) strings
+** Normal string
+   #+begin_src python :results none :exports code
+     with open("C:\\Some\\file\\name.txt") as f:
+         print(f.read(100))
+   #+end_src
+** Using =r= string
+   #+begin_src python :results none :exports code
+     with open(r"C:\Some\file\name.txt") as f:
+         print(f.read(100))
+   #+end_src
+** How are they different
+   #+begin_src python :results output :exports both :cache yes
+     print(r'Hello\tWorld' != 'Hello\tWorld')
+   #+end_src
+
+   #+RESULTS[80e59591d3ac59153d6533a94f1a7692fb557581]:
+   : True
+** How are they same
+   #+begin_src python :results output :exports both :cache yes
+     print(r'Hello\tWorld' == 'Hello\\tWorld')
+   #+end_src
+
+   #+RESULTS[3bc6926440d3ec9a7987da48a6cf01a3e5f393fc]:
+   : True
+** Further Reference
+   - https://medium.com/dev-genius/beauty-of-raw-strings-in-python-fa627d674cbf
+   - https://www.askpython.com/python/string/python-raw-strings
+
+* Exception(Error) handling
+
+** Sample Code
+   #+begin_src python :results output :exports both :cache yes
+     student = {
+         "name": "Ram"
+     }
+     print(student["mother"])
+   #+end_src
+   Find the error.
+
+   #+RESULTS[bc7c6660788ccac56e0fea3c3b7a22cddbc09366]:
+
+** Error
+
+   #+begin_example
+     Traceback (most recent call last):
+     File "<stdin>", line 4, in <module>
+     KeyError: 'mother'
+   #+end_example
+   Here type of the error is =KeyError=. All errors have this information at the
+   end of error output.
+
+** Catching errors
+   #+begin_src python :results output :exports both :cache yes
+     student = {
+         "name": "Ram"
+     }
+     try:
+         print(student["mother"])
+     except KeyError as error:
+         print(f"Key not found {error}")
+   #+end_src
+
+   #+RESULTS[8b863413a9fbbedee15d40b745f691f3a737e70c]:
+   : Key not found 'mother'
+
+** Catching multiple errors?
+   #+begin_src python :results output :exports code :cache yes
+     student = {
+         "name": "Ram",
+         "roll": 1
+     }
+     keys = ["name", "roll", "dob"]
+     for key in keys:
+         print("Output:", student[key] + 1)
+   #+end_src
+
+** Catching multiple errors (Solution)
+   #+begin_src python :results output :exports code :cache yes
+     student = {
+         "name": "Ram",
+         "roll": 1
+     }
+     keys = ["name", "roll", "dob"]
+     for key in keys:
+         try:
+             print("Output:", student[key] + 1)
+         except KeyError as error:
+             print(f"Key not found {error}")
+         except TypeError:
+             print(f"Can't add 1 to '{key}'")
+         except Exception as error:
+             # Catches all other errors
+             print(f"Key: '{key}', Error: {error}")
+   #+end_src
+
+   #+RESULTS[2c535d11cab1284644d6b9f5939d50540a28f0d5]:
+   : Can't add 1 to 'name'
+   : Output: 2
+   : Key not found 'dob'
+
+** Further reference
+   - https://docs.python.org/3/library/exceptions.html
+   - https://www.tutorialspoint.com/python/python_exceptions.htm
+   - https://www.programiz.com/python-programming/exception-handling
+   - https://www.geeksforgeeks.org/python-exception-handling/
+
+* TODO Python Virtual Environment
+** Why is it used?
+   Isolate different versions of dependencies.
+** How to setup using builtin =venv=
+** What does =activate= do
+** What does =deactivate= do
+** Do not commit into repo
+* TODO Using pylint to write good code
+* TODO Unit testing using doctest
+* TODO Importing local modules
+** Make sure you don't use module names same as builtins
+* TODO Pretty printing large list/dict
+* TODO Using datetime and timedelta
+* TODO Using =__repr__= and =__str__=
+* TODO Not using regular expressions
+* TODO Good IDEs for Python
+** Pycharm
+** VS Code with Python plugin
