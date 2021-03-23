@@ -7,14 +7,14 @@
 
 * What to expect
   Lots of *small things* that you can do to have a *better experience* with Python.
-* What to not expect
+* What not to expect
   - Writing =Hello World= program
   - Defining =variables= and =functions=
   - Working with various datatypes like =list=, =dict=, =str=, =int=, etc.
   - =Data structures= and =algorithms=
 * Formatted(=f=) strings
 ** Also known as *string interpolation*
-** Works in python 3.6 and above
+** Works in Python 3.6 and above
 ** Normal string
    #+begin_src python :results none :exports code
      def get_all_results(table_name):
@@ -142,20 +142,149 @@
    - https://www.programiz.com/python-programming/exception-handling
    - https://www.geeksforgeeks.org/python-exception-handling/
 
-* TODO Python Virtual Environment
+* Object Oriented Programming
+ :PROPERTIES:
+ :header-args: :session *oop* :results output
+ :END:
+** Constructor and Destructor
+   #+begin_src python
+     class Vehicle:
+         """Vehicle docstring"""
+
+         def __init__(self, name, max_speed):
+             # constructor
+             # Public members
+             self.name = name
+             self.max_speed = max_speed
+             # Private members begin with _
+             self._current_speed = 0
+             print("Constructed")
+
+         def __del__(self):
+             # Destructor
+             print("Destroyed")
+   #+end_src
+
+   #+RESULTS[c6fd3f6f6eaad979709f201ec148e6514f3cbc4f]:
+
+** Creating an object
+   #+begin_src python :exports both :cache yes
+     car = Vehicle("Maruti 800", 140)
+     print(car)
+   #+end_src
+
+   #+RESULTS[4488813f3b878dcddff1d269bbd8e290cd17523f]:
+   : Constructed
+   : <__main__.Vehicle object at 0x7fe494596d60>
+
+** Inheritance
+   #+begin_src python
+     class Car(Vehicle):
+         """Car doc"""
+         def __init__(self, name, max_speed):
+
+             # Call base class constructor
+             super().__init__(name, max_speed)
+
+             # Create new members
+             self.wheels = 4
+   #+end_src
+
+** Polymorphism
+
+*** Square class
+    #+begin_src python
+      class Square:
+          """Square doc"""
+          def __init__(self, side):
+              self.side = side
+          def area(self):
+              """Find the area"""
+              return self.side * self.side
+    #+end_src
+
+    #+RESULTS:
+
+*** Circle class
+    #+begin_src python
+      class Circle:
+          """Circle doc"""
+          def __init__(self, radius):
+              self.radius = radius
+          def area(self):
+              """Find the area"""
+              return 3.1416 * self.radius * self.radius
+    #+end_src
+
+    #+RESULTS:
+
+*** Calculate area
+    #+begin_src python :exports both :cache yes
+      print(Square(5).area())
+      print(Circle(5).area())
+    #+end_src
+
+    #+RESULTS[f941bdea7885a56369acac364f5e3e70e2bf3213]:
+    : 25
+    : 78.54
+
+** Abstract classes
+   #+begin_src python
+     class Foo(metaclass=abc.ABCMeta):
+         # No objects can be made of this class
+         # Because of abstract methods
+         @abc.abstractmethod
+         def foo(self):
+             # This needs to be implemented
+             # after inheritance
+             pass
+   #+end_src
+   Reference: https://stackoverflow.com/questions/26458618/are-python-pure-virtual-functions-possible-and-or-worth-it
+
+** Using =__repr__= and =__str__=
+
+* Python Virtual Environment
 ** Why is it used?
-   Isolate different versions of dependencies.
+   Isolate different versions of python and python packages.
 ** How to setup using builtin =venv=
-** What does =activate= do
-** What does =deactivate= do
-** Do not commit into repo
+   #+begin_src sh :results raw :exports code
+     python -m venv testenv
+   #+end_src
+   Creates a new directory =testenv= with the python version and builtin modules.
+
+** Loading the environment
+   #+begin_src sh :results raw :exports code
+     source testenv/bin/activate  # *nix
+     testenv\Scripts\activate.bat  # Windows
+   #+end_src
+   This modifies environment variables like =PATH= which helps in prioritizing
+   python from the virtual environment.
+** Installing packages
+   #+begin_src sh
+     pip install requests
+     pip install -r requirements.txt
+   #+end_src
+   This will install all packages in the virtual environment when its activated.
+
+** Unloading the environment
+   #+begin_src sh :results raw :exports code
+     deactivate
+   #+end_src
+   This reverts the changes done to the environment variables.
+
+** Further Reference
+   - [[https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html][Conda]]
+   - [[https://docs.python.org/3/library/venv.html][Venv]]
+   - [[https://realpython.com/pipenv-guide/][Pipenv]]
+
+* Running a command
+
 * TODO Using pylint to write good code
 * TODO Unit testing using doctest
 * TODO Importing local modules
 ** Make sure you don't use module names same as builtins
 * TODO Pretty printing large list/dict
 * TODO Using datetime and timedelta
-* TODO Using =__repr__= and =__str__=
 * TODO Not using regular expressions
 * TODO Good IDEs for Python
 ** Pycharm
