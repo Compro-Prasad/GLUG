@@ -373,6 +373,54 @@
   : x = 1
   : print(x)
 
+* Running system commands
+
+** =os.system=
+   Run an arbitrary command.
+   #+begin_src python :results output :exports both :cache yes
+     import os
+     os.system("echo Hello")
+   #+end_src
+
+   #+RESULTS[8293a96f58878c55543ef5e5f5cf6a07ef88a166]:
+   : Hello
+
+** =subprocess.check_output=
+   Run an arbitrary command and capture its output.
+   #+begin_src python :results output :exports both :cache yes
+     import subprocess
+     print(subprocess.check_output(['echo', 'Hello']))
+   #+end_src
+
+   #+RESULTS[5ba2a9af6fd98494686a70574677f9589d83df41]:
+   : b'Hello\n'
+
+** =subprocess.run= (Python >= 3.5)
+   Run an arbitrary command and capture =stdout=, =stdin= and =stderr=.
+   #+begin_src python :results output :exports both :cache yes
+     from subprocess import run, PIPE
+     lines = "\n" \
+         .join(map(str, range(10))) \
+         .encode('utf-8')
+     cmd = ['head', '-n', '3']
+     output = run(cmd, stdout=PIPE, input=lines) \
+         .stdout \
+         .decode('utf-8')
+     print(output)
+   #+end_src
+
+   #+RESULTS[8b3e7a65844047ace0c3b20d4ceb6045a4c0ce48]:
+   : 0
+   : 1
+   : 2
+   : 
+
+* Running os specific code
+  Use =sys.platform= to check for which os are you running
+
+* Using threads
+
+* Debugging using pdb
 * TODO Unit testing using doctest
 * TODO Importing local modules
 ** Make sure you don't use module names same as builtins
