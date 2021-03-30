@@ -144,7 +144,7 @@
 
 * Object Oriented Programming
  :PROPERTIES:
- :header-args: :session *oop* :results output
+ :header-args: :session *oop* :results output :exports code
  :END:
 ** Constructor and Destructor
    #+begin_src python
@@ -189,6 +189,20 @@
              # Create new members
              self.wheels = 4
    #+end_src
+
+*** Multiple inheritance (Simple way)
+    #+begin_src python
+      class FlyingCar(Car, Airplane):
+          """Docstring for FlyingCar"""
+
+          def __init__(self, name, max_speed):
+              Car.__init__(self, name, max_speed)
+              Airplane.__init__(self, name, max_speed)
+    #+end_src
+
+*** Multiple inheritance (Clean way)
+    - https://stackoverflow.com/questions/9575409/calling-parent-class-init-with-multiple-inheritance-whats-the-right-way#9575426
+    - https://rhettinger.wordpress.com/2011/05/26/super-considered-super/
 
 ** Polymorphism
 
@@ -243,10 +257,54 @@
 
 ** Using =__repr__= and =__str__=
 
+*** Without =__str__=
+    #+begin_src python :exports both :cache yes
+      print(Vehicle("Maruti 800", 140))
+    #+end_src
+
+    #+RESULTS[bc231f696b6ee30bb3f04e1b08b800111b00f140]:
+    : <__main__.Vehicle object at 0x7f48b99f4820>
+
+*** Without =__repr__=
+    #+begin_src python :exports both :cache yes
+      print([Vehicle("Maruti 800", 140), Vehicle("Alto", 140)])
+    #+end_src
+
+    #+RESULTS[8dca97948c54c90cb58b59a1a16b8cac825a09c6]:
+    : [<__main__.Vehicle object at 0x7f48b991de50>, <__main__.Vehicle object at 0x7f48b98e6e20>]
+
+*** Defining =__str__= and =__repr__=
+    #+begin_src python
+      class Vehicle:
+          """Vehicle docstring"""
+          def __init__(self, name, max_speed):
+              self.name = name
+              self.max_speed = max_speed
+              self._current_speed = 0
+          def __str__(self):
+              # Helps in converting to string
+              return f"{self.name}: {self.max_speed}"
+          def __repr__(self):
+              # Helps in seeing a better version
+              return f"<{self}>"
+    #+end_src
+
+    #+RESULTS:
+
+*** After effects
+    #+begin_src python :exports both :cache yes
+      print(Vehicle("Maruti 800", 140))
+      print([Vehicle("Maruti 800", 140), Vehicle("Alto", 140)])
+    #+end_src
+
+    #+RESULTS[135fe730978895c55f42dc313616088687284b10]:
+    : Maruti 800: 140
+    : [<Maruti 800: 140>, <Alto: 140>]
+
 * Python Virtual Environment
 ** Why is it used?
    Isolate different versions of python and python packages.
-** How to setup using builtin =venv=
+** How to setup using =venv=
    #+begin_src sh :results raw :exports code
      python -m venv testenv
    #+end_src
@@ -279,7 +337,42 @@
 
 * Running a command
 
-* TODO Using pylint to write good code
+* Using pylint to check code quality
+
+** Some python code
+   #+begin_src python :exports code :tangle x.py
+     x=1
+     print(x)
+   #+end_src
+
+** Running =pylint=
+   #+begin_src sh :exports both :results output :session *pylint-sh* :cache yes
+     pylint x.py
+   #+end_src
+
+   #+RESULTS[44c7becbd99036aea2aaac6ecf3257c393b96ea6]:
+   : ************* Module x
+   : x.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+   : x.py:1:0: C0103: Constant name "x" doesn't conform to UPPER_CASE naming style (invalid-name)
+   : 
+   : ------------------------------------------------------------------
+   : Your code has been rated at 0.00/10 (previous run: 0.00/10, +0.00)
+
+* Using black to format code
+  #+begin_src sh :exports both :results output :session *black-sh* :cache yes
+    black x.py
+    echo ----------------------
+    cat x.py
+  #+end_src
+
+  #+RESULTS[d294f30651053bc03681c5429104cce0877d4c37]:
+  : reformatted x.py
+  : All done! ✨ 🍰 ✨
+  : 1 file reformatted.
+  : ----------------------
+  : x = 1
+  : print(x)
+
 * TODO Unit testing using doctest
 * TODO Importing local modules
 ** Make sure you don't use module names same as builtins
