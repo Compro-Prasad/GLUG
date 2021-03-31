@@ -454,7 +454,23 @@
 
    Reference: https://docs.python.org/3/library/threading.html
 
-* Debugging using pdb
+* Debugging using =pdb=
+   #+begin_src python :cache yes :exports code :results output :tangle debug.py
+     def top10(*args):
+         for i in range(10):
+             m = max(args)
+             print(m, end=' ')
+             args = [j for j in args if j != m]
+         print()
+
+     import pdb; pdb.set_trace()
+     top10(1, 2, 3, 99, 100, 15,
+           24, 89, 26, 59, 67, 28)
+   #+end_src
+
+   #+RESULTS[72473b8569ac57f4f3402dbe5d76dbcf8db7ecd9]:
+   : 100 99 89 67 59 28 26 24 15 3 
+
 * Unit testing using doctest
 ** Code
    #+begin_src python :exports code :cache yes :tangle doc.py
@@ -484,10 +500,86 @@
    #+end_src
    Produces no output if all tests pass
    #+RESULTS[798b13f40cb69f9aa603fdff29bd2b2e5e60667d]:
+** Using doctest in the file
+   #+begin_src python :exports code :cache yes
+     # Put code here
+     if __name__ == '__main__':
+         import doctest
+         doctest.testmod()
+   #+end_src
+   Now just run:
+   #+begin_src sh :results output :session *doctest-sh* :cache yes :exports code
+     python doc.py
+   #+end_src
 
-* TODO Importing local modules
+* Importing local modules
 ** Make sure you don't use module names same as builtins
-* TODO Pretty printing large list/dict
+* Pretty printing large list/dict
+** =pprint.pprint=
+   #+begin_src python :cache yes :exports code :results output
+     from pprint import pprint
+     squares = dict((i, i * i) for i in range(20))
+     pprint(squares)
+   #+end_src
+
+   #+RESULTS[f026240e445cc874cb8fc88586931e0e00c9222e]:
+   #+begin_example
+   {0: 0,
+    1: 1,
+    2: 4,
+    3: 9,
+    4: 16,
+    5: 25,
+    6: 36,
+    7: 49,
+    8: 64,
+    9: 81,
+    10: 100,
+    11: 121,
+    12: 144,
+    13: 169,
+    14: 196,
+    15: 225,
+    16: 256,
+    17: 289,
+    18: 324,
+    19: 361}
+   #+end_example
+** =json.dumps=
+   #+begin_src python :cache yes :exports code :results output
+     from json import dumps
+     squares = dict((i, i * i) for i in range(20))
+     print(dumps(squares, indent=2))
+   #+end_src
+
+   #+RESULTS[308ad1602019d6a906024d415f9950217c370563]:
+   #+begin_example
+   {
+     "0": 0,
+     "1": 1,
+     "2": 4,
+     "3": 9,
+     "4": 16,
+     "5": 25,
+     "6": 36,
+     "7": 49,
+     "8": 64,
+     "9": 81,
+     "10": 100,
+     "11": 121,
+     "12": 144,
+     "13": 169,
+     "14": 196,
+     "15": 225,
+     "16": 256,
+     "17": 289,
+     "18": 324,
+     "19": 361
+   }
+   #+end_example
+
+** =pp= command in =pdb=
+
 * TODO Using datetime and timedelta
 * TODO Not using regular expressions
 * TODO Good IDEs for Python
