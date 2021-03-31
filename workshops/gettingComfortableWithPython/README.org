@@ -335,8 +335,6 @@
    - [[https://docs.python.org/3/library/venv.html][Venv]]
    - [[https://realpython.com/pipenv-guide/][Pipenv]]
 
-* Running a command
-
 * Using pylint to check code quality
 
 ** Some python code
@@ -399,29 +397,94 @@
    Run an arbitrary command and capture =stdout=, =stdin= and =stderr=.
    #+begin_src python :results output :exports both :cache yes
      from subprocess import run, PIPE
-     lines = "\n" \
-         .join(map(str, range(10))) \
-         .encode('utf-8')
+     lines = "\n".join(map(str, range(10)))
      cmd = ['head', '-n', '3']
-     output = run(cmd, stdout=PIPE, input=lines) \
-         .stdout \
-         .decode('utf-8')
-     print(output)
+     output = run(cmd, stdout=PIPE, input=lines, text=True)
+     print(output.stdout)
    #+end_src
 
-   #+RESULTS[8b3e7a65844047ace0c3b20d4ceb6045a4c0ce48]:
+   #+RESULTS[0b91e2da1bdcde327d3df73f6c56e7867858edcd]:
    : 0
    : 1
    : 2
    : 
 
+** More low level APIs
+   - =subprocess.Popen= - [[https://docs.python.org/3/library/subprocess.html#subprocess.Popen][Link]]
+   - =os.exec*= (Includes =os.execl=, =os.execvpe=, etc.) - [[https://docs.python.org/3/library/os.html#os.execl][Link]]
+
 * Running os specific code
-  Use =sys.platform= to check for which os are you running
+  Use =sys.platform= to check for which os are you running.
+  #+begin_src python :exports code :cache yes
+    from sys import platform
+    from os import system
+
+    if platform == 'win32':
+        system('dir')
+    else:
+        system('ls -l')
+  #+end_src
+  Reference: https://docs.python.org/3/library/sys.html#sys.platform
 
 * Using threads
+  #+ATTR_REVEAL: :frag (appear)
+  - Global Interpreter Lock (GIL) is a real thing in Python
+  - GIL prevents using the same interpreter to run code in parallel
+  - GIL is free only when some code in Python is waiting for I/O to complete
+  - This makes threads in Python useless for parallelizing on multiple CPU cores
+  - But its very good for running parallel I/O operations
+
+** Identifying I/O code
+   - File operations
+   - Database calls
+   - Network requests
+   - Waiting for user input
+
+** Sample code
+   #+begin_src python :exports both :cache yes :results output
+     from threading import Thread
+
+     thread = Thread(target=print, args=('Hello!',))
+     thread.start()
+     thread.join()
+   #+end_src
+
+   #+RESULTS[4069287ae0e79622b3a9054861ffc0df070275b5]:
+   : Hello!
+
+   Reference: https://docs.python.org/3/library/threading.html
 
 * Debugging using pdb
-* TODO Unit testing using doctest
+* Unit testing using doctest
+** Code
+   #+begin_src python :exports code :cache yes :tangle doc.py
+     def add(*args):
+         """Add all numbers provided as arguments. Example:
+
+         >>> add(1, 2, 3)
+         6
+         >>> add(*range(10))
+         45
+         >>> add(1, '2')
+         Traceback (most recent call last):
+         ...
+         TypeError: unsupported operand type(s) for +=: 'int' and 'str'
+         """
+         s = 0
+         for num in args:
+             s += num
+         return s
+   #+end_src
+
+   #+RESULTS[a1056ac2116869c5746de812bed0620ed77a429c]:
+   : None
+** Testing using Python doctest
+   #+begin_src sh :results output :session *doctest-sh* :cache yes :exports code
+     python -m doctest doc.py
+   #+end_src
+   Produces no output if all tests pass
+   #+RESULTS[798b13f40cb69f9aa603fdff29bd2b2e5e60667d]:
+
 * TODO Importing local modules
 ** Make sure you don't use module names same as builtins
 * TODO Pretty printing large list/dict
