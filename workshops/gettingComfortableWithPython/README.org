@@ -513,7 +513,67 @@
    #+end_src
 
 * Importing local modules
-** Make sure you don't use module names same as builtins
+
+** Importing files in same dir
+   =add.py=:
+   #+begin_src python :tangle add.py :exports code :cache yes
+     def add(*args):
+         return sum(args)
+   #+end_src
+
+   #+RESULTS[27d84ec5fc9b45538081ced47d3efe21dc760d92]:
+   : None
+
+   =use.py=:
+   #+begin_src python :tangle use.py :exports both :results output :cache yes
+     import add
+     print(add.add(1, 2))
+   #+end_src
+
+   #+RESULTS[9f82c71613122767c5c8cffbe4578c76795a366a]:
+   : 3
+
+** Importing files in different dir
+
+*** =arithmetic/add.py=
+    #+begin_src python :tangle arithmetic/add.py :exports code :cache yes
+      def add(*args):
+          return sum(args)
+    #+end_src
+
+    #+RESULTS[3f22322a15ecbe8efd8802f5dfcdddcb7a680c89]:
+    : None
+
+*** =features/feature1.py=
+    #+begin_src python :tangle features/feature1.py :exports code :cache yes
+      from arithmetic.add import add
+      def feature1(x):
+          return add(5, x)
+    #+end_src
+
+    #+RESULTS[144e3c7c1abc9a0c0fb8049c2b884cdf72f3b5f1]:
+    : None
+
+*** Create =__init__.py=
+    #+begin_src sh :exports code :cache yes
+      touch features/__init__.py arithmetic/__init__.py
+    #+end_src
+
+    #+RESULTS[9ab9b5ffbf32604b2ffdc94ec5c0c7cc57d77746]:
+
+*** =main.py=
+    #+begin_src python :tangle main.py :exports both :results output :cache yes
+      from features.feature1 import feature1
+
+      print(feature1(10))
+    #+end_src
+
+    #+RESULTS[26b625fa472fbd98e3e6cf4b2d2599a6cf64570d]:
+    : 15
+
+*** Caveats
+    - Make sure your runner/main file is at top level.
+    - Don't use module names same as builtin modules.
 * Pretty printing large list/dict
 ** =pprint.pprint=
    #+begin_src python :cache yes :exports code :results output
@@ -579,9 +639,3 @@
    #+end_example
 
 ** =pp= command in =pdb=
-
-* TODO Using datetime and timedelta
-* TODO Not using regular expressions
-* TODO Good IDEs for Python
-** Pycharm
-** VS Code with Python plugin

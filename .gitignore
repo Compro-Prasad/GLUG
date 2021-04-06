@@ -7,3 +7,4 @@ _minted-README/
 *.docx
 *.odt
 *.mp3
+/workshops/gettingComfortableWithPython/test/
