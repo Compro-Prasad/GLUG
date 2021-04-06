@@ -8,3 +8,5 @@ _minted-README/
 *.odt
 *.mp3
 /workshops/gettingComfortableWithPython/test/
+__pycache__
+*.pyc
