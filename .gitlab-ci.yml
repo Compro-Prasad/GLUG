@@ -6,6 +6,7 @@ image: iquiw/alpine-emacs
   artifacts:
     paths:
     - workshops
+    - reveal.js
 
 pages:
   <<: *build
