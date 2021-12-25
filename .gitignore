@@ -10,3 +10,4 @@ _minted-README/
 /workshops/gettingComfortableWithPython/test/
 __pycache__
 *.pyc
+!publish.el
