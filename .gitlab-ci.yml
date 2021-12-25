@@ -1,6 +1,8 @@
 image: iquiw/alpine-emacs
 
-.build: &build
+
+pages:
+  stage: deploy
   script:
   - emacs --batch --load publish.el
   - ls -lR
@@ -8,13 +10,5 @@ image: iquiw/alpine-emacs
     paths:
     - workshops
     - reveal.js
-
-pages:
-  <<: *build
   rules:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
-
-# test:
-#   <<: *build
-#   rules:
-#     - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
