@@ -1,0 +1,18 @@
+image: iquiw/alpine-emacs
+
+.build: &build
+  script:
+  - emacs --batch --load publish.el
+  artifacts:
+    paths:
+    - workshops
+
+pages:
+  <<: *build
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+
+# test:
+#   <<: *build
+#   rules:
+#     - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
