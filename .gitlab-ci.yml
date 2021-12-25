@@ -3,6 +3,7 @@ image: iquiw/alpine-emacs
 .build: &build
   script:
   - emacs --batch --load publish.el
+  - ls -lR
   artifacts:
     paths:
     - workshops
